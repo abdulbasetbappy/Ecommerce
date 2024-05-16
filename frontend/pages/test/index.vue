@@ -4,7 +4,7 @@ definePageMeta({
 });
 </script>
 <template>
-  <div class="p-4 text-white bg-pink-500">
+  <div class="w-full p-4 text-white bg-pink-500">
 	<nuxt-link to="/">Home</nuxt-link>
     <p>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, magni.
