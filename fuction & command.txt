@@ -1,0 +1,11 @@
+step 
+1. docker-compose up --build -d
+2. docker-compose exec frontend sh
+3. cd var/www
+4. yarn run dev
+
+file & folder structure
+# Folder name: folder-name
+# File name: FunctionName
+# Function name: FunctionName
+# Variable name: _variable_name
