@@ -1,0 +1,8 @@
+Package Frontend
+==========================
+1. primevue
+2. taiwindcss
+3. cookies base auth
+4. axios
+5. pinia
+6. nuxt-icon
