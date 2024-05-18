@@ -27,10 +27,12 @@
       <div class="container flex items-center justify-between px-4 py-4 mx-auto lg:px-6">
         <!-- Logo -->
         <div class="flex items-center">
-          <span class="text-xl font-semibold">Exclusive</span>
+          <Nuxt-link to="/">
+            <span class="text-xl font-bold">Exclusive</span>
+          </Nuxt-link>
         </div>
         <!-- Navigation Links for larger screens -->
-        <nav class="hidden lg:flex space-x-14">
+        <nav class="hidden space-x-10 lg:flex">
           <a
             v-for="menu in menus"
             :key="menu.text"
@@ -40,51 +42,25 @@
           >
         </nav>
         <!-- Icons and Menu button -->
-        <div class="flex items-center space-x-8">
+        <div class="flex items-center space-x-7">
           <!-- Menu button for smaller screens -->
           <button
             @click="toggleMenu"
             class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
           >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
+            <Icon name="material-symbols:menu" class="w-6 h-6" />
           </button>
           <!-- Search bar -->
           <div class="relative hidden lg:block w-60">
             <input
               type="text"
               placeholder="What are you looking for?"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
+              class="w-full text-black px-4 py-2 border rounded-md bg-[#F5F5F5] focus:outline-none"
             />
             <button
               class="absolute text-gray-600 transform -translate-y-1/2 right-2 top-1/2"
             >
-              <svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 10a6 6 0 100-12 6 6 0000 12zM21 21l-6-6"
-                ></path>
-              </svg>
+              <Icon name="material-symbols:search" class="w-5 h-5" />
             </button>
           </div>
           <!-- Icons -->
@@ -93,78 +69,56 @@
             :key="icon.name"
             class="hidden text-gray-600 lg:block hover:text-black focus:outline-none"
           >
-            <svg
-              :class="icon.class"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path :d="icon.path"></path>
-            </svg>
+            <Icon :name="icon.name" class="w-6 h-6" />
           </button>
         </div>
       </div>
-      <!-- Mobile and Tablet menu -->
-      <div v-if="isMenuOpen" class="block lg:hidden">
-        <a
-          v-for="menu in menus"
-          :key="menu.text"
-          :href="menu.link"
-          class="block px-4 py-2 text-lg text-black hover:underline"
-          >{{ menu.text }}</a
-        >
-        <div class="px-4 py-2">
-          <div class="relative">
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
-            />
-            <button
-              class="absolute text-gray-600 transform -translate-y-1/2 right-2 top-1/2"
-            >
-              <svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 10a6 6 0 100-12 6 6 0000 12zM21 21l-6-6"
-                ></path>
-              </svg>
+      <!-- Sidebar menu for mobile and tablet -->
+      <transition name="slide">
+        <div v-if="isMenuOpen" class="fixed inset-0 z-50 flex">
+          <div class="flex-1 h-full bg-black opacity-50" @click="toggleMenu"></div>
+          <div class="w-64 h-full p-6 bg-white shadow-md">
+            <button @click="toggleMenu" class="flex items-center mb-6 text-gray-600 hover:text-black focus:outline-none">
+              <Icon name="material-symbols:close" class="w-6 h-6" />
             </button>
-          </div>
-          <div class="flex mt-4 space-x-4">
-            <button
-              v-for="icon in icons"
-              :key="icon.name"
-              class="text-black hover:underline focus:outline-none"
+            <a
+              v-for="menu in menus"
+              :key="menu.text"
+              :href="menu.link"
+              class="block px-4 py-2 text-lg text-black hover:underline"
+              >{{ menu.text }}</a
             >
-              <svg
-                :class="icon.class"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+            <div class="relative mt-4">
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
+              />
+              <button
+                class="absolute text-gray-600 transform -translate-y-1/2 right-2 top-1/2"
               >
-                <path :d="icon.path"></path>
-              </svg>
-            </button>
+                <Icon name="material-symbols:search" class="w-5 h-5" />
+              </button>
+            </div>
+            <div class="flex mt-4 space-x-3">
+              <button
+                v-for="icon in icons"
+                :key="icon.name"
+                class="text-black hover:underline focus:outline-none"
+              >
+                <Icon :name="icon.name" class="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </transition>
     </header>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+//import Icon from "nuxtjs/icon";
 
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
@@ -180,14 +134,19 @@ const menus = [
 
 const icons = [
   {
-    name: "wishlist",
-    class: "w-6 h-6",
-    path: "M20.84 4.61a5.5 5.5 0 00-7.78 0l-1.06 1.06-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z",
+    name: "mdi:heart-outline",
   },
   {
-    name: "cart",
-    class: "w-6 h-6",
-    path: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5H21M7 13a5 5 0 110 10 5 5 0 010-10zm10 0a5 5 0 110 10 5 5 0 010-10z",
+    name: "mdi:cart-outline",
   },
 ];
 </script>
+
+<style scoped>
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.3s ease;
+}
+.slide-enter, .slide-leave-to {
+  transform: translateX(100%);
+}
+</style>

@@ -1,10 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
+  
   modules: [
       'nuxt-primevue',
       'nuxt-icon',
-      ' @pinia/nuxt'
+      '@pinia/nuxt'
   ],
   css: [
     "~/assets/css/main.css",
