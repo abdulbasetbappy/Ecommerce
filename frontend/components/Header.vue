@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Top header -->
-    <div class="px-6 py-2 text-white bg-black">
+    <div class="px-4 py-2 text-white bg-black lg:px-6">
       <div class="container flex items-center justify-between mx-auto">
         <div class="flex-1 text-center">
           <span class="text-sm">
@@ -24,29 +24,27 @@
     </div>
     <!-- Main header -->
     <header class="bg-white shadow-sm">
-      <div
-        class="container flex items-center justify-between px-6 py-4 mx-auto"
-      >
+      <div class="container flex items-center justify-between px-4 py-4 mx-auto lg:px-6">
         <!-- Logo -->
         <div class="flex items-center">
           <span class="text-xl font-semibold">Exclusive</span>
         </div>
         <!-- Navigation Links for larger screens -->
-        <nav class="hidden space-x-4 md:flex">
+        <nav class="hidden lg:flex space-x-14">
           <a
             v-for="menu in menus"
             :key="menu.text"
             :href="menu.link"
-            class="text-gray-600 hover:text-black"
+            class="font-bold text-black text-md hover:underline"
             >{{ menu.text }}</a
           >
         </nav>
         <!-- Icons and Menu button -->
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-8">
           <!-- Menu button for smaller screens -->
           <button
             @click="toggleMenu"
-            class="text-gray-600 md:hidden hover:text-black focus:outline-none"
+            class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
           >
             <svg
               class="w-6 h-6"
@@ -64,11 +62,11 @@
             </svg>
           </button>
           <!-- Search bar -->
-          <div class="relative hidden md:block">
+          <div class="relative hidden lg:block w-60">
             <input
               type="text"
               placeholder="What are you looking for?"
-              class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
             />
             <button
               class="absolute text-gray-600 transform -translate-y-1/2 right-2 top-1/2"
@@ -84,7 +82,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M10 10a6 6 0 100-12 6 6 0 000 12zM21 21l-6-6"
+                  d="M10 10a6 6 0 100-12 6 6 0000 12zM21 21l-6-6"
                 ></path>
               </svg>
             </button>
@@ -93,7 +91,7 @@
           <button
             v-for="icon in icons"
             :key="icon.name"
-            class="hidden text-gray-600 hover:text-black focus:outline-none md:block"
+            class="hidden text-gray-600 lg:block hover:text-black focus:outline-none"
           >
             <svg
               :class="icon.class"
@@ -107,13 +105,13 @@
           </button>
         </div>
       </div>
-      <!-- Mobile menu -->
-      <div v-if="isMenuOpen" class="md:hidden">
+      <!-- Mobile and Tablet menu -->
+      <div v-if="isMenuOpen" class="block lg:hidden">
         <a
           v-for="menu in menus"
           :key="menu.text"
           :href="menu.link"
-          class="block px-4 py-2 text-gray-600 hover:bg-gray-100"
+          class="block px-4 py-2 text-lg text-black hover:underline"
           >{{ menu.text }}</a
         >
         <div class="px-4 py-2">
@@ -146,7 +144,7 @@
             <button
               v-for="icon in icons"
               :key="icon.name"
-              class="text-gray-600 hover:text-black focus:outline-none"
+              class="text-black hover:underline focus:outline-none"
             >
               <svg
                 :class="icon.class"

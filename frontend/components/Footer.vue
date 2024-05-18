@@ -1,25 +1,26 @@
 <template>
-  <footer class="py-10 text-white bg-black">
-    <div class="container grid grid-cols-1 gap-8 mx-auto md:grid-cols-5">
+  <footer class="px-4 py-10 text-white bg-black ">
+    <div class="container mx-auto space-y-8 md:space-y-0 md:grid md:grid-cols-5 md:gap-8">
       <!-- Exclusive Section -->
-      <div>
-        <h2 class="text-lg font-semibold">Exclusive</h2>
+      <div class="space-y-4">
+        <h2 class="text-3xl font-semibold">Exclusive</h2>
         <p class="mt-4">Subscribe</p>
         <p class="text-sm">Get 10% off your first order</p>
         <form class="flex mt-4">
           <input
             type="email"
+            v-model="email"
             placeholder="Enter your email"
-            class="px-4 py-2 text-gray-800 border-0 rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            class="flex-1 px-4 py-2 text-gray-800 bg-transparent border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-none"
           />
           <button
             type="submit"
-            class="px-4 py-2 text-white bg-indigo-500 rounded-r-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            class="px-4 py-2 text-white bg-gray-800 border border-gray-300 rounded-r-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-none"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1.707-9.293a1 1 0 00-1.414-1.414L7 10.586V7a1 1 0 10-2 0v6a1 1 0 001 1h6a1 1 0 100-2H8.414l3.293-3.293z"
+                d="M10 18a8 8 0 100-16 8 8 0000 16zm1.707-9.293a1 1 0 00-1.414-1.414L7 10.586V7a1 1 0 10-2 0v6a1 1 0 001 1h6a1 1 0 100-2H8.414l3.293-3.293z"
                 clip-rule="evenodd"
               />
             </svg>
@@ -94,13 +95,13 @@
       </div>
     </div>
     <div class="mt-8 text-center text-gray-500">
-      &copy; Copyright Rimel 2022. All right reserved
+      &copy; Copyright Rimel 2022. All rights reserved.
     </div>
   </footer>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 
+const email = ref('');
 </script>
-
-
