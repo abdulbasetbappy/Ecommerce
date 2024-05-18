@@ -1,7 +1,7 @@
 <template>
   <div id="default-carousel" class="relative w-full">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div class="relative h-56 overflow-hidden md:h-[400px]">
       <!-- Items -->
       <div
         v-for="(item, index) in items"
@@ -11,7 +11,7 @@
       >
         <img
           :src="item.src"
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+          class="absolute block w-full md:h-[400px] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           :alt="item.alt"
         />
       </div>
