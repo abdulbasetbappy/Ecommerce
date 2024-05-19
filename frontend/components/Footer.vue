@@ -1,52 +1,50 @@
 <template>
-  <footer class="px-4 py-10 text-white bg-black ">
-    <div class="container mx-auto space-y-8 md:space-y-0 md:grid md:grid-cols-5 md:gap-8">
+  <footer class="px-4 py-10 text-white bg-black">
+    <div
+      class="container gap-8 mx-auto space-y-8 md:grid md:grid-cols-3 lg:grid-cols-5 md:space-y-0"
+    >
       <!-- Exclusive Section -->
       <div class="space-y-4">
         <h2 class="text-3xl font-semibold">Exclusive</h2>
-        <p class="mt-4">Subscribe</p>
-        <p class="text-sm">Get 10% off your first order</p>
-        <form class="flex mt-4">
+        <p class="mt-4 text-lg">Subscribe</p>
+        <p class="text-base">Get 10% off your first order</p>
+        <form class="relative flex mt-4">
           <input
             type="email"
-            v-model="email"
-            placeholder="Enter your email"
-            class="flex-1 px-4 py-2 text-gray-800 bg-transparent border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-none"
+            placeholder="Enter Your Email"
+            class="bg-transparent w-60 px-4 py-3 border border-[#FAFAFA] rounded-md focus:outline-none"
           />
           <button
-            type="submit"
-            class="px-4 py-2 text-white bg-gray-800 border border-gray-300 rounded-r-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-none"
+            class="absolute text-[#FAFAFA] transform -translate-y-1/2 right-2 top-1/2"
           >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0000 16zm1.707-9.293a1 1 0 00-1.414-1.414L7 10.586V7a1 1 0 10-2 0v6a1 1 0 001 1h6a1 1 0 100-2H8.414l3.293-3.293z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            <Icon name="material-symbols:search" class="w-5 h-5" />
           </button>
         </form>
       </div>
 
       <!-- Support Section -->
       <div>
-        <h2 class="text-lg font-semibold">Support</h2>
-        <address class="mt-4 not-italic">
+        <h2 class="font-xl semibold text-">Support</h2>
+        <address class="mt-4 text-base not-italic">
           111 Bijoy sarani, Dhaka, <br />
           DH 1515, Bangladesh.
         </address>
-        <p class="mt-2">
-          <a href="mailto:exclusive@gmail.com" class="hover:underline">exclusive@gmail.com</a>
+        <p class="mt-2 text-base">
+          <a href="mailto:exclusive@gmail.com" class="hover:underline"
+            >exclusive@gmail.com</a
+          >
         </p>
-        <p class="mt-2">
-          <a href="tel:+8801588889999" class="hover:underline">+88015-88888-9999</a>
+        <p class="mt-2 text-base">
+          <a href="tel:+8801588889999" class="hover:underline"
+            >+88015-88888-9999</a
+          >
         </p>
       </div>
 
       <!-- Account Section -->
       <div>
-        <h2 class="text-lg font-semibold">Account</h2>
-        <ul class="mt-4 space-y-2">
+        <h2 class="font-semibold font-xl">Account</h2>
+        <ul class="mt-4 space-y-2 text-base">
           <li><a href="#" class="hover:underline">My Account</a></li>
           <li><a href="#" class="hover:underline">Login / Register</a></li>
           <li><a href="#" class="hover:underline">Cart</a></li>
@@ -57,8 +55,8 @@
 
       <!-- Quick Link Section -->
       <div>
-        <h2 class="text-lg font-semibold">Quick Link</h2>
-        <ul class="mt-4 space-y-2">
+        <h2 class="font-semibold font-xl">Quick Link</h2>
+        <ul class="mt-4 space-y-2 text-base">
           <li><a href="#" class="hover:underline">Privacy Policy</a></li>
           <li><a href="#" class="hover:underline">Terms Of Use</a></li>
           <li><a href="#" class="hover:underline">FAQ</a></li>
@@ -68,40 +66,60 @@
 
       <!-- Download App Section -->
       <div>
-        <h2 class="text-lg font-semibold">Download App</h2>
-        <p class="mt-4">Save $3 with App New User Only</p>
-        <div class="mt-4 space-y-4">
-          <div>
-            <img src="/images/googlePlay.png" alt="Download on Google Play" class="w-32" />
+        <h2 class="font-semibold font-xl">Download App</h2>
+        <p class="mt-4 text-[12px] text-[#FAFAFA]">
+          Save $3 with App New User Only
+        </p>
+        <div class="grid grid-cols-1 gap-2 mt-4 md:grid-cols-2">
+          <div class="w-[100%]">
+            <img
+              src="/images/Qrcode.png"
+              alt="Download on Google Play"
+              class="w-[100%]"
+            />
           </div>
           <div>
-            <img src="/images/app-store.png" alt="Download on App Store" class="w-32" />
+            <div>
+              <img
+                src="/images/googlePlay.png"
+                alt="Download on Google Play"
+                class="w-full h-[50%]"
+              />
+            </div>
+            <div>
+              <img
+                src="/images/app-store.png"
+                alt="Download on App Store"
+                class="w-full h-[50%]"
+              />
+            </div>
           </div>
         </div>
-        <div class="flex mt-4 space-x-4">
+        <div class="flex mt-4 space-x-10">
           <a href="#" class="hover:underline">
-            <i class="text-2xl pi pi-facebook"></i>
+            <Icon name="brandico:facebook" class="w-5 h-5" />
           </a>
           <a href="#" class="hover:underline">
-            <i class="text-2xl pi pi-twitter"></i>
+            <Icon name="ph:twitter-logo" class="w-5 h-5" />
           </a>
           <a href="#" class="hover:underline">
-            <i class="text-2xl pi pi-instagram"></i>
+            <Icon name="ph:instagram-logo" class="w-5 h-5" />
           </a>
           <a href="#" class="hover:underline">
-            <i class="text-2xl pi pi-linkedin"></i>
+            <Icon name="ri:linkedin-line" class="w-5 h-5" />
           </a>
         </div>
       </div>
     </div>
     <div class="mt-8 text-center text-gray-500">
-      &copy; Copyright Rimel 2022. All rights reserved.
+      <!-- dynamic date  -->
+      <p>Copyright Rimel &copy; 2022 Exclusive. All rights reserved</p>
     </div>
   </footer>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const email = ref('');
+const email = ref("");
 </script>
