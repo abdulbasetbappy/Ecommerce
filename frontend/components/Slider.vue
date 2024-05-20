@@ -15,10 +15,10 @@
           :alt="item.alt"
         /> -->
         <div class="w-full absolute bg-[#000] h-full px-12">
-          <div class="grid md:grid-cols-2 grid-cols-1 gap-4 pb-8 md:pt-8">
-            <div class="mt-20 space-y-4">
-              <div class="flex gap-2 items-center">
-                <img :src="item.titleLogo" alt="" />
+          <div class="grid md:grid-cols-2 grid-cols-1 gap-4 pb-8 h-full md:pt-8 items-center">
+            <div class="pt-20 md:pt-0 space-y-3 text-center md:text-left">
+              <div class="flex gap-3 items-center justify-center md:justify-start">
+                <img class="w-8" :src="item.titleLogo" alt="" />
                 <p class="text-white">
                   {{ item.title }}
                 </p>
@@ -48,8 +48,8 @@
                 </svg>
               </button>
             </div>
-            <div class="md:flex items-center mt-10">
-              <img :src="item.productImg" alt="" />
+            <div>
+              <img class="w-full" :src="item.productImg" alt="" />
             </div>
           </div>
         </div>
