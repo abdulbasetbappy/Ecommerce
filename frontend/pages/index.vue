@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="h-screen">
+  <div>
     <CategorySlider />
   </div>
 </template>
