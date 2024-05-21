@@ -31,21 +31,86 @@
       v-for="(item, index) in counterItem"
       :key="index"
     >
-      <div class="bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white  p-2 mb-2">
-        <Icon :name="item.iconName" class="h-8 w-8 text-white group-hover:text-dark" />
+      <div
+        class="bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white p-2 mb-2"
+      >
+        <Icon
+          :name="item.iconName"
+          class="h-8 w-8 text-white group-hover:text-dark"
+        />
       </div>
 
       <h3 class="text-2xl font-bold">{{ item.counter }}K</h3>
       <h3>{{ item.title }}K</h3>
     </div>
   </div>
+
+  <!-- team slider -->
+  <div class="md:px-10 lg:px-36 px-3 py-32">
+    <swiper
+      :slides-per-view="3"
+      space-between="30"
+      :pagination="{
+        clickable: true,
+      }"
+      :breakpoints="{
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      }"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide
+        v-for="(member, index) in teamMembers"
+        :key="index"
+        class="text-center"
+      >
+        <img
+          :src="member.image"
+          alt=""
+          class="w-48 h-48 rounded-full mx-auto mb-4"
+        />
+        <h3 class="text-xl font-bold">{{ member.name }}</h3>
+        <p class="text-gray-600">{{ member.position }}</p>
+        <!-- <div class="flex justify-center space-x-4 mt-4">
+          <a :href="member.twitter" target="_blank" class="text-blue-400"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a :href="member.instagram" target="_blank" class="text-pink-600"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a :href="member.linkedin" target="_blank" class="text-blue-700"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div> -->
+      </swiper-slide>
+    </swiper>
+  </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css/pagination";
+import "swiper/swiper-bundle.css";
+import "swiper/css";
+import { Pagination } from "swiper/modules";
+const modules = [Pagination];
 const aboutUs = ref(
   "images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png"
 );
 
+// counter data
 const counterItem = [
   {
     src: "images/icon_shop.png",
@@ -57,19 +122,62 @@ const counterItem = [
     src: "images/icon_shop.png",
     counter: 33,
     title: "Mopnthly Produduct Sale",
-    iconName:"mage:dollar",
+    iconName: "mage:dollar",
   },
   {
     src: "images/Vector.png",
     counter: 45.5,
     title: "Customer active in our site",
-    iconName:"fluent:shopping-bag-20-regular",
+    iconName: "fluent:shopping-bag-20-regular",
   },
   {
     src: "images/Group.png",
     counter: 25,
     title: "Anual gross sale in our site",
-    iconName:"healthicons:money-bag-outline",
+    iconName: "healthicons:money-bag-outline",
   },
 ];
+
+// teammember data
+const teamMembers = ref([
+  {
+    name: "Tom Cruise",
+    position: "Founder & Chairman",
+    image: "images/image-46.png",
+    // twitter: "https://twitter.com/tomcruise",
+    // instagram: "https://instagram.com/tomcruise",
+    // linkedin: "https://linkedin.com/in/tomcruise",
+  },
+  {
+    name: "Emma Watson",
+    position: "Managing Director",
+    image: "images/image-46.png",
+    // twitter: "https://twitter.com/emmawatson",
+    // instagram: "https://instagram.com/emmawatson",
+    // linkedin: "https://linkedin.com/in/emmawatson",
+  },
+  {
+    name: "Will Smith",
+    position: "Product Designer",
+    image: "images/image-46.png",
+    // twitter: "https://twitter.com/willsmith",
+    // instagram: "https://instagram.com/willsmith",
+    // linkedin: "https://linkedin.com/in/willsmith",
+  },
+  {
+    name: "Will Smith",
+    position: "Product Designer",
+    image: "images/image-46.png",
+    // twitter: "https://twitter.com/willsmith",
+    // instagram: "https://instagram.com/willsmith",
+    // linkedin: "https://linkedin.com/in/willsmith",
+  },
+]);
 </script>
+
+<style>
+.swiper-pagination {
+  position: static !important;
+  margin-top: 10px;
+}
+</style>
