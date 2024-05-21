@@ -2,7 +2,7 @@
 
 </script>
 <template>
-  <div class="h-screen">
+  <div>
     <Header />
     <slot />
     <Footer />

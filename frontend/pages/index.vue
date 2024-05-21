@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  layout: 'home',
+})
 //const route = useRoute()
 </script>
 

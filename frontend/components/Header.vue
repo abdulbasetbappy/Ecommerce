@@ -24,21 +24,23 @@
     </div>
     <!-- Main header -->
     <header class="bg-white shadow-sm">
-      <div class="container flex items-center justify-between px-4 py-4 mx-auto lg:px-6">
+      <div
+        class="container flex items-center justify-between px-4 py-4 mx-auto lg:px-6"
+      >
         <!-- Logo -->
         <div class="flex items-center">
-          <Nuxt-link to="/">
+          <NuxtLink to="/">
             <span class="text-xl font-bold">Exclusive</span>
-          </Nuxt-link>
+          </NuxtLink>
         </div>
         <!-- Navigation Links for larger screens -->
         <nav class="hidden space-x-10 lg:flex">
-          <a
+          <NuxtLink
             v-for="menu in menus"
             :key="menu.text"
             :href="menu.link"
             class="font-bold text-black text-md hover:underline"
-            >{{ menu.text }}</a
+            >{{ menu.text }}</NuxtLink
           >
         </nav>
         <!-- Icons and Menu button -->
@@ -76,17 +78,23 @@
       <!-- Sidebar menu for mobile and tablet -->
       <transition name="slide">
         <div v-if="isMenuOpen" class="fixed inset-0 z-50 flex">
-          <div class="flex-1 h-full bg-black opacity-50" @click="toggleMenu"></div>
+          <div
+            class="flex-1 h-full bg-black opacity-50"
+            @click="toggleMenu"
+          ></div>
           <div class="w-64 h-full p-6 bg-white shadow-md">
-            <button @click="toggleMenu" class="flex items-center mb-6 text-gray-600 hover:text-black focus:outline-none">
+            <button
+              @click="toggleMenu"
+              class="flex items-center mb-6 text-gray-600 hover:text-black focus:outline-none"
+            >
               <Icon name="material-symbols:close" class="w-6 h-6" />
             </button>
-            <a
+            <NuxtLink
               v-for="menu in menus"
               :key="menu.text"
-              :href="menu.link"
-              class="block px-4 py-2 text-lg text-black hover:underline"
-              >{{ menu.text }}</a
+              :to="menu.link"
+              class="font-bold text-black text-md hover:underline"
+              >{{ menu.text }}</NuxtLink
             >
             <div class="relative mt-4">
               <input
@@ -126,10 +134,10 @@ const toggleMenu = () => {
 };
 
 const menus = [
-  { text: "Home", link: "#" },
+  { text: "Home", link: "/" },
   { text: "Contact", link: "#" },
   { text: "About", link: "#" },
-  { text: "Sign Up", link: "#" },
+  { text: "Sign Up", link: "/signup" },
 ];
 
 const icons = [
@@ -143,10 +151,12 @@ const icons = [
 </script>
 
 <style scoped>
-.slide-enter-active, .slide-leave-active {
+.slide-enter-active,
+.slide-leave-active {
   transition: transform 0.3s ease;
 }
-.slide-enter, .slide-leave-to {
+.slide-enter,
+.slide-leave-to {
   transform: translateX(100%);
 }
 </style>
