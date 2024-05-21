@@ -136,7 +136,7 @@ const toggleMenu = () => {
 const menus = [
   { text: "Home", link: "/" },
   { text: "Contact", link: "#" },
-  { text: "About", link: "#" },
+  { text: "About", link: "/about" },
   { text: "Sign Up", link: "/signup" },
 ];
 
