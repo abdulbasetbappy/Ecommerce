@@ -3,7 +3,7 @@
   <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div>
-        <h3 class="text-3xl font-semibold">Our Story</h3>
+        <h3 class="text-3xl font-semibold text-dark">Our Story</h3>
         <p class="pt-8">
           Launced in 2015, Exclusive is South Asia's premier online shopping
           makterplace with an active presense in Bangladesh. Supported by wide
@@ -24,7 +24,7 @@
   </div>
   <!-- about us counter -->
   <div
-    class="grid md:grid-cols-4 grid-cols-2 md:px-10 lg:px-36 px-3 py-32 gap-4"
+    class="grid md:grid-cols-4 grid-cols-2 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12 gap-4"
   >
     <div
       class="border border-gray-400 hover:text-white rounded hover:border-primary p-8 flex flex-col items-center space-y-2 hover:bg-primary duration-300 group"
@@ -46,7 +46,7 @@
   </div>
 
   <!-- team slider -->
-  <div class="md:px-10 lg:px-36 px-3 py-32">
+  <div class="md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12">
     <swiper
       :slides-per-view="3"
       space-between="30"
@@ -60,41 +60,54 @@
         },
         '768': {
           slidesPerView: 2,
-          spaceBetween: 10,
+          spaceBetween: 20,
         },
         '1024': {
           slidesPerView: 3,
-          spaceBetween: 10,
+          spaceBetween: 20,
         },
       }"
       :modules="modules"
       class="mySwiper"
     >
-      <swiper-slide
-        v-for="(member, index) in teamMembers"
-        :key="index"
-        class="text-center"
-      >
-        <img
-          :src="member.image"
-          alt=""
-          class="w-48 h-48 rounded-full mx-auto mb-4"
-        />
-        <h3 class="text-xl font-bold">{{ member.name }}</h3>
-        <p class="text-gray-600">{{ member.position }}</p>
-        <!-- <div class="flex justify-center space-x-4 mt-4">
-          <a :href="member.twitter" target="_blank" class="text-blue-400"
-            ><i class="fab fa-twitter"></i
-          ></a>
-          <a :href="member.instagram" target="_blank" class="text-pink-600"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a :href="member.linkedin" target="_blank" class="text-blue-700"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-        </div> -->
+      <swiper-slide v-for="(member, index) in teamMembers" :key="index">
+        <div class="bg-light pt-12">
+          <img :src="member.image" alt="" class="w-52 h-80 mx-auto mb-4" />
+        </div>
+        <div class="mt-4 space-y-3">
+          <h3 class="text-xl font-bold">{{ member.name }}</h3>
+          <p class="text-gray-600">{{ member.position }}</p>
+          <div class="mt-2 flex gap-3">
+            <span> <Icon name="hugeicons:twitter" class="h-6 w-6" /></span>
+            <span> <Icon name="hugeicons:instagram" class="h-6 w-6" /></span>
+            <span> <Icon name="ri:linkedin-line" class="h-6 w-6" /></span>
+          </div>
+        </div>
       </swiper-slide>
     </swiper>
+  </div>
+
+  <!-- our support -->
+  <div
+    class="grid md:grid-cols-3 grid-cols-1 gap-4 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12"
+  >
+    <div
+      class="p-8 flex flex-col items-center space-y-2"
+      v-for="(support, index) in supports"
+      :key="index"
+    >
+      <div
+        class="bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white p-2 mb-2"
+      >
+        <Icon
+          :name="support.iconName"
+          class="h-8 w-8 text-white group-hover:text-dark"
+        />
+      </div>
+
+      <h3 class="text-xl font-bold">{{ support.title }}K</h3>
+      <h3>{{ support.subTitle }}K</h3>
+    </div>
   </div>
 </template>
 
@@ -151,7 +164,7 @@ const teamMembers = ref([
   {
     name: "Emma Watson",
     position: "Managing Director",
-    image: "images/image-46.png",
+    image: "images/image-51.png",
     // twitter: "https://twitter.com/emmawatson",
     // instagram: "https://instagram.com/emmawatson",
     // linkedin: "https://linkedin.com/in/emmawatson",
@@ -159,7 +172,7 @@ const teamMembers = ref([
   {
     name: "Will Smith",
     position: "Product Designer",
-    image: "images/image-46.png",
+    image: "images/image-47.png",
     // twitter: "https://twitter.com/willsmith",
     // instagram: "https://instagram.com/willsmith",
     // linkedin: "https://linkedin.com/in/willsmith",
@@ -173,11 +186,40 @@ const teamMembers = ref([
     // linkedin: "https://linkedin.com/in/willsmith",
   },
 ]);
+
+// suport data
+const supports = [
+  {
+    iconName: "carbon:delivery",
+    title: "FREE AND FAST DELIVERY",
+    subTitle: "Free delivery for all orders over $140",
+  },
+  {
+    iconName: "streamline:customer-support-1",
+    title: "24/7 CUSTOMER SERVICE",
+    subTitle: "Friendly 24/7 customer support",
+  },
+  {
+    iconName: "gala:secure",
+    title: "MONEY BACK GUARANTEE",
+    subTitle: "We reurn money within 30 days",
+  },
+];
 </script>
 
 <style>
 .swiper-pagination {
   position: static !important;
-  margin-top: 10px;
+  margin-top: 20px;
+}
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #db4444;
+  border: 2px solid rgba(128, 128, 128, 0.527);
+  width: 12px;
+  height: 12px;
 }
 </style>
