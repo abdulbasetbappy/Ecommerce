@@ -9,16 +9,16 @@
         <InputField
           id="email"
           type="email"
-          label="Email or Phone Number"
           placeholder="Email or Phone Number"
           v-model="email"
+          :dynamicClass="false"
         />
         <InputField
           id="password"
           type="password"
-          label="Password"
           placeholder="Password"
           v-model="password"
+          :dynamicClass="false"
         />
         <div class="flex items-center justify-between gap-4 pt-10">
           <!-- <button

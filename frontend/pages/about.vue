@@ -91,7 +91,7 @@
   </div>
 
   <!-- our support -->
-  <div
+  <!-- <div
     class="grid md:grid-cols-3 grid-cols-1 gap-4 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12"
   >
     <div
@@ -111,12 +111,14 @@
       <h3 class="text-xl font-bold">{{ support.title }}K</h3>
       <h3>{{ support.subTitle }}K</h3>
     </div>
-  </div>
+  </div> -->
+  <Features />
 </template>
 
 <script setup>
 import { ref } from "vue";
 import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
+import Features from "~/components/Features/Features.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css/pagination";
 import "swiper/swiper-bundle.css";
