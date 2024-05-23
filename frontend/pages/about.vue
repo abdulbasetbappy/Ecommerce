@@ -1,16 +1,17 @@
 <template>
+  <!-- about us banner -->
   <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div>
-        <h3 class="text-3xl font-semibold">Our Story</h3>
-        <p class="pt-8 text-sm">
+        <h3 class="text-3xl font-semibold text-dark">Our Story</h3>
+        <p class="pt-8">
           Launced in 2015, Exclusive is South Asia's premier online shopping
           makterplace with an active presense in Bangladesh. Supported by wide
           range of tailored marketing, data and service solutions, Exclusive has
           10,500 sallers and 300 brands and serves 3 millioons customers across
           the region.
         </p>
-        <p class="pt-4 ">
+        <p class="pt-4">
           Exclusive has more than 1 Million products to offer, growing at a very
           fast. Exclusive offers a diverse assotment in categories ranging from
           consumer.
@@ -21,10 +22,204 @@
       </div>
     </div>
   </div>
+  <!-- about us counter -->
+  <div
+    class="grid md:grid-cols-4 grid-cols-2 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12 gap-4"
+  >
+    <div
+      class="border border-gray-400 hover:text-white rounded hover:border-primary p-8 flex flex-col items-center space-y-2 hover:bg-primary duration-300 group"
+      v-for="(item, index) in counterItem"
+      :key="index"
+    >
+      <div
+        class="bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white p-2 mb-2"
+      >
+        <Icon
+          :name="item.iconName"
+          class="h-8 w-8 text-white group-hover:text-dark"
+        />
+      </div>
+
+      <h3 class="text-2xl font-bold">{{ item.counter }}K</h3>
+      <h3>{{ item.title }}K</h3>
+    </div>
+  </div>
+
+  <!-- team slider -->
+  <div class="md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12">
+    <swiper
+      :slides-per-view="3"
+      space-between="30"
+      :pagination="{
+        clickable: true,
+      }"
+      :breakpoints="{
+        '300': {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        '768': {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        '1024': {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+      }"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide v-for="(member, index) in teamMembers" :key="index">
+        <div class="bg-light pt-12">
+          <img :src="member.image" alt="" class="w-52 h-80 mx-auto mb-4" />
+        </div>
+        <div class="mt-4 space-y-3">
+          <h3 class="text-xl font-bold">{{ member.name }}</h3>
+          <p class="text-gray-600">{{ member.position }}</p>
+          <div class="mt-2 flex gap-3">
+            <span> <Icon name="hugeicons:twitter" class="h-6 w-6" /></span>
+            <span> <Icon name="hugeicons:instagram" class="h-6 w-6" /></span>
+            <span> <Icon name="ri:linkedin-line" class="h-6 w-6" /></span>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper>
+  </div>
+
+  <!-- our support -->
+  <div
+    class="grid md:grid-cols-3 grid-cols-1 gap-4 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12"
+  >
+    <div
+      class="p-8 flex flex-col items-center space-y-2"
+      v-for="(support, index) in supports"
+      :key="index"
+    >
+      <div
+        class="bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white p-2 mb-2"
+      >
+        <Icon
+          :name="support.iconName"
+          class="h-8 w-8 text-white group-hover:text-dark"
+        />
+      </div>
+
+      <h3 class="text-xl font-bold">{{ support.title }}K</h3>
+      <h3>{{ support.subTitle }}K</h3>
+    </div>
+  </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css/pagination";
+import "swiper/swiper-bundle.css";
+import "swiper/css";
+import { Pagination } from "swiper/modules";
+const modules = [Pagination];
 const aboutUs = ref(
   "images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png"
 );
+
+// counter data
+const counterItem = [
+  {
+    src: "images/icon_shop.png",
+    counter: 10.5,
+    title: "Sallers active our site",
+    iconName: "circum:shop",
+  },
+  {
+    src: "images/icon_shop.png",
+    counter: 33,
+    title: "Mopnthly Produduct Sale",
+    iconName: "mage:dollar",
+  },
+  {
+    src: "images/Vector.png",
+    counter: 45.5,
+    title: "Customer active in our site",
+    iconName: "fluent:shopping-bag-20-regular",
+  },
+  {
+    src: "images/Group.png",
+    counter: 25,
+    title: "Anual gross sale in our site",
+    iconName: "healthicons:money-bag-outline",
+  },
+];
+
+// teammember data
+const teamMembers = ref([
+  {
+    name: "Tom Cruise",
+    position: "Founder & Chairman",
+    image: "images/image-46.png",
+    // twitter: "https://twitter.com/tomcruise",
+    // instagram: "https://instagram.com/tomcruise",
+    // linkedin: "https://linkedin.com/in/tomcruise",
+  },
+  {
+    name: "Emma Watson",
+    position: "Managing Director",
+    image: "images/image-51.png",
+    // twitter: "https://twitter.com/emmawatson",
+    // instagram: "https://instagram.com/emmawatson",
+    // linkedin: "https://linkedin.com/in/emmawatson",
+  },
+  {
+    name: "Will Smith",
+    position: "Product Designer",
+    image: "images/image-47.png",
+    // twitter: "https://twitter.com/willsmith",
+    // instagram: "https://instagram.com/willsmith",
+    // linkedin: "https://linkedin.com/in/willsmith",
+  },
+  {
+    name: "Will Smith",
+    position: "Product Designer",
+    image: "images/image-46.png",
+    // twitter: "https://twitter.com/willsmith",
+    // instagram: "https://instagram.com/willsmith",
+    // linkedin: "https://linkedin.com/in/willsmith",
+  },
+]);
+
+// suport data
+const supports = [
+  {
+    iconName: "carbon:delivery",
+    title: "FREE AND FAST DELIVERY",
+    subTitle: "Free delivery for all orders over $140",
+  },
+  {
+    iconName: "streamline:customer-support-1",
+    title: "24/7 CUSTOMER SERVICE",
+    subTitle: "Friendly 24/7 customer support",
+  },
+  {
+    iconName: "gala:secure",
+    title: "MONEY BACK GUARANTEE",
+    subTitle: "We reurn money within 30 days",
+  },
+];
 </script>
+
+<style>
+.swiper-pagination {
+  position: static !important;
+  margin-top: 20px;
+}
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #db4444;
+  border: 2px solid rgba(128, 128, 128, 0.527);
+  width: 12px;
+  height: 12px;
+}
+</style>
