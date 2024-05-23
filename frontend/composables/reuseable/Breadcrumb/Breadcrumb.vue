@@ -6,7 +6,7 @@
           <span v-if="crumb.link">
             <NuxtLink :to="crumb.link" class="text-gray-500 hover:underline">{{ crumb.name }}</NuxtLink>
           </span>
-          <span v-else>{{ crumb.name }}</span>
+          <span class="ps-2" v-else>{{ crumb.name }}</span>
         </li>
       </ol>
     </nav>

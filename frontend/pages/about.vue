@@ -1,6 +1,9 @@
 <template>
   <!-- about us banner -->
   <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
+    <div class="text-left py-8">
+      <Breadcrumb :crumbs="crumbs" />
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div>
         <h3 class="text-3xl font-semibold text-dark">Our Story</h3>
@@ -113,6 +116,7 @@
 
 <script setup>
 import { ref } from "vue";
+import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css/pagination";
 import "swiper/swiper-bundle.css";
@@ -122,6 +126,8 @@ const modules = [Pagination];
 const aboutUs = ref(
   "images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png"
 );
+
+const crumbs = [{ name: "Home", link: "/" }, { name: " About" }];
 
 // counter data
 const counterItem = [
