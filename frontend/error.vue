@@ -1,17 +1,17 @@
 <template>
   <NuxtLayout name="home">
-    <div class="container grid w-full p-6 mx-auto">
-      <div class="text-left">
-        <Breadcrumb :crumbs="crumbs" />
-      </div>
+    <div class="container w-full py-6 mx-auto">
       <div
-        class="flex flex-col items-center justify-center w-full h-screen text-center"
+        class="flex flex-col items-center justify-center text-center h-3/4 lg:h-screen"
       >
+        <h2
+          class="mb-4 text-2xl font-semibold md:text-6xl lg:text-8xl xl:text-9xl"
+        >
+          404 Not Found
+        </h2>
         <div>
-          <h2 class="mb-4 font-semibold text-9xl">
-            404 Not Found
-          </h2>
-          <p class="mb-6 text-black">
+          <Image src="/images/error.png" class="w-full h-56" alt="error" />
+          <p class="px-6 mb-6 text-black">
             Your visited page not found. You may go home page.
           </p>
           <Button
@@ -31,16 +31,11 @@ definePageMeta({
   layout: "home",
 });
 import { useRouter } from "vue-router";
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 import Button from "~/composables/reuseable/Button/Button.vue";
 
 const router = useRouter();
-
-const crumbs = [{ name: "Home", link: "/" }, { name: "404 Error" }];
 
 const goHome = () => {
   router.push("/");
 };
 </script>
-
-
