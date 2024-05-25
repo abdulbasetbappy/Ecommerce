@@ -1,7 +1,14 @@
 <template>
   <!-- about us banner -->
   <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
+<<<<<<< HEAD
     <div class="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
+=======
+    <div class="text-left py-8">
+      <Breadcrumb :crumbs="crumbs" />
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+>>>>>>> 763a4715aac8f6e3eacbbc3f50b5025c08cd91c5
       <div>
         <h3 class="text-3xl font-semibold text-dark">Our Story</h3>
         <p class="pt-8">
@@ -88,8 +95,13 @@
   </div>
 
   <!-- our support -->
+<<<<<<< HEAD
   <div
     class="grid grid-cols-1 gap-4 px-3 pt-12 md:grid-cols-3 md:px-10 lg:px-36 lg:pt-28 md:pt-20"
+=======
+  <!-- <div
+    class="grid md:grid-cols-3 grid-cols-1 gap-4 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12"
+>>>>>>> 763a4715aac8f6e3eacbbc3f50b5025c08cd91c5
   >
     <div
       class="flex flex-col items-center p-8 space-y-2"
@@ -108,7 +120,8 @@
       <h3 class="text-xl font-bold">{{ support.title }}K</h3>
       <h3>{{ support.subTitle }}K</h3>
     </div>
-  </div>
+  </div> -->
+  <Features />
 </template>
 
 <script setup>
@@ -116,6 +129,8 @@ definePageMeta({
   layout: "home",
 });
 import { ref } from "vue";
+import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
+import Features from "~/components/Features/Features.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css/pagination";
 import "swiper/swiper-bundle.css";
@@ -125,6 +140,8 @@ const modules = [Pagination];
 const aboutUs = ref(
   "images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png"
 );
+
+const crumbs = [{ name: "Home", link: "/" }, { name: " About" }];
 
 // counter data
 const counterItem = [
