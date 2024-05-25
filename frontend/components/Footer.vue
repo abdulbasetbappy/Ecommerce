@@ -8,16 +8,17 @@
         <h2 class="text-3xl font-semibold">Exclusive</h2>
         <p class="mt-4 text-lg">Subscribe</p>
         <p class="text-base">Get 10% off your first order</p>
-        <form class="relative flex mt-4">
+        <form @submit.prevent="handleSubmit" class="relative flex mt-4">
           <input
             type="email"
             placeholder="Enter Your Email"
+            v-model="email"
             class="bg-transparent w-60 px-4 py-3 border border-[#FAFAFA] rounded-md focus:outline-none"
           />
           <button
             class="absolute text-[#FAFAFA] transform -translate-y-1/2 right-2 top-1/2"
           >
-            <Icon name="material-symbols:search" class="w-5 h-5" />
+            <i class="w-5 h-5 pi pi-send"></i>
           </button>
         </form>
       </div>
@@ -71,28 +72,26 @@
           Save $3 with App New User Only
         </p>
         <div class="grid grid-cols-1 gap-2 mt-4 md:grid-cols-2">
-          <div class="w-[100%]">
+          <div class="col-span-1 row-span-2">
             <img
               src="/images/Qrcode.png"
-              alt="Download on Google Play"
-              class="w-[100%]"
+              alt="QR Code"
+              class="w-full h-full md:object-contain"
             />
           </div>
-          <div>
-            <div>
-              <img
-                src="/images/googlePlay.png"
-                alt="Download on Google Play"
-                class="w-full h-[50%]"
-              />
-            </div>
-            <div>
-              <img
-                src="/images/app-store.png"
-                alt="Download on App Store"
-                class="w-full h-[50%]"
-              />
-            </div>
+          <div class="col-span-1">
+            <img
+              src="/images/googlePlay.png"
+              alt="Download on Google Play"
+              class="w-full h-full md:object-fill"
+            />
+          </div>
+          <div class="col-span-1">
+            <img
+              src="/images/app-store.png"
+              alt="Download on App Store"
+              class="object-fill w-full h-full"
+            />
           </div>
         </div>
         <div class="flex mt-4 space-x-10">
@@ -122,4 +121,10 @@
 import { ref } from "vue";
 
 const email = ref("");
+const handleSubmit = () => {
+  // Add form submission logic here
+  console.log("Form submitted", {
+    email: email.value,
+  });
+};
 </script>

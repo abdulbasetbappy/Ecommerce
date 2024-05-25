@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   vite: {
     server: {
       host: true,
-      port: 3000,
+      port: 3001,
       watch: {
         usePolling: true,
       },

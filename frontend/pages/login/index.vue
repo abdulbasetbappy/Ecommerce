@@ -1,5 +1,6 @@
 <template>
-  <div class="grid bg-gray-100 lg:cols-12 md:h-screen lg:gap-12 md:py-14 md:grid-cols-12">
+  <NuxtLayout :name="home">
+    <div class="grid bg-gray-100 lg:cols-12 md:h-screen lg:gap-12 md:py-14 md:grid-cols-12">
     <!-- Image -->
     <div class="w-full lg:col-span-7 md:col-span-6">
       <img src="/images/signup.jpg" alt="Sign Up Image" class="w-full lg:h-2/3 " />
@@ -9,6 +10,7 @@
       <SignIn />
     </div>
   </div>
+  </NuxtLayout>
 </template>
 
 <script setup>

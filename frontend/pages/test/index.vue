@@ -6,10 +6,11 @@ import Features from "~/components/Features/Features.vue";
 import ResponsiveGallery from "~/components/ResponsiveGallery/ResponsiveGallery.vue";
 import Button from "~/composables/reuseable/Button/Button.vue";
 import CategoriesCarousel from "~/composables/reuseable/CategoriesCarousel/CategoriesCarousel.vue";
+import FlashSale from "~/composables/reuseable/FlashSale/FlashSale.vue";
 import ProductCard from "~/composables/reuseable/ProductCard/ProductCard.vue";
 import TitleWithSubTitle from "~/composables/reuseable/TitleWithSubTitle/TitleWithSubTitle.vue";
-import FlashSale from "~/composables/reuseable/FlashSale/FlashSale.vue";
-const categories = [
+
+const categories = ref([
   { icon: "mobile", label: "Phones" },
   { icon: "desktop", label: "Computers" },
   { icon: "stopwatch", label: "SmartWatch" },
@@ -24,7 +25,7 @@ const categories = [
   { icon: "headphones", label: "HeadPhones" },
   { icon: "camera", label: "Gaming" },
   { icon: "microphone", label: "Gaming" },
-];
+]);
 const products = [
   {
     id: 1,

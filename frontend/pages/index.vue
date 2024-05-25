@@ -6,7 +6,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div>
+  <NuxtLayout :name="home">
     <CategorySlider />
-  </div>
+  </NuxtLayout>
 </template>

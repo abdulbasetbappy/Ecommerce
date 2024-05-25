@@ -1,7 +1,7 @@
 <template>
   <!-- about us banner -->
   <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div class="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
       <div>
         <h3 class="text-3xl font-semibold text-dark">Our Story</h3>
         <p class="pt-8">
@@ -24,19 +24,19 @@
   </div>
   <!-- about us counter -->
   <div
-    class="grid md:grid-cols-4 grid-cols-2 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12 gap-4"
+    class="grid grid-cols-2 gap-4 px-3 pt-12 md:grid-cols-4 md:px-10 lg:px-36 lg:pt-28 md:pt-20"
   >
     <div
-      class="border border-gray-400 hover:text-white rounded hover:border-primary p-8 flex flex-col items-center space-y-2 hover:bg-primary duration-300 group"
+      class="flex flex-col items-center p-8 space-y-2 duration-300 border border-gray-400 rounded hover:text-white hover:border-primary hover:bg-primary group"
       v-for="(item, index) in counterItem"
       :key="index"
     >
       <div
-        class="bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white p-2 mb-2"
+        class="p-2 mb-2 bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white"
       >
         <Icon
           :name="item.iconName"
-          class="h-8 w-8 text-white group-hover:text-dark"
+          class="w-8 h-8 text-white group-hover:text-dark"
         />
       </div>
 
@@ -46,7 +46,7 @@
   </div>
 
   <!-- team slider -->
-  <div class="md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12">
+  <div class="px-3 pt-12 md:px-10 lg:px-36 lg:pt-28 md:pt-20">
     <swiper
       :slides-per-view="3"
       space-between="30"
@@ -71,16 +71,16 @@
       class="mySwiper"
     >
       <swiper-slide v-for="(member, index) in teamMembers" :key="index">
-        <div class="bg-light pt-12">
-          <img :src="member.image" alt="" class="w-52 h-80 mx-auto mb-4" />
+        <div class="pt-12 bg-light">
+          <img :src="member.image" alt="" class="mx-auto mb-4 w-52 h-80" />
         </div>
         <div class="mt-4 space-y-3">
           <h3 class="text-xl font-bold">{{ member.name }}</h3>
           <p class="text-gray-600">{{ member.position }}</p>
-          <div class="mt-2 flex gap-3">
-            <span> <Icon name="hugeicons:twitter" class="h-6 w-6" /></span>
-            <span> <Icon name="hugeicons:instagram" class="h-6 w-6" /></span>
-            <span> <Icon name="ri:linkedin-line" class="h-6 w-6" /></span>
+          <div class="flex gap-3 mt-2">
+            <span> <Icon name="hugeicons:twitter" class="w-6 h-6" /></span>
+            <span> <Icon name="hugeicons:instagram" class="w-6 h-6" /></span>
+            <span> <Icon name="ri:linkedin-line" class="w-6 h-6" /></span>
           </div>
         </div>
       </swiper-slide>
@@ -89,19 +89,19 @@
 
   <!-- our support -->
   <div
-    class="grid md:grid-cols-3 grid-cols-1 gap-4 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12"
+    class="grid grid-cols-1 gap-4 px-3 pt-12 md:grid-cols-3 md:px-10 lg:px-36 lg:pt-28 md:pt-20"
   >
     <div
-      class="p-8 flex flex-col items-center space-y-2"
+      class="flex flex-col items-center p-8 space-y-2"
       v-for="(support, index) in supports"
       :key="index"
     >
       <div
-        class="bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white p-2 mb-2"
+        class="p-2 mb-2 bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white"
       >
         <Icon
           :name="support.iconName"
-          class="h-8 w-8 text-white group-hover:text-dark"
+          class="w-8 h-8 text-white group-hover:text-dark"
         />
       </div>
 
@@ -112,6 +112,9 @@
 </template>
 
 <script setup>
+definePageMeta({
+  layout: "home",
+});
 import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css/pagination";
