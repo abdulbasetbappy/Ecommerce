@@ -27,7 +27,7 @@
         <div class="bg-white p-6 rounded-lg shadow-lg mx-auto">
           <h2 class="text-xl font-semibold">Havic HV G-92 Gamepad</h2>
           <div class="flex items-center mt-2 mb-4">
-            <div class="rating flex ">
+            <div class="rating flex">
               <span class="text-red-200"
                 ><svg
                   class="w-5 h-5 dark:text-white"
@@ -123,6 +123,7 @@
               <div class="w-6 h-6 bg-black rounded-full"></div>
             </div>
           </div>
+          <!-- color btn -->
           <div class="mb-4">
             <span class="block font-semibold mb-1">Size:</span>
             <div class="flex space-x-2">
@@ -133,19 +134,90 @@
               <button class="px-3 py-1 border rounded">XL</button>
             </div>
           </div>
-          <div class="flex items-center mb-4">
-            <button class="px-3 py-1 border">-</button>
-            <input type="text" value="2" class="w-12 text-center border" />
-            <button class="px-3 py-1 border">+</button>
-          </div>
-          <div class="flex space-x-2 mb-4">
-            <button class="flex-1 bg-green-500 text-white py-2 rounded-lg">
+
+          <!-- product number -->
+          <div class="flex gap-4 mb-4">
+            <div class="relative flex items-center max-w-[8rem]">
+              <button
+                type="button"
+                id="decrement-button"
+                data-input-counter-decrement="quantity-input"
+                class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+              >
+                <svg
+                  class="w-3 h-3 text-gray-900 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 18 2"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 1h16"
+                  />
+                </svg>
+              </button>
+              <input
+                type="text"
+                id="quantity-input"
+                data-input-counter
+                aria-describedby="helper-text-explanation"
+                class="bg-gray-50 border border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                value="2"
+                required
+              />
+              <button
+                type="button"
+                id="increment-button"
+                data-input-counter-increment="quantity-input"
+                class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+              >
+                <svg
+                  class="w-3 h-3 text-gray-900 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 18 18"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 1v16M1 9h16"
+                  />
+                </svg>
+              </button>
+            </div>
+            <button class="px-4 bg-green-500 text-white py-2 rounded-lg w-40">
               Add To Cart
             </button>
-            <button class="flex-1 bg-red-500 text-white py-2 rounded-lg">
-              Buy Now
+            <button class="border border-dark text-white py-2 px-2 rounded-lg">
+              <svg
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"
+                />
+              </svg>
             </button>
           </div>
+          <button class="flex-1 w-full bg-primary text-white py-2 rounded-lg">
+            Buy Now
+          </button>
           <div class="bg-gray-100 p-4 rounded-lg text-center">
             <div class="mb-2">
               <span class="block font-semibold">Free Delivery</span>
