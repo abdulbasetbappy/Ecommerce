@@ -76,21 +76,21 @@
             <img
               src="/images/Qrcode.png"
               alt="QR Code"
-              class="w-full h-full md:object-contain"
+              class="object-fill w-auto h-auto lg:h-full lg:w-full md:object-contain"
             />
           </div>
           <div class="col-span-1">
             <img
               src="/images/googlePlay.png"
               alt="Download on Google Play"
-              class="w-full h-full md:object-fill"
+              class="w-auto h-auto lg:h-full lg:w-full md:object-fill"
             />
           </div>
           <div class="col-span-1">
             <img
               src="/images/app-store.png"
               alt="Download on App Store"
-              class="object-fill w-full h-full"
+              class="w-auto h-auto lg:h-full lg:w-full md:object-fill"
             />
           </div>
         </div>

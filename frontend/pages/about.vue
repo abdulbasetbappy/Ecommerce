@@ -1,107 +1,99 @@
 <template>
-  <!-- about us banner -->
-  <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
-<<<<<<< HEAD
-    <div class="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
-=======
-    <div class="text-left py-8">
-      <Breadcrumb :crumbs="crumbs" />
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
->>>>>>> 763a4715aac8f6e3eacbbc3f50b5025c08cd91c5
-      <div>
-        <h3 class="text-3xl font-semibold text-dark">Our Story</h3>
-        <p class="pt-8">
-          Launced in 2015, Exclusive is South Asia's premier online shopping
-          makterplace with an active presense in Bangladesh. Supported by wide
-          range of tailored marketing, data and service solutions, Exclusive has
-          10,500 sallers and 300 brands and serves 3 millioons customers across
-          the region.
-        </p>
-        <p class="pt-4">
-          Exclusive has more than 1 Million products to offer, growing at a very
-          fast. Exclusive offers a diverse assotment in categories ranging from
-          consumer.
-        </p>
+  <NuxtLayout name="home">
+    <!-- about us banner -->
+    <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
+      <div class="py-8 text-left">
+        <Breadcrumb :crumbs="crumbs" />
       </div>
-      <div>
-        <img class="w-full" :src="aboutUs" alt="" />
+      <div class="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
+        <div>
+          <h3 class="text-3xl font-semibold text-dark">Our Story</h3>
+          <p class="pt-8">
+            Launced in 2015, Exclusive is South Asia's premier online shopping
+            makterplace with an active presense in Bangladesh. Supported by wide
+            range of tailored marketing, data and service solutions, Exclusive
+            has 10,500 sallers and 300 brands and serves 3 millioons customers
+            across the region.
+          </p>
+          <p class="pt-4">
+            Exclusive has more than 1 Million products to offer, growing at a
+            very fast. Exclusive offers a diverse assotment in categories
+            ranging from consumer.
+          </p>
+        </div>
+        <div>
+          <img class="w-full" :src="aboutUs" alt="" />
+        </div>
       </div>
     </div>
-  </div>
-  <!-- about us counter -->
-  <div
-    class="grid grid-cols-2 gap-4 px-3 pt-12 md:grid-cols-4 md:px-10 lg:px-36 lg:pt-28 md:pt-20"
-  >
+    <!-- about us counter -->
     <div
-      class="flex flex-col items-center p-8 space-y-2 duration-300 border border-gray-400 rounded hover:text-white hover:border-primary hover:bg-primary group"
-      v-for="(item, index) in counterItem"
-      :key="index"
+      class="grid grid-cols-2 gap-4 px-3 pt-12 md:grid-cols-4 md:px-10 lg:px-36 lg:pt-28 md:pt-20"
     >
       <div
-        class="p-2 mb-2 bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white"
+        class="flex flex-col items-center p-8 space-y-2 duration-300 border border-gray-400 rounded hover:text-white hover:border-primary hover:bg-primary group"
+        v-for="(item, index) in counterItem"
+        :key="index"
       >
-        <Icon
-          :name="item.iconName"
-          class="w-8 h-8 text-white group-hover:text-dark"
-        />
+        <div
+          class="p-2 mb-2 bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white"
+        >
+          <Icon
+            :name="item.iconName"
+            class="w-8 h-8 text-white group-hover:text-dark"
+          />
+        </div>
+
+        <h3 class="text-2xl font-bold">{{ item.counter }}K</h3>
+        <h3>{{ item.title }}K</h3>
       </div>
-
-      <h3 class="text-2xl font-bold">{{ item.counter }}K</h3>
-      <h3>{{ item.title }}K</h3>
     </div>
-  </div>
 
-  <!-- team slider -->
-  <div class="px-3 pt-12 md:px-10 lg:px-36 lg:pt-28 md:pt-20">
-    <swiper
-      :slides-per-view="3"
-      space-between="30"
-      :pagination="{
-        clickable: true,
-      }"
-      :breakpoints="{
-        '300': {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-        '768': {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        '1024': {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-      }"
-      :modules="modules"
-      class="mySwiper"
-    >
-      <swiper-slide v-for="(member, index) in teamMembers" :key="index">
-        <div class="pt-12 bg-light">
-          <img :src="member.image" alt="" class="mx-auto mb-4 w-52 h-80" />
-        </div>
-        <div class="mt-4 space-y-3">
-          <h3 class="text-xl font-bold">{{ member.name }}</h3>
-          <p class="text-gray-600">{{ member.position }}</p>
-          <div class="flex gap-3 mt-2">
-            <span> <Icon name="hugeicons:twitter" class="w-6 h-6" /></span>
-            <span> <Icon name="hugeicons:instagram" class="w-6 h-6" /></span>
-            <span> <Icon name="ri:linkedin-line" class="w-6 h-6" /></span>
+    <!-- team slider -->
+    <div class="px-3 pt-12 md:px-10 lg:px-36 lg:pt-28 md:pt-20">
+      <swiper
+        :slides-per-view="3"
+        space-between="30"
+        :pagination="{
+          clickable: true,
+        }"
+        :breakpoints="{
+          '300': {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          '768': {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          '1024': {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }"
+        :modules="modules"
+        class="mySwiper"
+      >
+        <swiper-slide v-for="(member, index) in teamMembers" :key="index">
+          <div class="pt-12 bg-light">
+            <img :src="member.image" alt="" class="mx-auto mb-4 w-52 h-80" />
           </div>
-        </div>
-      </swiper-slide>
-    </swiper>
-  </div>
+          <div class="mt-4 space-y-3">
+            <h3 class="text-xl font-bold">{{ member.name }}</h3>
+            <p class="text-gray-600">{{ member.position }}</p>
+            <div class="flex gap-3 mt-2">
+              <span> <Icon name="hugeicons:twitter" class="w-6 h-6" /></span>
+              <span> <Icon name="hugeicons:instagram" class="w-6 h-6" /></span>
+              <span> <Icon name="ri:linkedin-line" class="w-6 h-6" /></span>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
+    </div>
 
-  <!-- our support -->
-<<<<<<< HEAD
-  <div
+    <!-- our support -->
+    <!-- <div
     class="grid grid-cols-1 gap-4 px-3 pt-12 md:grid-cols-3 md:px-10 lg:px-36 lg:pt-28 md:pt-20"
-=======
-  <!-- <div
-    class="grid md:grid-cols-3 grid-cols-1 gap-4 md:px-10 lg:px-36 px-3 lg:pt-28 md:pt-20 pt-12"
->>>>>>> 763a4715aac8f6e3eacbbc3f50b5025c08cd91c5
   >
     <div
       class="flex flex-col items-center p-8 space-y-2"
@@ -121,21 +113,22 @@
       <h3>{{ support.subTitle }}K</h3>
     </div>
   </div> -->
-  <Features />
+    <Features />
+  </NuxtLayout>
 </template>
 
 <script setup>
 definePageMeta({
   layout: "home",
 });
-import { ref } from "vue";
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
-import Features from "~/components/Features/Features.vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css/pagination";
-import "swiper/swiper-bundle.css";
 import "swiper/css";
+import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import "swiper/swiper-bundle.css";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { ref } from "vue";
+import Features from "~/components/Features/Features.vue";
+import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 const modules = [Pagination];
 const aboutUs = ref(
   "images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png"

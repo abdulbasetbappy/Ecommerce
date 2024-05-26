@@ -1,19 +1,21 @@
 <template>
-  <NuxtLayout :name="home">
-    <div
-      class="grid bg-gray-100 lg:cols-12 md:h-screen lg:gap-12 md:py-14 md:grid-cols-12"
-    >
+  <NuxtLayout name="home">
+    <div class="flex flex-col gap-2 py-10 lg:flex-row md:flex-col">
       <!-- Image -->
-      <div class="w-full lg:col-span-7 md:col-span-6">
+      <div class="w-full h-full lg:w-2/5 md:w-full">
         <img
-          src="/images/signup.jpg"
+          src="/images/signup.png"
           alt="Sign Up Image"
-          class="w-full lg:h-2/3"
+          class="object-contain w-full h-auto"
         />
       </div>
       <!-- Form -->
-      <div class="p-4 xl:mt-[120px] lg:col-span-5 md:col-span-6">
+      <div class="w-full lg:py-32 lg:pl-24 lg:w-2/5 md:w-full">
         <SignUpForm />
+      </div>
+      <!-- Red Box -->
+      <div class="hidden bg-red-700 xl:block xl:w-1/5">
+        <p>lorem100 ads</p>
       </div>
     </div>
   </NuxtLayout>

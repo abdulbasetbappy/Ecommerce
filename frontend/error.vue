@@ -1,6 +1,6 @@
 <template>
   <div class="container w-full py-6 mx-auto">
-    <div class="flex flex-col items-center justify-center min-h-screen md:h-screen">
+    <div class="flex flex-col items-center justify-center h-screen">
       <div class="w-full max-w-xs md:max-w-md lg:max-w-lg">
         <img src="/images/error.png" class="w-full h-auto" alt="error" />
       </div>
@@ -22,7 +22,6 @@
     </div>
   </div>
 </template>
-
 
 <script setup>
 import { useRouter } from "vue-router";
