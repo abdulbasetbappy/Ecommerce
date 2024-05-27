@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  layout: "home",
+  layout: "home"
 });
 import Features from "~/components/Features/Features.vue";
 import ResponsiveGallery from "~/components/ResponsiveGallery/ResponsiveGallery.vue";
@@ -65,38 +65,37 @@ const products = [
 ];
 </script>
 <template>
-  <div class="container min-h-screen px-4 py-12 mx-auto">
-    <CategoriesCarousel :items="categories" />
+    
     <div>
-      <div class="flex items-center justify-between mb-8 text-left">
-        <TitleWithSubTitle
-          title="This Month"
-          subtitle="Best Selling Products"
-        />
-        <Button @click="goHome"> View All </Button>
-      </div>
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <ProductCard
-          v-for="product in products"
-          :key="product.id"
-          :product="product"
-        />
-      </div>
-      <div class="my-12">
-        <ResponsiveGallery />
-      </div>
-      <div class="my-12">
-        <FlashSale
-          category="Categories"
-          headline="Enhance Your Music Experience"
-          imageSrc="/images/jbl-speaker.png"
-          imageAlt="JBL Speaker"
-          buttonText="Buy Now!"
-          :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)"
-          :onButtonClick="handleButtonClick"
-        />
-      </div>
-      <Features />
+        <Head>
+            <Title>Home</Title>
+            <Meta name="description" :content="Home" />
+        </Head>
+        
+        <div  class="container min-h-screen px-4 py-12 mx-auto">
+            <CategoriesCarousel :items="categories" />
+            <div class="flex items-center justify-between mb-8 text-left">
+                <TitleWithSubTitle title="This Month" subtitle="Best Selling Products"/>
+                <Button @click="goHome"> View All </Button>
+            </div>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+                <ProductCard v-for="product in products" :key="product.id" :product="product" />
+            </div>
+            <div class="my-12">
+                <ResponsiveGallery />
+            </div>
+            <div class="my-12">
+                <FlashSale
+                category="Categories"
+                headline="Enhance Your Music Experience"
+                imageSrc="/images/jbl-speaker.png"
+                imageAlt="JBL Speaker"
+                buttonText="Buy Now!"
+                :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)"
+                :onButtonClick="handleButtonClick"
+                />
+            </div>
+            <Features />
+        </div>
     </div>
-  </div>
 </template>

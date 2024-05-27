@@ -1,5 +1,12 @@
+<script setup lang="ts">
+    useHead({
+        // as a string,
+        // where `%s` is replaced with the title
+        titleTemplate: '%s :: Ecommerce',
+    })
+</script>
+
 <template>
-  <NuxtLayout>
     <ClientOnly>
       <template #fallback>
         <div class="text-center mt-[20%] w-64 flex-col m-auto items-center flex h-screen">
@@ -9,5 +16,4 @@
       </template>
       <NuxtPage />
     </ClientOnly>
-  </NuxtLayout>
 </template>
