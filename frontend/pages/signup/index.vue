@@ -1,16 +1,16 @@
 <template>
   <NuxtLayout name="home">
-    <div class="w-full grid grid-cols-12 gap-5 grid-rows-1">
+    <div class="grid w-full grid-cols-12 gap-5 py-10">
       <!-- Image -->
-      <div class=" lg:col-span-7 col-span-12 xl:col-span-6">
+      <div class="col-span-12 lg:col-span-7 xl:col-span-6">
         <img
-          src="\images\signup.png"
+          src="~\images\signup.png"
           alt="Sign Up Image"
-          class="h-full w-full "
+          class="w-full h-full "
         />
       </div>
       <!-- Form -->
-      <div class="lg:col-span-5 col-span-12  lg:content-center  lg:pl-20 xl:col-span-6">
+      <div class="col-span-12 pl-0 lg:col-span-5 lg:content-center xl:pl-20 xl:col-span-6">
         <SignUpForm />
       </div> 
     </div>
