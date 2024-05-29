@@ -22,7 +22,7 @@
       <div class="col-span-12 lg:col-span-5">
         <div class="bg-white mx-auto">
           <h2 class="text-xl font-semibold">{{ product.title }}</h2>
-          <div class="flex items-center mt-2 mb-4">
+          <div class="flex items-center mt-2 mb-3">
             <Rating :rating="product.rating.value" />
             <span class="text-gray-600 ml-2"
               >({{ product.rating.reviews }} Reviews)</span
@@ -30,9 +30,9 @@
             <span class="px-2">|</span>
             <span class="text-green-500">{{ product.availability }}</span>
           </div>
-          <div class="text-2xl font-bold mb-4">{{ product.price }}</div>
-          <p class="text-gray-700 mb-4">{{ product.description }}</p>
-          <div class="mb-4">
+          <div class="text-2xl font-bold mb-3">{{ product.price }}</div>
+          <p class="text-gray-700 mb-3">{{ product.description }}</p>
+          <div class="mb-3">
             <div class="flex space-x-2">
               <span class="block font-semibold mb-1">Colours:</span>
               <div
@@ -43,7 +43,7 @@
               ></div>
             </div>
           </div>
-          <div class="mb-4">
+          <div class="mb-3">
             <div class="flex space-x-2">
               <span class="block font-semibold mb-1">Size:</span>
               <button
@@ -59,12 +59,12 @@
               </button>
             </div>
           </div>
-          <div class="flex gap-4 mb-4">
+          <div class="flex gap-4 mb-3">
             <div class="relative flex items-center max-w-[9rem]">
               <button
                 type="button"
                 @click="decrementQuantity"
-                class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none"
+                class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none"
               >
                 <svg
                   class="w-3 h-3 text-gray-900"
@@ -91,7 +91,7 @@
               <button
                 type="button"
                 @click="incrementQuantity"
-                class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none"
+                class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-e p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none"
               >
                 <svg
                   class="w-3 h-3 text-gray-900"
@@ -110,11 +110,11 @@
                 </svg>
               </button>
             </div>
-            <button class="px-4 bg-[#0C7649] text-white py-2 rounded-lg w-56">
+            <button class="px-4 bg-[#0C7649] text-white py-2 rounded w-56">
               {{ product.actions.addToCart }}
             </button>
             <button
-              class="border border-gray-300 h-11 text-white py-2 px-3 rounded-lg"
+              class="border border-gray-300 h-11 text-white py-2 px-3 rounded"
             >
               <svg
                 class="w-6 h-6 text-gray-800"
@@ -136,18 +136,45 @@
             </button>
           </div>
           <button
-            class="flex-1 w-full bg-primary text-white py-2 h-11 rounded-lg mb-4"
+            class="flex-1 w-full bg-primary text-white py-2 h-11 rounded mb-3"
           >
             {{ product.actions.buyNow }}
           </button>
           <!-- share to social -->
           <button
-            class="border border-gray-500 h-11 text-white px-2 py-1 rounded-lg"
+            class="border border-gray-500 h-11 text-white px-2 py-1 rounded"
           >
             <Icon class="h-6 w-6 text-gray-800" name="gg:facebook" />
           </button>
 
-          <div class="bg-gray-100 p-4 rounded-lg text-center">
+          <div class="rounded border border-gray-300 mt-3">
+            <div class="flex gap-2 border-b p-3">
+              <span>
+                <Icon class="h-10 w-10" name="iconoir:delivery-truck" />
+              </span>
+              <div>
+                <span class="block font-semibold">{{
+                  product.delivery.freeDelivery
+                }}</span>
+                <p>{{ product.delivery.deliveryDetails }}</p>
+              </div>
+            </div>
+            <div class="flex gap-2 p-4">
+              <span>
+                <Icon class="h-10 w-10" name="icon-park-outline:return" />
+              </span>
+              <div>
+                <span class="block font-semibold">{{
+                  product.delivery.return
+                }}</span>
+                <p>
+                  {{ product.delivery.returnDelivery }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="bg-gray-100 p-4 rounded-lg text-center">
             <div class="mb-2">
               <span class="block font-semibold">{{
                 product.delivery.freeDelivery
@@ -162,7 +189,7 @@
               }}</span>
               <a href="#" class="text-blue-500">Details</a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -319,6 +346,7 @@ const product = ref({
   },
   delivery: {
     freeDelivery: "Free Delivery",
+    return: "Return Delivery",
     deliveryDetails: "Enter your postal code for Delivery Availability",
     returnDelivery: "Free 30 Days Delivery Returns. Details",
   },
