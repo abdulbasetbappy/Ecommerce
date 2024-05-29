@@ -194,6 +194,35 @@
       </div>
     </div>
   </div>
+
+  <!-- rating start -->
+  <div class="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4">
+    <div class="flex items-center">
+      <div class="text-4xl font-bold">4.1</div>
+      <div class="ml-2">
+        <div class="text-orange-500">★★★★☆</div>
+        <div class="text-sm text-gray-500">Very Good</div>
+      </div>
+    </div>
+    <div class="text-sm text-gray-500">250 ratings</div>
+    <div>
+      <div
+        v-for="(count, index) in ratings"
+        :key="index"
+        class="flex items-center"
+      >
+        <div class="w-20 text-right">{{ 5 - index }} stars</div>
+        <div class="relative w-full h-2 bg-gray-300 rounded mx-2">
+          <div
+            :style="{ width: (count / totalRatings) * 100 + '%' }"
+            class="absolute h-full bg-orange-500 rounded"
+          ></div>
+        </div>
+        <div class="w-12 text-right">{{ count }}</div>
+      </div>
+    </div>
+  </div>
+  <!-- rating -->
   <TabView>
     <TabPanel header="Details" :pt="customTabStyle">
       <template v-if="oldData">
@@ -378,6 +407,10 @@ const colorClass = (color) => {
   };
   return colors[color];
 };
+
+// rating
+const totalRatings = 250;
+const ratings = ref([144, 48, 21, 12, 25]);
 </script>
 
 <!-- <style scoped>
