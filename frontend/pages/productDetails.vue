@@ -1,7 +1,7 @@
 <template>
   <div class="lg:px-36 md:px-10 px-3 mt-20">
     <div class="grid grid-cols-12 gap-6">
-      <div class="col-span-12 lg:col-span-7 mx-auto">
+      <div class="col-span-12 lg:col-span-7">
         <div class="main-img">
           <img class="w-full" :src="setImage" alt="Product Image" />
         </div>
@@ -9,7 +9,7 @@
           <div class="flex space-x-3">
             <!-- Loop through images to display thumbnails -->
             <img
-              class="cursor-pointer w-40"
+              class="cursor-pointer w-[10.5rem] mx-auto"
               v-for="img in images"
               :src="img.thumb"
               :key="img.thumb"
@@ -193,36 +193,11 @@
         </div>
       </div>
     </div>
+    <!-- rating -->
+    <ProductRating />
+    <!-- rating -->
   </div>
 
-  <!-- rating start -->
-  <div class="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4">
-    <div class="flex items-center">
-      <div class="text-4xl font-bold">4.1</div>
-      <div class="ml-2">
-        <div class="text-orange-500">★★★★☆</div>
-        <div class="text-sm text-gray-500">Very Good</div>
-      </div>
-    </div>
-    <div class="text-sm text-gray-500">250 ratings</div>
-    <div>
-      <div
-        v-for="(count, index) in ratings"
-        :key="index"
-        class="flex items-center"
-      >
-        <div class="w-20 text-right">{{ 5 - index }} stars</div>
-        <div class="relative w-full h-2 bg-gray-300 rounded mx-2">
-          <div
-            :style="{ width: (count / totalRatings) * 100 + '%' }"
-            class="absolute h-full bg-orange-500 rounded"
-          ></div>
-        </div>
-        <div class="w-12 text-right">{{ count }}</div>
-      </div>
-    </div>
-  </div>
-  <!-- rating -->
   <TabView>
     <TabPanel header="Details" :pt="customTabStyle">
       <template v-if="oldData">
@@ -301,6 +276,7 @@ import { ref } from "vue";
 import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
 import Rating from "~/composables/reuseable/Rating/Rating.vue";
+import ProductRating from "~/composables/reuseable/Rating/ProductRating.vue";
 
 // const rating = ref(4);
 const oldData = ref(null);
@@ -409,8 +385,6 @@ const colorClass = (color) => {
 };
 
 // rating
-const totalRatings = 250;
-const ratings = ref([144, 48, 21, 12, 25]);
 </script>
 
 <!-- <style scoped>
