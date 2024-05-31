@@ -78,3 +78,9 @@ onMounted(() => {
   updateCountdown();
 });
 </script>
+
+<style scoped>
+.word {
+  color: red;
+} 
+</style>
