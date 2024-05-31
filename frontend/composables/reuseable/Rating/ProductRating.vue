@@ -1,3 +1,11 @@
+<script setup>
+import Rating from "./Rating";
+
+const rating = 5;
+const totalRatings = 250;
+const ratings = ref([144, 48, 21, 12, 25]);
+</script>
+
 <template>
   <div>
     <div class="mt-16 ps-6 py-2 bg-[#EFEDED]">
@@ -51,11 +59,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import Rating from "./Rating";
-
-const rating = 5;
-const totalRatings = 250;
-const ratings = ref([144, 48, 21, 12, 25]);
-</script>

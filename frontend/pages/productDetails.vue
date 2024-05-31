@@ -1,3 +1,118 @@
+<script setup>
+import { ref } from "vue";
+import TabView from "primevue/tabview";
+import TabPanel from "primevue/tabpanel";
+import Rating from "~/composables/reuseable/Rating/Rating.vue";
+import ProductRating from "~/composables/reuseable/Rating/ProductRating.vue";
+
+// const rating = ref(4);
+const oldData = ref(null);
+
+onBeforeMount(async () => {
+  try {
+    await fetch("/api/jsonEditor")
+      .then((response) => response.json())
+      .then((data) => {
+        oldData.value = data;
+      });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+const customTabStyle = ref({
+  headerTitle: {
+    class: "text-red-500",
+  },
+
+  headerAction: {
+    class: "text-black",
+  },
+});
+
+// Define reactive reference for current image
+const setImage = ref("images/Group1000005941.png");
+
+// Define array of images
+const images = [
+  {
+    thumb: "images/Group1000005941.png",
+    full: "images/Group1000005941.png",
+  },
+  {
+    thumb: "images/Group1000005942.png",
+    full: "images/Group1000005942.png",
+  },
+  {
+    thumb: "images/Group1000005943.png",
+    full: "images/Group1000005943.png",
+  },
+  {
+    thumb: "images/Group1000005944.png",
+    full: "images/Group1000005944.png",
+  },
+];
+
+// Function to set full image when thumbnail is clicked
+function showFullImage(image) {
+  setImage.value = image.full;
+}
+
+// dtata
+const product = ref({
+  title: "Havic HV G-92 Gamepad",
+  rating: {
+    value: 4,
+    reviews: 150,
+  },
+  availability: "In Stock",
+  price: "$192.00",
+  description:
+    "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal. Pressure sensitive.",
+  colors: ["red", "gray", "white", "black"],
+  sizes: ["XS", "S", "M", "L", "XL"],
+  actions: {
+    addToCart: "Add To Cart",
+    wishlist: "Add to Wishlist",
+    buyNow: "Buy Now",
+  },
+  delivery: {
+    freeDelivery: "Free Delivery",
+    return: "Return Delivery",
+    deliveryDetails: "Enter your postal code for Delivery Availability",
+    returnDelivery: "Free 30 Days Delivery Returns. Details",
+  },
+});
+
+const selectedSize = ref("M");
+const quantity = ref(2);
+
+const selectSize = (size) => {
+  selectedSize.value = size;
+};
+
+const incrementQuantity = () => {
+  quantity.value++;
+};
+
+const decrementQuantity = () => {
+  if (quantity.value > 1) {
+    quantity.value--;
+  }
+};
+
+const colorClass = (color) => {
+  const colors = {
+    red: "bg-red-500",
+    gray: "bg-gray-300",
+    white: "bg-white border",
+    black: "bg-black",
+  };
+  return colors[color];
+};
+
+// rating
+</script>
 <template>
   <div class="lg:px-36 md:px-10 px-3 mt-20">
     <div class="grid grid-cols-12 gap-6">
@@ -270,122 +385,6 @@
     </TabPanel>
   </TabView>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import TabView from "primevue/tabview";
-import TabPanel from "primevue/tabpanel";
-import Rating from "~/composables/reuseable/Rating/Rating.vue";
-import ProductRating from "~/composables/reuseable/Rating/ProductRating.vue";
-
-// const rating = ref(4);
-const oldData = ref(null);
-
-onBeforeMount(async () => {
-  try {
-    await fetch("/api/jsonEditor")
-      .then((response) => response.json())
-      .then((data) => {
-        oldData.value = data;
-      });
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-const customTabStyle = ref({
-  headerTitle: {
-    class: "text-red-500",
-  },
-
-  headerAction: {
-    class: "text-black",
-  },
-});
-
-// Define reactive reference for current image
-const setImage = ref("images/Group1000005941.png");
-
-// Define array of images
-const images = [
-  {
-    thumb: "images/Group1000005941.png",
-    full: "images/Group1000005941.png",
-  },
-  {
-    thumb: "images/Group1000005942.png",
-    full: "images/Group1000005942.png",
-  },
-  {
-    thumb: "images/Group1000005943.png",
-    full: "images/Group1000005943.png",
-  },
-  {
-    thumb: "images/Group1000005944.png",
-    full: "images/Group1000005944.png",
-  },
-];
-
-// Function to set full image when thumbnail is clicked
-function showFullImage(image) {
-  setImage.value = image.full;
-}
-
-// dtata
-const product = ref({
-  title: "Havic HV G-92 Gamepad",
-  rating: {
-    value: 4,
-    reviews: 150,
-  },
-  availability: "In Stock",
-  price: "$192.00",
-  description:
-    "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal. Pressure sensitive.",
-  colors: ["red", "gray", "white", "black"],
-  sizes: ["XS", "S", "M", "L", "XL"],
-  actions: {
-    addToCart: "Add To Cart",
-    wishlist: "Add to Wishlist",
-    buyNow: "Buy Now",
-  },
-  delivery: {
-    freeDelivery: "Free Delivery",
-    return: "Return Delivery",
-    deliveryDetails: "Enter your postal code for Delivery Availability",
-    returnDelivery: "Free 30 Days Delivery Returns. Details",
-  },
-});
-
-const selectedSize = ref("M");
-const quantity = ref(2);
-
-const selectSize = (size) => {
-  selectedSize.value = size;
-};
-
-const incrementQuantity = () => {
-  quantity.value++;
-};
-
-const decrementQuantity = () => {
-  if (quantity.value > 1) {
-    quantity.value--;
-  }
-};
-
-const colorClass = (color) => {
-  const colors = {
-    red: "bg-red-500",
-    gray: "bg-gray-300",
-    white: "bg-white border",
-    black: "bg-black",
-  };
-  return colors[color];
-};
-
-// rating
-</script>
 
 <!-- <style scoped>
 .main-img {
