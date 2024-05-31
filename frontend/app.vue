@@ -1,4 +1,6 @@
 <script setup >
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.vue';
+
     useHead({
         // as a string,
         // where `%s` is replaced with the title
@@ -14,6 +16,7 @@
           <p class="mt-4">loading...</p>
         </div>
       </template>
+      <ScrollToTop/>
       <NuxtPage />
     </ClientOnly>
 </template>

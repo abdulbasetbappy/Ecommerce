@@ -1,11 +1,15 @@
 <script setup>
+import { Icon } from "@iconify/vue";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/vue";
 import { onMounted, ref } from "vue";
+import ProductCard from "~/composables/reuseable/ProductCard/ProductCard.vue";
+import Button from "../Button/Button.vue";
+import CountdownTimer from "../CountdownTimer/CountdownTimer.vue";
 import TitleWithSubTitle from "../TitleWithSubTitle/TitleWithSubTitle.vue";
-import ProductCard from "../composibles/reuseable/ProductCard/ProductCard.vue";
 
 const props = defineProps({
   title: String,
@@ -13,13 +17,21 @@ const props = defineProps({
   items: Array,
 });
 
+watch(
+  () => props.endTime,
+  () => {
+    if (new Date().getTime() >= props.endTime.getTime()) {
+      showFlashSale.value = false;
+    }
+  }
+);
 const responsiveOptions = {
   320: {
     slidesPerView: 2,
     spaceBetween: 20,
   },
   560: {
-    slidesPerView: 3,
+    slidesPerView: 2,
     spaceBetween: 20,
   },
   768: {
@@ -27,7 +39,7 @@ const responsiveOptions = {
     spaceBetween: 20,
   },
   1024: {
-    slidesPerView: 6,
+    slidesPerView: 4,
     spaceBetween: 30,
   },
 };
@@ -56,50 +68,15 @@ const next = () => {
     swiperInstance.value.slideNext();
   }
 };
-const products = [
-  {
-    id: 1,
-    name: "The north coat",
-    image: "/images/pro-1.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 2,
-    name: "Gucci duffle bag",
-    image: "/images/bag.png",
-    price: "$960",
-    prevPrice: "$1160",
-    rating: 5,
-    ratingCount: 30,
-  },
-  {
-    id: 3,
-    name: "RGB liquid CPU Cooler",
-    image: "/images/pro-3.png",
-    price: "$160",
-    prevPrice: "$170",
-    rating: 4,
-    ratingCount: 50,
-  },
-  {
-    id: 4,
-    name: "Small BookSelf",
-    image: "/images/pro-4.png",
-    price: "$360",
-    prevPrice: "$460",
-    rating: 5,
-    ratingCount: 100,
-  },
-];
 </script>
 
 <template>
-  <div class="container relative mx-auto">
+  <div class="container relative mx-auto mt-20">
     <div class="flex items-center justify-between mb-4">
-      <TitleWithSubTitle title="Todays" subtitle="Flash Sales" />
+      <div class="flex flex-row gap-4">
+        <TitleWithSubTitle title="Todays" subtitle="Flash Sales" />
+        <CountdownTimer :endTime="endTime" />
+      </div>
       <div
         class="absolute top-0 right-0 flex items-center justify-center space-x-2"
       >
@@ -108,22 +85,22 @@ const products = [
           class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
           @click="prev"
         >
-          <i class="pi pi-arrow-left"></i>
+          <Icon icon="mdi:chevron-left" class="text-3xl" />
         </button>
         <button
           ref="nextEl"
           class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
           @click="next"
         >
-          <i class="pi pi-arrow-right"></i>
+          <Icon icon="mdi:chevron-right" class="text-3xl" />
         </button>
       </div>
     </div>
     <div class="relative">
       <swiper
-        ref="carousel"
-        :slides-per-view="6"
-        space-between="20"
+        ref="swiperInstance"
+        :slides-per-view="4"
+        :space-between="20"
         :breakpoints="responsiveOptions"
         :navigation="{
           prevEl: prevEl,
@@ -133,30 +110,18 @@ const products = [
         class="mySwiper"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
-          <ProductCard
-            v-for="product in products"
-            :key="product.id"
-            :product="product"
-          />
+          <ProductCard class="mt-8 md:mt-14" :product="item" />
         </swiper-slide>
       </swiper>
+    </div>
+    <div class="flex items-center justify-center py-8 md:py-14">
+      <Button class="w-48 text-center"> View All Products </Button>
     </div>
   </div>
 </template>
 
 <style scoped>
-.swiper-pagination {
-  position: static !important;
-  margin-top: 20px;
-}
-.swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-}
-.swiper-pagination-bullet-active {
-  background-color: #db4444;
-  border: 2px solid rgba(128, 128, 128, 0.527);
-  width: 12px;
-  height: 12px;
+.word {
+  color: red;
 }
 </style>

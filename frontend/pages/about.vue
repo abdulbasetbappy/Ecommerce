@@ -1,5 +1,6 @@
 <template>
   <NuxtLayout name="home">
+    
     <!-- about us banner -->
     <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
       <div class="py-8 text-left">
@@ -129,12 +130,14 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref } from "vue";
 import Features from "~/components/Features/Features.vue";
 import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
+
 const modules = [Pagination];
 const aboutUs = ref(
   "images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png"
 );
 
 const crumbs = [{ name: "Home", link: "/" }, { name: " About" }];
+
 
 // counter data
 const counterItem = [

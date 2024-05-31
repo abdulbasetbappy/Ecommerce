@@ -2,10 +2,10 @@
   <div class="flex flex-col">
     <div class="flex items-center">
       <div :class="[colorClass, 'w-5 h-10 mr-2 rounded-sm']"></div>
-      <span :class="[titleSizeClass, 'font-bold']">{{ title }}</span>
+      <span :class="[titleSizeClass, 'font-bold text-primary text-md ml-4']">{{ title }}</span>
     </div>
     <div class="mt-5">
-      <h2 :class="[subtitleSizeClass, 'font-semibold']">{{ subtitle }}</h2>
+      <h2 :class="[subtitleSizeClass, 'font-semibold lg:text-4xl']">{{ subtitle }}</h2>
     </div>
   </div>
 </template>
