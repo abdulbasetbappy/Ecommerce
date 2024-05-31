@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showTimer" class="flex space-x-4">
+  <div  class="flex space-x-4">
     <div
       v-for="(time, index) in countdown"
       :key="index"

@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-      class="relative flex items-center justify-center p-12 bg-gray-100 group"
+      class="relative flex items-center justify-center p-12 bg-gray-100 cursor-pointer group"
     >
      <!-- Discount Badge -->
      <div v-if="product.discount" class="absolute px-2 py-1 text-xs font-bold rounded-md text-light bg-primary top-2 left-2">

@@ -1,63 +1,10 @@
-<template>
-  <div class="container relative mx-auto mt-20">
-    <div class="flex items-center justify-between mb-4">
-      <TitleWithSubTitle title="Our Products" subtitle="Best Selling Products" />
-      <div
-        class="absolute top-0 right-0 flex items-center justify-center space-x-2"
-      >
-        <button
-          ref="prevEl"
-          class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
-          @click="prev"
-        >
-          <Icon icon="mdi:chevron-left" class="text-3xl" />
-        </button>
-        <button
-          ref="nextEl"
-          class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
-          @click="next"
-        >
-          <Icon icon="mdi:chevron-right" class="text-3xl" />
-        </button>
-      </div>
-    </div>
-    <div class="relative">
-      <swiper
-        ref="swiperInstance"
-        :slides-per-view="4"
-        :breakpoints="responsiveOptions"
-        :space-between="20"
-        :autoplay="{
-          delay: 1500,
-        }" 
-              
-        :grid="{  rows: 2 }"
-        :navigation="{
-          prevEl: prevEl,
-          nextEl: nextEl,
-        }"
-        :modules="[Pagination, Navigation]"
-        class="mySwiper"
-      >
-        <swiper-slide v-for="(item, index) in items" :key="index">
-          <ProductCard class="mt-8 md:mt-14" :product="item" />
-        </swiper-slide>
-      </swiper>
-    </div>
-    <div class="flex items-center justify-center py-8 md:py-14">
-      <Button class="w-48 text-center">
-        View All Products
-      </Button>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { Icon } from "@iconify/vue";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css/grid";
+import { Navigation, Pagination, Autoplay, Grid } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { onMounted, ref } from "vue";
 import Button from "~/composables/reuseable/Button/Button.vue";
@@ -113,12 +60,58 @@ const next = () => {
     swiperInstance.value.slideNext();
   }
 };
-
-
 </script>
+<template>
+  <div class="container relative mx-auto mt-20">
+    <div class="flex items-center justify-between mb-4">
+      <TitleWithSubTitle title="Our Products" subtitle="Explore Our Products" />
+      <div class="absolute top-0 right-0 flex items-center justify-center space-x-2">
+        <button ref="prevEl" class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full" @click="prev">
+          <Icon icon="mdi:chevron-left" class="text-3xl" />
+        </button>
+        <button ref="nextEl" class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full" @click="next">
+          <Icon icon="mdi:chevron-right" class="text-3xl" />
+        </button>
+      </div>
+    </div>
+    <div class="relative">
+      <swiper
+        ref="swiperInstance"
+        :slides-per-view="4"
+        :space-between="20"
+        :autoplay="{ delay: 3000 }"
+        :grid="{ rows: 2, fill: 'row' }"
+        :breakpoints="responsiveOptions"
+        :navigation="navigationOptions"
+        :modules="[Navigation, Pagination, Autoplay, Grid]"
+        class="mySwiper"
+      >
+        <swiper-slide v-for="(item, index) in items" :key="index">
+          <ProductCard class="mt-8 md:mt-14" :product="item" />
+        </swiper-slide>
+      </swiper>
+    </div>
+    <div class="flex items-center justify-center py-8 md:py-14">
+      <Button class="w-48 text-center">View All Products</Button>
+    </div>
+  </div>
+</template>
+
+
 
 <style scoped>
-.word{
-  color:red
+.swiper-pagination {
+  position: static !important;
+  margin-top: 20px;
+}
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #db4444;
+  border: 2px solid rgba(128, 128, 128, 0.527);
+  width: 12px;
+  height: 12px;
 }
 </style>

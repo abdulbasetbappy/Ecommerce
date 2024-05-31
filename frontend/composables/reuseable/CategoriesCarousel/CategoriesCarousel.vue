@@ -3,7 +3,7 @@ import { Icon } from '@iconify/vue';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination,Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/vue";
 import { onMounted, ref } from "vue";
 import IconWithText from "../IconWithText/IconWithText.vue";
@@ -62,7 +62,7 @@ const next = () => {
 
 <template>
   <hr class="pt-9">
-  <div class="container relative mx-auto mt-20">
+  <div class="container relative mx-auto mt-20 cursor-pointer">
     <div class="flex items-center justify-between mb-4">
       <TitleWithSubTitle title="Categories" subtitle="Browse By Category" />
       <div class="absolute top-0 right-0 flex items-center justify-center space-x-2">
@@ -88,12 +88,12 @@ const next = () => {
         :slides-per-view="6"
         space-between="20"
         :breakpoints="responsiveOptions"
-        
+        :autoplay="{ delay: 2500 }"
         :navigation="{
           prevEl: prevEl,
           nextEl: nextEl
         }"
-        :modules="[Pagination, Navigation]"
+        :modules="[Pagination, Navigation, Autoplay]"
         class="mySwiper"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
