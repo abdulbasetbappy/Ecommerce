@@ -1,4 +1,5 @@
 <script setup>
+import { Icon } from '@iconify/vue';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -60,7 +61,8 @@ const next = () => {
 </script>
 
 <template>
-  <div class="container relative mx-auto">
+  <hr class="pt-9">
+  <div class="container relative mx-auto mt-20">
     <div class="flex items-center justify-between mb-4">
       <TitleWithSubTitle title="Categories" subtitle="Browse By Category" />
       <div class="absolute top-0 right-0 flex items-center justify-center space-x-2">
@@ -69,14 +71,14 @@ const next = () => {
           class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
           @click="prev"
         >
-          <i class="pi pi-arrow-left"></i>
+        <Icon icon="mdi:chevron-left" class="text-3xl" />
         </button>
         <button
           ref="nextEl"
           class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
           @click="next"
         >
-          <i class="pi pi-arrow-right"></i>
+        <Icon icon="mdi:chevron-right" class="text-3xl" />
         </button>
       </div>
     </div>
@@ -100,6 +102,7 @@ const next = () => {
       </swiper>
     </div>
   </div>
+  <hr class="pb-20">
 </template>
 
 <style scoped>
