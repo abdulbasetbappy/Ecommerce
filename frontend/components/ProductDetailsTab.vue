@@ -23,13 +23,14 @@ const customTabStyle = ref({
   headerAction: {
     class: "text-black",
   },
+ 
 });
 </script>
 
 <template>
   <div>
-    <TabView>
-      <TabPanel header="Details" :pt="customTabStyle">
+    <TabView class="producttab">
+      <TabPanel header="Details producttab" :pt="customTabStyle">
         <template v-if="oldData">
           <div
             class="w-full"
@@ -103,3 +104,10 @@ const customTabStyle = ref({
     </TabView>
   </div>
 </template>
+
+
+<style>
+ .producttab{
+  background-color: aqua !important;
+}
+</style>
