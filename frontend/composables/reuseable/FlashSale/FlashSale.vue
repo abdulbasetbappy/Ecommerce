@@ -48,7 +48,7 @@ watch(
   >
     <div class="flex flex-col items-start">
       <span class="text-lg font-bold text-red-500">{{ category }}</span>
-      <h1 class="lg:w-[443px] my-4 text-5xl font-bold mt-8">{{ headline }}</h1>
+      <h1 class="w-auto lg:w-[443px] my-4 lg:text-5xl text-lg font-bold mt-8">{{ headline }}</h1>
       <CountdownTimer :endTime="endTime" />
       <Button class="mt-8 lg:w-32"> Buy Now </Button>
     </div>

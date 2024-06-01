@@ -5,7 +5,7 @@
         <TitleWithSubTitle title="Today's" subtitle="Flash Sales" />
 
         <CountdownTimer
-          :dclass="'flex reverse flex-col items-center justify-center text-dark flex-col-reverse'"
+          :dclass="'reverse flex-col items-center justify-center text-dark flex-col-reverse hidden md:flex'"
           :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)"
         />
       </div>
