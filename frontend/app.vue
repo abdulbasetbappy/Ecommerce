@@ -14,6 +14,7 @@
           <p class="mt-4">loading...</p>
         </div>
       </template>
+      <ScrollToTop/>
       <NuxtPage />
     </ClientOnly>
 </template>

@@ -1,18 +1,26 @@
 <template>
-  <div class="relative p-4">
+  <div class="relative">
     <div
-      class="relative flex items-center justify-center p-12 bg-gray-100 group"
+      class="relative flex items-center justify-center p-12 bg-gray-100 cursor-pointer group"
     >
+     <!-- Discount Badge -->
+     <div v-if="product.discount" class="absolute px-2 py-1 text-xs font-bold rounded-md text-light bg-primary top-2 left-2">
+        {{ product.discount }}
+      </div>
       <div>
-        <img :src="product.image" alt="Product Image" class="w-full h-40" />
+        <img
+          :src="product.image"
+          alt="Product Image"
+          class="object-contain w-full h-40"
+        />
       </div>
 
       <div class="absolute flex flex-col space-y-2 right-4 top-2">
         <button class="p-2 text-black bg-white rounded-full">
-          <i class="text-md pi pi-heart"></i>
+          <Icon icon="mdi:heart-outline" class="text-xl" />
         </button>
         <button class="p-2 text-black bg-white rounded-full">
-          <i class="pi pi-eye"></i>
+          <Icon icon="mdi:eye-outline" class="text-xl" />
         </button>
       </div>
 
@@ -27,8 +35,8 @@
     <div class="mt-4 text-left">
       <h3 class="text-lg font-semibold">{{ product.name }}</h3>
       <div class="flex items-center gap-4 mt-2">
-        <div class="text-red-500">{{ product.price }}</div>
-        <div class="text-gray-500 line-through">{{ product.prevPrice }}</div>
+        <div class="text-primary">{{ product.price }}</div>
+        <div class="line-through text-secondary">{{ product.prevPrice }}</div>
       </div>
       <div class="flex items-center mt-2">
         <Rating
@@ -46,7 +54,9 @@
 </template>
 
 <script setup>
+import { Icon } from "@iconify/vue";
 import Rating from "primevue/rating";
+
 
 const props = defineProps({
   product: {
@@ -56,15 +66,16 @@ const props = defineProps({
 });
 </script>
 
-<style scoped>
-.rating .p-rating-star {
-  color: #ffd700 !important; /* Yellow color for stars */
+<style >
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
+  color: #f59e0b !important;
 }
-.rating .p-rating-icon-filled {
-  color: #ffd700 !important; /* Yellow color for filled stars */
+
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon fill {
+  color: #413f3b !important;
 }
-.rating .p-rating {
-  font-size: 1rem; /* Adjust the size as needed */
+
+.word{
+  color: red;
 }
 </style>
-

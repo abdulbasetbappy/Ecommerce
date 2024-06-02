@@ -1,9 +1,9 @@
 <template>
-  <div v-if="showTimer" class="flex space-x-4">
+  <div  class="flex flex-col items-center justify-center md:space-x-4 md:flex-row">
     <div
       v-for="(time, index) in countdown"
       :key="index"
-      class="flex flex-col items-center justify-center w-20 h-20 p-4 mb-4 text-black bg-white rounded-full"
+      :class="dclass"
     >
       <span class="text-2xl font-bold">{{ formatTime(time.value) }}</span>
       <span class="text-sm">{{ time.label }}</span>
@@ -13,12 +13,16 @@
 
 <script setup>
 import { useIntervalFn } from "@vueuse/core";
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const props = defineProps({
   endTime: {
     type: Date,
     required: true,
+  },
+  dclass: {
+    type: String,
+    default: 'flex flex-col items-center justify-center w-20 h-20 p-4 mb-4 bg-white rounded-full text-dark',
   },
 });
 
@@ -31,6 +35,11 @@ const countdown = ref([
 ]);
 
 const updateCountdown = () => {
+  if (!props.endTime) {
+    showTimer.value = false;
+    return;
+  }
+
   const currentTime = new Date().getTime();
   const remainingTime = props.endTime.getTime() - currentTime;
 
@@ -42,11 +51,12 @@ const updateCountdown = () => {
   countdown.value = [
     {
       label: "Hours",
-      value: Math.floor(
-        (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      ),
+      value: Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
     },
-    { label: "Days", value: Math.floor(remainingTime / (1000 * 60 * 60 * 24)) },
+    {
+      label: "Days",
+      value: Math.floor(remainingTime / (1000 * 60 * 60 * 24)),
+    },
     {
       label: "Minutes",
       value: Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60)),
@@ -67,8 +77,10 @@ useIntervalFn(updateCountdown, 1000);
 onMounted(() => {
   updateCountdown();
 });
-
-onUnmounted(() => {
-  clearInterval(countdownInterval);
-});
 </script>
+
+<style scoped>
+.word {
+  color: red;
+} 
+</style>

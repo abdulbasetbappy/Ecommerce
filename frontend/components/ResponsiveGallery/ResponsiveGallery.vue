@@ -14,7 +14,7 @@
           :class="[
             'w-full h-full rounded-md',
             index === 0
-              ? 'object-bottom'
+              ? 'object-contain'
               : index === 1
               ? 'object-contain'
               : 'object-scale-down',
@@ -43,7 +43,7 @@ const products = [
   {
     name: "PlayStation 5",
     description: "Black and White version of the PS5 coming out on sale.",
-    image: "/images/play.png",
+    image: "/images/playstation.png",
     buttonText: "Shop Now",
     span: "col-span-1 row-span-2 md:col-span-2 lg:row-span-2",
   },

@@ -1,7 +1,3 @@
-<template>
-  <TieredMenu :model="items" />
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -49,8 +45,11 @@ const items = ref([
   {
     label: "Health & Beauty",
   },
-  
-  
- 
 ]);
 </script>
+
+<template>
+  <TieredMenu :model="items" />
+</template>
+
+<style scoped></style>
