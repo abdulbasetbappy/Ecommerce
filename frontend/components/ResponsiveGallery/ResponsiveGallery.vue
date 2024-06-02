@@ -13,8 +13,12 @@
           :alt="product.name"
           :class="[
             'w-full',
-            index === 0 || index === 1 ? 'h-full' : 'h-72',
-            index === 0 || index === 1 ? 'object-cover' : 'object-scale-down',
+            index === 0 ? 'h-full ' : 'md:h-[300px]',
+            index === 0
+              ? 'bg-cover'
+              : index === 1
+              ? 'object-fill'
+              : 'object-scale-down',
           ]"
         />
 
