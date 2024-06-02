@@ -1,10 +1,14 @@
 <template>
-  <div class="relative">
+  <NuxtLink to="/productDetails">
+    <div class="relative">
     <div
       class="relative flex items-center justify-center p-12 bg-gray-100 cursor-pointer group"
     >
-     <!-- Discount Badge -->
-     <div v-if="product.discount" class="absolute px-2 py-1 text-xs font-bold rounded-md text-light bg-primary top-2 left-2">
+      <!-- Discount Badge -->
+      <div
+        v-if="product.discount"
+        class="absolute px-2 py-1 text-xs font-bold rounded-md text-light bg-primary top-2 left-2"
+      >
         {{ product.discount }}
       </div>
       <div>
@@ -39,24 +43,19 @@
         <div class="line-through text-secondary">{{ product.prevPrice }}</div>
       </div>
       <div class="flex items-center mt-2">
-        <Rating
-          :model-value="product.rating"
-          readonly
-          :cancel="false"
-          class="rating"
-        />
+        <Rating :rating="product.rating" />
         <span class="ml-2 text-sm text-gray-500"
           >({{ product.ratingCount }})</span
         >
       </div>
     </div>
   </div>
+  </NuxtLink>
 </template>
 
 <script setup>
 import { Icon } from "@iconify/vue";
-import Rating from "primevue/rating";
-
+import Rating from "~/composables/reuseable/Rating/Rating.vue";
 
 const props = defineProps({
   product: {
@@ -66,16 +65,8 @@ const props = defineProps({
 });
 </script>
 
-<style >
-.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
-  color: #f59e0b !important;
-}
-
-.p-rating .p-rating-item.p-rating-item-active .p-rating-icon fill {
-  color: #413f3b !important;
-}
-
-.word{
+<style>
+.word {
   color: red;
 }
 </style>
