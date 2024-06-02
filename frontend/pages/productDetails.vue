@@ -92,7 +92,7 @@ const colorClass = (color) => {
           <img class="w-full" :src="setImage" alt="Product Image" />
         </div>
         <div class="mt-8">
-          <div class="flex space-x-3">
+          <div class="flex">
             <!-- Loop through images to display thumbnails -->
             <img
               class="cursor-pointer w-[10.5rem] mx-auto"

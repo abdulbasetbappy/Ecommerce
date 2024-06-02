@@ -235,8 +235,9 @@ const products = ref([
 
 <template>
   <NuxtLayout :name="home">
-    <div class="container min-h-screen px-4 py-12 mx-auto">
-      <CategorySlider />
+     
+    <div class="container min-h-screen px-4 pb-12 mx-auto">
+     <CategorySlider/>
       <TodaysCarousel :items="products" />
       <CategoriesCarousel :items="categories" />
       <div>
