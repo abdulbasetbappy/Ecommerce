@@ -1,14 +1,20 @@
 <template>
-  <div class="grid bg-gray-100 lg:cols-12 md:h-screen lg:gap-12 md:py-14 md:grid-cols-12">
-    <!-- Image -->
-    <div class="w-full lg:col-span-7 md:col-span-6">
-      <img src="/images/signup.jpg" alt="Sign Up Image" class="w-full lg:h-2/3 " />
+  <NuxtLayout name="home">
+    <div class="grid w-full grid-cols-12 gap-5 py-10">
+      <!-- Image -->
+      <div class="col-span-12 lg:col-span-7 xl:col-span-6">
+        <img
+          src="~\images\signup.png"
+          alt="Sign Up Image"
+          class="w-full h-full "
+        />
+      </div>
+      <!-- Form -->
+      <div class="col-span-12 pl-0 lg:col-span-5 lg:content-center xl:pl-20 xl:col-span-6">
+        <SignUpForm />
+      </div> 
     </div>
-    <!-- Form -->
-    <div class="p-4 xl:mt-[120px] lg:col-span-5 md:col-span-6">
-      <SignUpForm />
-    </div>
-  </div>
+  </NuxtLayout>
 </template>
 
 <script setup>

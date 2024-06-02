@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
     useHead({
         // as a string,
         // where `%s` is replaced with the title

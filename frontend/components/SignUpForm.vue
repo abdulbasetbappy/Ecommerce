@@ -1,46 +1,57 @@
 <template>
-  <div class="flex p-4 rounded-md md:w-auto lg:h-screen">
-    <div class="">
+  <div class="w-full p-4 rounded-md">
+    <div class="text-center lg:text-left">
       <h2 class="mb-4 text-3xl font-bold">Create an account</h2>
-      <p class="mt-6 text-base font-medium text-black">
+      <p class="mt-6 text-base font-medium text-dark">
         Enter your details below
       </p>
-      <form @submit.prevent="handleSubmit" class="mt-12">
-        <InputField id="name" label="Name" placeholder="Name" v-model="name" />
+      <form @submit.prevent="handleSubmit" class="pt-6 text-center lg:text-left">
+        <InputField
+          id="name"
+          placeholder="Name"
+          v-model="name"
+          dynamicClass="w-full xl:w-1/2 lg:w-full md:w-3/4 mt-4 border-b border-gray-300 p-4 bg-transparent focus:outline-none"
+        />
         <InputField
           id="email"
           type="email"
-          label="Email or Phone Number"
           placeholder="Email or Phone Number"
           v-model="email"
+          dynamicClass="w-full xl:w-1/2 lg:w-full md:w-3/4 border-b border-gray-300 p-4 bg-transparent focus:outline-none"
         />
         <InputField
           id="password"
           type="password"
-          label="Password"
           placeholder="Password"
           v-model="password"
+          dynamicClass="w-full xl:w-1/2 lg:w-full md:w-3/4 border-b border-gray-300 p-4 bg-transparent focus:outline-none"
         />
         <button
           type="submit"
-          class="w-full py-4 mb-4 text-white bg-red-500 rounded-md hover:bg-red-600"
+          class="w-full py-4 mb-4 text-white rounded-md xl:w-1/2 lg:w-full md:w-3/4 bg-primary hover:bg-danger"
         >
           Create Account
         </button>
-        <button
-          type="button"
-          class="w-full py-4 mb-4 border border-gray-300 rounded-md hover:bg-gray-100"
-          @click="signUpWithGoogle"
-        >
-          <Icon name="logos:google-icon" class="w-5 h-5 mr-4" />
-          Sign up with Google
-        </button>
-        <p class="text-center">
-          Already have an account?
-          <router-link to="/login" class="text-black underline hover:underline"
-            >Log in</router-link
+        <div class="flex flex-col items-center lg:items-start">
+          <button
+            type="button"
+            class="w-full py-4 mb-4 border border-gray-300 rounded-md xl:w-1/2 lg:w-full md:w-3/4 hover:bg-gray-100"
+            @click="signUpWithGoogle"
           >
-        </p>
+            <Icon name="logos:google-icon" class="w-5 h-5 mr-4" />
+            Sign up with Google
+          </button>
+          <div class="">
+            <p class="w-full">
+              Already have an account?
+              <router-link
+                to="/login"
+                class="text-black underline hover:underline"
+                >Log in</router-link
+              >
+            </p>
+          </div>
+        </div>
       </form>
     </div>
   </div>
