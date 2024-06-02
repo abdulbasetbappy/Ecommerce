@@ -119,6 +119,7 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 definePageMeta({
   layout: "home",
 });
@@ -127,7 +128,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { ref } from "vue";
+
 import Features from "~/components/Features/Features.vue";
 import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 

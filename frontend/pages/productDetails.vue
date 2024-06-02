@@ -1,35 +1,9 @@
 <script setup>
-import { ref } from "vue";
+
 import Rating from "~/composables/reuseable/Rating/Rating.vue";
 import ProductRating from "~/composables/reuseable/Rating/ProductRating.vue";
 
-// current image
-const setImage = ref("images/Group1000005941.png");
 
-// Define array of images
-const images = [
-  {
-    thumb: "images/Group1000005941.png",
-    full: "images/Group1000005941.png",
-  },
-  {
-    thumb: "images/Group1000005942.png",
-    full: "images/Group1000005942.png",
-  },
-  {
-    thumb: "images/Group1000005943.png",
-    full: "images/Group1000005943.png",
-  },
-  {
-    thumb: "images/Group1000005944.png",
-    full: "images/Group1000005944.png",
-  },
-];
-
-// Function to set full image when thumbnail is clicked
-function showFullImage(image) {
-  setImage.value = image.full;
-}
 
 // product details
 const product = ref({
@@ -86,24 +60,9 @@ const colorClass = (color) => {
 </script>
 <template>
   <div class="lg:px-36 md:px-10 px-3 mt-20">
-    <div class="grid grid-cols-12 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       <div class="col-span-12 lg:col-span-7">
-        <div class="main-img">
-          <img class="w-full" :src="setImage" alt="Product Image" />
-        </div>
-        <div class="mt-8">
-          <div class="flex">
-            <!-- Loop through images to display thumbnails -->
-            <img
-              class="cursor-pointer w-[10.5rem] mx-auto"
-              v-for="img in images"
-              :src="img.thumb"
-              :key="img.thumb"
-              @click="showFullImage(img)"
-              alt="Thumbnail"
-            />
-          </div>
-        </div>
+       <ProductImg/>
       </div>
       <div class="col-span-12 lg:col-span-5">
         <div class="bg-white mx-auto">
@@ -196,7 +155,7 @@ const colorClass = (color) => {
                 </svg>
               </button>
             </div>
-            <button class="px-4 bg-[#0C7649] text-white py-2 rounded w-56">
+            <button class="px-4 bg-[#0C7649] text-white py-2 rounded w-72">
               {{ product.actions.addToCart }}
             </button>
             <button
@@ -264,7 +223,6 @@ const colorClass = (color) => {
     </div>
     <!-- rating -->
     <ProductRating />
-
     <!-- product description -->
     <ProductDetailsTab />
   </div>
