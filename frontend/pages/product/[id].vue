@@ -64,8 +64,8 @@ const colorClass = (color) => {
 </script>
 <template>
   <NuxtLayout name="home">
-    <div class="lg:px-36 md:px-10 px-3 ">
-      <div class="md:my-20">
+    <div class="lg:px-36 md:px-10 px-3 w-full">
+      <div class="md:my-4">
         <Breadcrumb :crumbs="crumbs" />
       </div>
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
