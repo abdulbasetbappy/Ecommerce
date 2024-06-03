@@ -1,6 +1,7 @@
 <script setup>
 import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
+import Rating from "~/composables/reuseable/Rating/Rating.vue";
 
 const oldData = ref(null);
 onBeforeMount(async () => {
@@ -24,11 +25,17 @@ const customTabStyle = ref({
     class: "text-black",
   },
 });
+
+// comment
+const comment = `প্রিমিয়াম কোয়ালিটি টি-শার্ট: তৈরিকৃত এবং সংহততার জন্য উচ্চ
+কাঁচামালের ব্যবহার করে নির্মিত ক্লাসিক ডিজাইন। সাধারণত খুবই ভাল খাবে
+সতর্কতা বিভিন্ন অনুষ্ঠান, সান্ধ্য বেড়াতে প্রিয় টি-শার্ট।...`;
 </script>
 
 <template>
-  <div>
-    <TabView class="producttab mt-16">
+  <div class="product-details-tab">
+    <TabView class="mt-16">
+      <!-- Product Details -->
       <TabPanel header="Product Details" :pt="customTabStyle">
         <template v-if="oldData">
           <div
@@ -58,11 +65,12 @@ const customTabStyle = ref({
               </h6>
             </template>
             <p
+              class=""
               v-else-if="block.type === 'paragraph'"
               v-html="block.data.text"
             ></p>
             <ol
-              class="mb-3 list-decimal pl-6"
+              class="mb-3 list-decimal ps-6"
               v-else-if="
                 block.type === 'list' && block.data.style === 'ordered'
               "
@@ -76,7 +84,7 @@ const customTabStyle = ref({
               </li>
             </ol>
             <ul
-              class="mb-3 list-disc pl-6"
+              class="mb-3 list-disc ps-6"
               v-else-if="
                 block.type === 'list' && block.data.style === 'unordered'
               "
@@ -90,7 +98,7 @@ const customTabStyle = ref({
               </li>
             </ul>
             <table
-              class="mb-3 list-disc pl-6 table w-full table-auto border-collapse border border-slate-400"
+              class="mb-3 list-disc ps-6 table w-full table-auto border-collapse border border-slate-400"
               v-else-if="block.type === 'table'"
             >
               <tr
@@ -108,6 +116,7 @@ const customTabStyle = ref({
               </tr>
             </table>
             <iframe
+              class="w-full md:w-3/4 lg:w-1/2"
               v-else-if="block.type === 'Embed'"
               :src="block.data.embed"
               :width="block.data.width"
@@ -132,25 +141,23 @@ const customTabStyle = ref({
             <div class="ml-4">
               <h4 class="font-bold">Customer 1</h4>
               <div class="flex">
-                <span v-for="i in 5" :key="i" class="text-yellow-500"
-                  >&#9733;</span
-                >
+                <Rating :rating="4" />
               </div>
+         
             </div>
           </div>
-          <p class="mt-4 text-gray-700">
-            প্রিমিয়াম কোয়ালিটি টি-শার্ট: তৈরিকৃত এবং সংহততার জন্য উচ্চ
-            কাঁচামালের ব্যবহার করে নির্মিত ক্লাসিক ডিজাইন। সাধারণত খুবই ভাল খাবে
-            সতর্কতা বিভিন্ন অনুষ্ঠান, সান্ধ্য বেড়াতে প্রিয় টি-শার্ট।...
+          <p class="mt-4 text-gray-700">{{ comment }}
             <NuxtLink class="cursor-pointer">See More</NuxtLink>
           </p>
         </div>
       </TabPanel>
       <!-- QA -->
       <TabPanel header="QA" :pt="customTabStyle">
-        <div>
-          <h2 class="text-lg font-semibold bg-gray-300 py-2 ps-4">Premium Polo T-Shirt</h2>
-          <ul class="list-disc ps-12 py-4 space-y-2 bg-gray-100 ">
+        <div class="ms-6">
+          <h2 class="text-lg font-semibold bg-gray-300 py-2 ps-4">
+            Premium Polo T-Shirt
+          </h2>
+          <ul class="list-disc ps-12 py-4 space-y-2 bg-gray-100">
             <li>
               <span class="font-semibold">প্রিমিয়াম পোলো টি-শার্ট:</span>
               দৈর্ঘ্যপ্রীতি এবং সহজতা জন্য উচ্চ গুণমানের উপাদান ব্যবহার করে
@@ -169,7 +176,7 @@ const customTabStyle = ref({
 </template>
 
 <style>
-.producttab {
-  background-color: aqua !important;
+.product-details-tab .p-tabview .p-tabview-ink-bar{
+  background-color: #DB4444;
 }
 </style>

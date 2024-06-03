@@ -11,8 +11,8 @@ const ratings = ref([144, 48, 21, 12, 25]);
     <div class="mt-16 ps-6 py-2 bg-[#EFEDED]">
       <p>Ratings & Reviews</p>
     </div>
-    <div class="grid grid-cols-12 mt-4">
-      <div class="col-span-3">
+    <div class="grid grid-cols-12 mt-4 gap-6">
+      <div class="col-span-12 md:col-span-3 md:border-e ps-6">
         <div class="flex items-center">
           <div class="text-4xl font-bold">4.1</div>
           <div
@@ -38,7 +38,7 @@ const ratings = ref([144, 48, 21, 12, 25]);
           <p class="mt-2">{{ totalRatings }} Ratings</p>
         </div>
       </div>
-      <div class="col-span-4">
+      <div class="col-span-12 md:col-span-6 lg:col-span-4 mt-3 md:mt-0">
         <div
           v-for="(count, index) in ratings"
           :key="index"

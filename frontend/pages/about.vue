@@ -1,3 +1,110 @@
+
+<script setup>
+import { ref } from "vue";
+definePageMeta({
+  layout: "home",
+});
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+import "swiper/swiper-bundle.css";
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+import Features from "~/components/Features/Features.vue";
+import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
+
+const modules = [Pagination];
+const aboutUs = ref(
+  "images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png"
+);
+
+const crumbs = [{ name: "Home", link: "/" }, { name: " About" }];
+
+
+// counter data
+const counterItem = [
+  {
+    src: "images/icon_shop.png",
+    counter: 10.5,
+    title: "Sallers active our site",
+    iconName: "circum:shop",
+  },
+  {
+    src: "images/icon_shop.png",
+    counter: 33,
+    title: "Mopnthly Produduct Sale",
+    iconName: "mage:dollar",
+  },
+  {
+    src: "images/Vector.png",
+    counter: 45.5,
+    title: "Customer active in our site",
+    iconName: "fluent:shopping-bag-20-regular",
+  },
+  {
+    src: "images/Group.png",
+    counter: 25,
+    title: "Anual gross sale in our site",
+    iconName: "healthicons:money-bag-outline",
+  },
+];
+
+// teammember data
+const teamMembers = ref([
+  {
+    name: "Tom Cruise",
+    position: "Founder & Chairman",
+    image: "images/image-46.png",
+    // twitter: "https://twitter.com/tomcruise",
+    // instagram: "https://instagram.com/tomcruise",
+    // linkedin: "https://linkedin.com/in/tomcruise",
+  },
+  {
+    name: "Emma Watson",
+    position: "Managing Director",
+    image: "images/image-51.png",
+    // twitter: "https://twitter.com/emmawatson",
+    // instagram: "https://instagram.com/emmawatson",
+    // linkedin: "https://linkedin.com/in/emmawatson",
+  },
+  {
+    name: "Will Smith",
+    position: "Product Designer",
+    image: "images/image-47.png",
+    // twitter: "https://twitter.com/willsmith",
+    // instagram: "https://instagram.com/willsmith",
+    // linkedin: "https://linkedin.com/in/willsmith",
+  },
+  {
+    name: "Will Smith",
+    position: "Product Designer",
+    image: "images/image-46.png",
+    // twitter: "https://twitter.com/willsmith",
+    // instagram: "https://instagram.com/willsmith",
+    // linkedin: "https://linkedin.com/in/willsmith",
+  },
+]);
+
+// suport data
+const supports = [
+  {
+    iconName: "carbon:delivery",
+    title: "FREE AND FAST DELIVERY",
+    subTitle: "Free delivery for all orders over $140",
+  },
+  {
+    iconName: "streamline:customer-support-1",
+    title: "24/7 CUSTOMER SERVICE",
+    subTitle: "Friendly 24/7 customer support",
+  },
+  {
+    iconName: "gala:secure",
+    title: "MONEY BACK GUARANTEE",
+    subTitle: "We reurn money within 30 days",
+  },
+];
+</script>
+
 <template>
   <NuxtLayout name="home">
     
@@ -118,111 +225,6 @@
   </NuxtLayout>
 </template>
 
-<script setup>
-import { ref } from "vue";
-definePageMeta({
-  layout: "home",
-});
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
-import "swiper/swiper-bundle.css";
-import { Swiper, SwiperSlide } from "swiper/vue";
-
-import Features from "~/components/Features/Features.vue";
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
-
-const modules = [Pagination];
-const aboutUs = ref(
-  "images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png"
-);
-
-const crumbs = [{ name: "Home", link: "/" }, { name: " About" }];
-
-
-// counter data
-const counterItem = [
-  {
-    src: "images/icon_shop.png",
-    counter: 10.5,
-    title: "Sallers active our site",
-    iconName: "circum:shop",
-  },
-  {
-    src: "images/icon_shop.png",
-    counter: 33,
-    title: "Mopnthly Produduct Sale",
-    iconName: "mage:dollar",
-  },
-  {
-    src: "images/Vector.png",
-    counter: 45.5,
-    title: "Customer active in our site",
-    iconName: "fluent:shopping-bag-20-regular",
-  },
-  {
-    src: "images/Group.png",
-    counter: 25,
-    title: "Anual gross sale in our site",
-    iconName: "healthicons:money-bag-outline",
-  },
-];
-
-// teammember data
-const teamMembers = ref([
-  {
-    name: "Tom Cruise",
-    position: "Founder & Chairman",
-    image: "images/image-46.png",
-    // twitter: "https://twitter.com/tomcruise",
-    // instagram: "https://instagram.com/tomcruise",
-    // linkedin: "https://linkedin.com/in/tomcruise",
-  },
-  {
-    name: "Emma Watson",
-    position: "Managing Director",
-    image: "images/image-51.png",
-    // twitter: "https://twitter.com/emmawatson",
-    // instagram: "https://instagram.com/emmawatson",
-    // linkedin: "https://linkedin.com/in/emmawatson",
-  },
-  {
-    name: "Will Smith",
-    position: "Product Designer",
-    image: "images/image-47.png",
-    // twitter: "https://twitter.com/willsmith",
-    // instagram: "https://instagram.com/willsmith",
-    // linkedin: "https://linkedin.com/in/willsmith",
-  },
-  {
-    name: "Will Smith",
-    position: "Product Designer",
-    image: "images/image-46.png",
-    // twitter: "https://twitter.com/willsmith",
-    // instagram: "https://instagram.com/willsmith",
-    // linkedin: "https://linkedin.com/in/willsmith",
-  },
-]);
-
-// suport data
-const supports = [
-  {
-    iconName: "carbon:delivery",
-    title: "FREE AND FAST DELIVERY",
-    subTitle: "Free delivery for all orders over $140",
-  },
-  {
-    iconName: "streamline:customer-support-1",
-    title: "24/7 CUSTOMER SERVICE",
-    subTitle: "Friendly 24/7 customer support",
-  },
-  {
-    iconName: "gala:secure",
-    title: "MONEY BACK GUARANTEE",
-    subTitle: "We reurn money within 30 days",
-  },
-];
-</script>
 
 <style>
 .swiper-pagination {
