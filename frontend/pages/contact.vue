@@ -1,3 +1,10 @@
+<script setup>
+import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
+import InputField from "~/composables/reuseable/InputField/InputField.vue";
+import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
+const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
+</script>
+
 <template>
   <!-- about us banner -->
   <div class="lg:px-36 md:px-10 px-3">
@@ -85,9 +92,4 @@
   </div>
 </template>
 
-<script setup>
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
-import InputField from "~/composables/reuseable/InputField/InputField.vue";
-import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
-const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
-</script>
+

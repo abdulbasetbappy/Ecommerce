@@ -2,9 +2,10 @@
 import { ref } from "vue";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/vue";
+
 // current image
 const setImage = ref("../images/Group1000005941.png");
 
@@ -51,12 +52,15 @@ function showFullImage(image) {
       <img class="w-full" :src="setImage" alt="Product Image" />
     </div>
     <div class="mt-4">
-      
       <swiper
         :slides-per-view="3"
         space-between="30"
         :pagination="{
           clickable: true,
+        }"
+        :autoplay="{
+          delay: 2500,
+          disableOnInteraction: false,
         }"
         :breakpoints="{
           '300': {
@@ -72,7 +76,7 @@ function showFullImage(image) {
             spaceBetween: 20,
           },
         }"
-        :modules="modules"
+        :modules="[ Autoplay]"
         class="mySwiper"
       >
         <swiper-slide v-for="(img, index) in images" :key="index">

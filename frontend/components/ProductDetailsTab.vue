@@ -2,6 +2,7 @@
 import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
 import Rating from "~/composables/reuseable/Rating/Rating.vue";
+import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
 
 const oldData = ref(null);
 onBeforeMount(async () => {
@@ -135,7 +136,27 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
       </TabPanel>
       <!-- comment -->
       <TabPanel header="Comments (9+)" :pt="customTabStyle">
-        <div class="mt-4">
+        <!-- message -->
+        <div class="ps-6 pt-8">
+          <Rating :rating="4" :height="32" :width="32" />
+          <TextArea
+            class="md:mt-4"
+            rows="5"
+            id="phone"
+            placeholder="Your Message"
+            v-model="Message"
+          />
+          <div class="text-end md:mt-4">
+            <button
+              type="button"
+              class="focus:outline-none text-white bg-primary hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+            >
+              Send Message
+            </button>
+          </div>
+        </div>
+        <!-- comment list -->
+        <div class="mt-4 ps-6">
           <div class="flex items-center">
             <div class="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0"></div>
             <div class="ml-4">
@@ -143,10 +164,10 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
               <div class="flex">
                 <Rating :rating="4" />
               </div>
-         
             </div>
           </div>
-          <p class="mt-4 text-gray-700">{{ comment }}
+          <p class="mt-4 text-gray-700">
+            {{ comment }}
             <NuxtLink class="cursor-pointer">See More</NuxtLink>
           </p>
         </div>
@@ -176,7 +197,7 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
 </template>
 
 <style>
-.product-details-tab .p-tabview .p-tabview-ink-bar{
-  background-color: #DB4444;
+.product-details-tab .p-tabview .p-tabview-ink-bar {
+  background-color: #db4444;
 }
 </style>
