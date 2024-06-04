@@ -1,6 +1,5 @@
 <template>
-  <NuxtLink to="/productDetails">
-    <div class="relative">
+  <div class="relative">
     <div
       class="relative flex items-center justify-center p-12 bg-gray-100 cursor-pointer group"
     >
@@ -20,8 +19,11 @@
       </div>
 
       <div class="absolute flex flex-col space-y-2 right-4 top-2">
-        <button class="p-2 text-black bg-white rounded-full">
-          <Icon icon="mdi:heart-outline" class="text-xl" />
+        <button class="p-2 text-black bg-white rounded-full" @click="addToWishlist">
+          <Icon
+            :icon="whishList ? 'mdi:heart' : 'mdi:heart-outline'"
+            :class="['text-xl', { 'text-primary': whishList }]"
+          />
         </button>
         <button class="p-2 text-black bg-white rounded-full">
           <Icon icon="mdi:eye-outline" class="text-xl" />
@@ -50,12 +52,13 @@
       </div>
     </div>
   </div>
-  </NuxtLink>
 </template>
 
 <script setup>
 import { Icon } from "@iconify/vue";
 import Rating from "~/composables/reuseable/Rating/Rating.vue";
+
+const whishList = ref(false);
 
 const props = defineProps({
   product: {
@@ -63,6 +66,9 @@ const props = defineProps({
     required: true,
   },
 });
+const addToWishlist = () => {
+  whishList.value = !whishList.value;
+};
 </script>
 
 <style>
