@@ -3,6 +3,7 @@ import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
 import Rating from "~/composables/reuseable/Rating/Rating.vue";
 import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
+import TitleWithSubTitle from "~/composables/reuseable/TitleWithSubTitle/TitleWithSubTitle.vue";
 
 const oldData = ref(null);
 onBeforeMount(async () => {
@@ -137,7 +138,7 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
       <!-- comment -->
       <TabPanel header="Comments (9+)" :pt="customTabStyle">
         <!-- message -->
-        <div class="ps-6 pt-8">
+        <div class="px-6 pt-8">
           <Rating :rating="4" :height="32" :width="32" />
           <TextArea
             class="md:mt-4"
@@ -155,6 +156,10 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
             </button>
           </div>
         </div>
+        <div class="mt-8 md:mt-14 ps-6">
+          <TitleWithSubTitle title="Comments" />
+        <hr class="relative top-[-40px] ms-36">
+        </div>
         <!-- comment list -->
         <div class="mt-4 ps-6">
           <div class="flex items-center">
@@ -164,13 +169,27 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
               <div class="flex">
                 <Rating :rating="4" />
               </div>
+              <p class="mt-4 text-gray-700">
+                {{ comment }}
+                <NuxtLink class="cursor-pointer">See More</NuxtLink>
+              </p>
             </div>
           </div>
-          <p class="mt-4 text-gray-700">
-            {{ comment }}
-            <NuxtLink class="cursor-pointer">See More</NuxtLink>
-          </p>
-         
+
+          <div class="flex items-center justify-center w-full md:pt-16 pt-8">
+            <div class="relative w-full ms-16">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex justify-center">
+                <div
+                  class="bg-gray-200 w-8 h-8 flex items-center justify-center rounded-full border border-gray-300"
+                >
+                  <span class="text-black">V</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </TabPanel>
       <!-- QA -->
