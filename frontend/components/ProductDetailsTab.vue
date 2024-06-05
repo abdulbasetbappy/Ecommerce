@@ -170,6 +170,7 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
             {{ comment }}
             <NuxtLink class="cursor-pointer">See More</NuxtLink>
           </p>
+         
         </div>
       </TabPanel>
       <!-- QA -->
