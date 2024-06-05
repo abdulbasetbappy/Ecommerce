@@ -272,7 +272,7 @@ const items = ref([
 </script>
 <template>
   <NuxtLayout name="home">
-    <div class="lg:px-36 md:px-10 px-3 w-full">
+    <div class="xl:px-36 px-4 w-full">
       <div>
         <Breadcrumb :crumbs="crumbs" />
       </div>

@@ -1,6 +1,6 @@
 <script setup>
 import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
-import InputField from "~/composables/reuseable/InputField/InputField.vue";
+import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
 const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
 </script>
@@ -8,7 +8,7 @@ const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
 <template>
   <!-- about us banner -->
   <NuxtLayout name="home">
-    <div class="lg:px-36 md:px-10 px-3 mb-20">
+    <div class="xl:px-36 px-4 mb-20 w-full">
       <div class="text-left py-4">
         <Breadcrumb :crumbs="crumbs" />
       </div>
@@ -49,22 +49,22 @@ const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
         </div>
         <div class="md:col-span-8 col-span-12">
           <div class="shadow p-6 rounded">
-            <div class="grid md:grid-cols-3 grid-cols-1 gap-2 md:mt-2">
-              <InputField
+            <div class="grid md:grid-cols-3 grid-cols-1 gap-2">
+              <ContactInputField
                 type="text"
                 id="name"
                 placeholder="Your Name *"
                 v-model="name"
                 :dynamicClass="true"
               />
-              <InputField
+              <ContactInputField
                 type="email"
                 id="email"
                 placeholder="Your Email *"
                 v-model="email"
                 :dynamicClass="true"
               />
-              <InputField
+              <ContactInputField
                 type=""
                 id="phone"
                 placeholder="Your Phone *"
@@ -73,7 +73,7 @@ const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
               />
             </div>
             <TextArea
-              class="md:mt-4"
+              
               rows="7"
               id="phone"
               placeholder="Your Message"

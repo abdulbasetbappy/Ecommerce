@@ -109,7 +109,7 @@ const supports = [
   <NuxtLayout name="home">
     
     <!-- about us banner -->
-    <div class="lg:ps-36 md:ps-10 ps-3 md:pe-0 pe-3">
+    <div class="xl:ps-36 ps-4 md:pe-0 pe-4 w-full">
       <div class="py-8 text-left">
         <Breadcrumb :crumbs="crumbs" />
       </div>
@@ -136,7 +136,7 @@ const supports = [
     </div>
     <!-- about us counter -->
     <div
-      class="grid grid-cols-2 gap-4 px-3 pt-12 md:grid-cols-4 md:px-10 lg:px-36 lg:pt-28 md:pt-20"
+      class="grid grid-cols-2 gap-4 px-4 pt-12 md:grid-cols-4  xl:px-36 lg:pt-28 md:pt-20"
     >
       <div
         class="flex flex-col items-center p-8 space-y-2 duration-300 border border-gray-400 rounded hover:text-white hover:border-primary hover:bg-primary group"
@@ -158,7 +158,7 @@ const supports = [
     </div>
 
     <!-- team slider -->
-    <div class="px-3 pt-12 md:px-10 lg:px-36 lg:pt-28 md:pt-20">
+    <div class="px-4 pt-12 xl:px-36 lg:pt-28 md:pt-20">
       <swiper
         :slides-per-view="3"
         space-between="30"
