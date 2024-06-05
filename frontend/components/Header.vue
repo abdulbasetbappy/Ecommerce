@@ -150,7 +150,7 @@ const icons = [
     name: "mdi:cart-outline",link:"/cart"
   },
   {
-    name: "mdi:account",link:"/cart"
+    name: "mdi:account",link:"/account"
   },
 ];
 </script>
