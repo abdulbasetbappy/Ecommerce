@@ -95,16 +95,16 @@
         <div
           class="col-span-12 p-6 space-y-4 border border-black rounded-md md:col-span-5"
         >
-          <h2 class="mb-4 text-xl">Cart Total</h2>
-          <div class="flex justify-between mb-2 border-b border-black">
+          <h2 class="mb-4 text-xl font-bold">Cart Total</h2>
+          <div class="flex justify-between mb-2 font-bold border-b border-black">
             <span>Subtotal</span>
             <span class="mb-3">{{ formatPrice(cartSubtotal) }}</span>
           </div>
-          <div class="flex justify-between mb-2 border-b border-black">
+          <div class="flex justify-between mb-2 font-bold border-b border-black">
             <span>Shipping</span>
             <span class="mb-3">Free</span>
           </div>
-          <div class="flex justify-between">
+          <div class="flex justify-between font-bold">
             <span>Total</span>
             <span class="mb-3">{{ formatPrice(cartSubtotal) }}</span>
           </div>

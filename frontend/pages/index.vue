@@ -236,11 +236,11 @@ const products = ref([
 <template>
   <NuxtLayout :name="home">
      
-    <div class="container min-h-screen px-4 pb-12 mx-auto">
-     <CategorySlider/>
+    <div class="min-h-screen px-4 pb-12">
+     <CategorySlider class="container mx-auto"/>
       <TodaysCarousel :items="products" />
       <CategoriesCarousel :items="categories" />
-      <div>
+      <div class="container mx-auto">
         <div class="flex items-center justify-between mb-8 text-left">
           <TitleWithSubTitle
             title="This Month"
