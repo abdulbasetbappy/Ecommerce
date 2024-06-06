@@ -31,7 +31,7 @@
     <div class="relative">
       <swiper
         ref="swiperInstance"
-        :slides-per-view="5"
+        :slides-per-view="4"
         :space-between="20"
         :breakpoints="responsiveOptions"
         :navigation="{
