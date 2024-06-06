@@ -3,8 +3,11 @@
     <div
       class="relative flex items-center justify-center p-12 bg-gray-100 cursor-pointer group"
     >
-     <!-- Discount Badge -->
-     <div v-if="product.discount" class="absolute px-2 py-1 text-xs font-bold rounded-md text-light bg-primary top-2 left-2">
+      <!-- Discount Badge -->
+      <div
+        v-if="product.discount"
+        class="absolute px-2 py-1 text-xs font-bold rounded-md text-light bg-primary top-2 left-2"
+      >
         {{ product.discount }}
       </div>
       <div>
@@ -16,8 +19,11 @@
       </div>
 
       <div class="absolute flex flex-col space-y-2 right-4 top-2">
-        <button class="p-2 text-black bg-white rounded-full">
-          <Icon icon="mdi:heart-outline" class="text-xl" />
+        <button class="p-2 text-black bg-white rounded-full" @click="addToWishlist">
+          <Icon
+            :icon="whishList ? 'mdi:heart' : 'mdi:heart-outline'"
+            :class="['text-xl', { 'text-primary': whishList }]"
+          />
         </button>
         <button class="p-2 text-black bg-white rounded-full">
           <Icon icon="mdi:eye-outline" class="text-xl" />
@@ -39,12 +45,7 @@
         <div class="line-through text-secondary">{{ product.prevPrice }}</div>
       </div>
       <div class="flex items-center mt-2">
-        <Rating
-          :model-value="product.rating"
-          readonly
-          :cancel="false"
-          class="rating"
-        />
+        <Rating :rating="product.rating" />
         <span class="ml-2 text-sm text-gray-500"
           >({{ product.ratingCount }})</span
         >
@@ -55,8 +56,9 @@
 
 <script setup>
 import { Icon } from "@iconify/vue";
-import Rating from "primevue/rating";
+import Rating from "~/composables/reuseable/Rating/Rating.vue";
 
+const whishList = ref(false);
 
 const props = defineProps({
   product: {
@@ -64,18 +66,13 @@ const props = defineProps({
     required: true,
   },
 });
+const addToWishlist = () => {
+  whishList.value = !whishList.value;
+};
 </script>
 
-<style >
-.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
-  color: #f59e0b !important;
-}
-
-.p-rating .p-rating-item.p-rating-item-active .p-rating-icon fill {
-  color: #413f3b !important;
-}
-
-.word{
+<style>
+.word {
   color: red;
 }
 </style>

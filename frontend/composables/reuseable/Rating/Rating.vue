@@ -18,7 +18,7 @@ const props = defineProps({
 
 <template>
   <div>
-    <div class="flex">
+    <div class="flex gap-1">
       <!-- Filled Stars -->
       <svg
         xmlns="http://www.w3.org/2000/svg"

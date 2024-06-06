@@ -23,7 +23,7 @@
       </div>
     </div>
     <!-- Main header -->
-    <header class="bg-white shadow-sm">
+    <header class="bg-white border-b">
       <div
         class="container flex items-center justify-between px-4 py-4 mx-auto lg:px-6"
       >
@@ -66,13 +66,14 @@
             </button>
           </div>
           <!-- Icons -->
-          <button
+          <NuxtLink
             v-for="icon in icons"
             :key="icon.name"
+            :to="icon.link"
             class="hidden text-gray-600 lg:block hover:text-black focus:outline-none"
           >
             <Icon :name="icon.name" class="w-6 h-6" />
-          </button>
+          </NuxtLink>
         </div>
       </div>
       <!-- Sidebar menu for mobile and tablet -->
@@ -109,13 +110,14 @@
               </button>
             </div>
             <div class="flex mt-4 space-x-3">
-              <button
+              <NuxtLink
                 v-for="icon in icons"
                 :key="icon.name"
+                :to="icon.link"
                 class="text-black hover:underline focus:outline-none"
               >
                 <Icon :name="icon.name" class="w-6 h-6" />
-              </button>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -142,10 +144,13 @@ const menus = [
 
 const icons = [
   {
-    name: "mdi:heart-outline",
+    name: "mdi:heart-outline",link:"/wishlist"
   },
   {
-    name: "mdi:cart-outline",
+    name: "mdi:cart-outline",link:"/cart"
+  },
+  {
+    name: "mdi:account",link:"/account"
   },
 ];
 </script>

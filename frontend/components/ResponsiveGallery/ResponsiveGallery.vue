@@ -12,22 +12,24 @@
           :src="product.image"
           :alt="product.name"
           :class="[
-            'w-full h-full rounded-md',
+            'w-full',
+            index === 0 ? 'h-full ' : 'md:h-[300px]',
             index === 0
-              ? 'object-contain'
+              ? 'bg-cover'
               : index === 1
-              ? 'object-contain'
+              ? 'object-fill'
               : 'object-scale-down',
           ]"
         />
+
         <div
           class="absolute inset-0 flex flex-col justify-end p-4 bg-opacity-50"
         >
-          <h3 class="text-2xl font-bold text-white">{{ product.name }}</h3>
+          <h3 class="text-2xl font-bold text-light">{{ product.name }}</h3>
           <p class="mt-1 text-gray-300">{{ product.description }}</p>
           <NuxtLink
             to="#"
-            class="py-2 my-2 font-medium text-white underline text-md"
+            class="py-2 my-2 font-medium underline text-light text-md"
             >{{ product.buttonText }}</NuxtLink
           >
         </div>
