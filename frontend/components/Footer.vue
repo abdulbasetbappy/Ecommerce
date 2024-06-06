@@ -9,17 +9,19 @@
         <p class="mt-4 text-lg">Subscribe</p>
         <p class="text-base">Get 10% off your first order</p>
         <form @submit.prevent="handleSubmit" class="relative flex mt-4">
-          <input
-            type="email"
-            placeholder="Enter Your Email"
-            v-model="email"
-            class="bg-transparent w-60 px-4 py-3 border border-[#FAFAFA] rounded-md focus:outline-none"
-          />
-          <button
-            class="absolute text-[#FAFAFA] transform -translate-y-1/2 right-2 top-1/2"
-          >
-            <i class="w-5 h-5 pi pi-send"></i>
-          </button>
+          <div class="relative">
+            <input
+              type="email"
+              placeholder="Enter Your Email"
+              v-model="email"
+              class="bg-transparent w-60 px-4 py-3 border border-[#FAFAFA] rounded-md focus:outline-none"
+            />
+            <button
+              class="absolute text-[#FAFAFA] transform -translate-y-1/2 right-2 top-1/2"
+            >
+              <Icon name="material-symbols:send" class="w-5 h-5" />
+            </button>
+          </div>
         </form>
       </div>
 
