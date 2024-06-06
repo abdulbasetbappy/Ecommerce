@@ -1,10 +1,13 @@
 <template>
   <NuxtLayout name="home">
     <div class="container min-h-screen p-4 mx-auto">
-      <div class="w-full mb-4 lg:mb-0">
+      <div class="py-4 text-left">
+        <Breadcrumb :crumbs="crumbs" />
+      </div>
+      <div class="w-full mb-4 lg:mb-4">
         <div class="overflow-x-auto">
-          <table class="min-w-full bg-white rounded-lg shadow-md">
-            <thead>
+          <table class="min-w-full p-8" style="border-spacing: 0 1rem;">
+            <thead class="border custom-row-gap">
               <tr class="text-sm">
                 <th class="px-6 py-3 text-left">Product</th>
                 <th class="px-6 py-3 text-left">Price</th>
@@ -12,14 +15,14 @@
                 <th class="px-6 py-3 text-left">Subtotal</th>
               </tr>
             </thead>
-            <tbody class="text-sm font-light text-gray-600">
+            <tbody class="text-sm font-light text-gray-600 custom-row-gap">
               <tr
                 v-for="item in cartItems"
                 :key="item.id"
-                class="border-b border-gray-200 hover:bg-gray-100"
+                class="border hover:bg-gray-100"
               >
                 <td
-                  class="relative flex items-center px-6 py-3 text-left whitespace-nowrap"
+                  class="relative flex items-center px-6 py-3 text-left "
                 >
                   <img
                     :src="item.image"
@@ -29,16 +32,16 @@
 
                   <Icon
                     name="material-symbols:close"
-                    class="absolute w-4 h-4 text-white bg-red-500 rounded-full cursor-pointer left-6 top-3 hover:text-red-700 hover:bg-white"
+                    class="absolute w-4 h-4 text-white rounded-full cursor-pointer bg-primary left-9 top-7 hover:text-primary hover:bg-white"
                     @click="removeItem(item.id)"
                   />
 
-                  <div>{{ item.name }}</div>
+                  <div class="font-bold">{{ item.name }}</div>
                 </td>
-                <td class="px-6 py-3 text-left">
+                <td class="px-6 py-3 font-bold text-left">
                   {{ formatPrice(item.price) }}
                 </td>
-                <td class="px-6 py-3 text-left">
+                <td class="px-6 py-3 font-bold text-left">
                   <input
                     type="number"
                     class="w-16 p-2 border rounded"
@@ -46,7 +49,7 @@
                     min="1"
                   />
                 </td>
-                <td class="px-6 py-3 text-left">
+                <td class="px-6 py-3 font-bold text-left">
                   {{ formatPrice(item.price * item.quantity) }}
                 </td>
               </tr>
@@ -56,14 +59,14 @@
 
         <div class="flex items-center justify-between mt-8">
           <Button
-            class="w-48 !text-black bg-transparent border border-dark hover:bg-gray hover:!text-white"
+            class="lg:w-48 !text-black bg-transparent border border-dark hover:bg-gray hover:!text-white"
             @click="updateCart"
           >
             Return To Shop
           </Button>
 
           <Button
-            class="w-48 !text-black bg-transparent border border-dark hover:bg-gray hover:!text-white"
+            class="lg:w-48 !text-black bg-transparent border border-dark hover:bg-gray hover:!text-white"
           >
             Update Cart
           </Button>
@@ -82,7 +85,7 @@
           </div>
           <div>
             <Button
-              class="w-40 p-2 text-white bg-red-500 rounded md:w-auto"
+              class="w-40 p-2 text-white rounded bg-primary md:w-auto"
               @click="applyCoupon"
             >
               Apply Coupon
@@ -90,7 +93,7 @@
           </div>
         </div>
         <div
-          class="col-span-12 p-4 border border-black rounded-md md:col-span-5"
+          class="col-span-12 p-6 space-y-4 border border-black rounded-md md:col-span-5"
         >
           <h2 class="mb-4 text-xl">Cart Total</h2>
           <div class="flex justify-between mb-2 border-b border-black">
@@ -118,9 +121,10 @@
 
 <script setup>
 import { computed, ref } from "vue";
-
+import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 import Button from "~/composables/reuseable/Button/Button.vue";
 import InputField from "~/composables/reuseable/InputField/InputField.vue";
+const crumbs = [{ name: "Home", link: "/" }, { name: " Cart" }];
 
 const cartItems = ref([
   {
@@ -170,11 +174,6 @@ const removeItem = (id) => {
   color: red;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 @media (min-width: 640px) {
   table {
     display: inline-table !important;
@@ -185,11 +184,19 @@ body {
   }
 }
 
-td:not(:last-child) {
-  border-bottom: 0;
+
+
+
+.custom-row-gap tr {
+ 
+  margin-bottom: 1rem; /* Adjust this value as needed */
 }
 
-th:not(:last-child) {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+.custom-row-gap td,.custom-row-gap th {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
+
 </style>
