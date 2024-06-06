@@ -344,9 +344,9 @@ const items = ref([
                   </svg>
                 </button>
                 <input
-                  type="text"
+                  type="number"
                   v-model="quantity"
-                  class="bg-gray-50 border border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5"
+                  class="bg-gray-50 border border-gray-300 h-11 text-center focus:outline-none text-gray-900 text-sm focus:ring-blue-500  block w-full py-2.5"
                   required
                 />
                 <button

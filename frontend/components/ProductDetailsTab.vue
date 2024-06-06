@@ -144,7 +144,7 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
             class="md:mt-4"
             rows="5"
             id="phone"
-            placeholder="Your Message"
+            placeholder="Your Feedback"
             v-model="Message"
           />
           <div class="text-end md:mt-4">
@@ -152,7 +152,7 @@ const comment = `প্রিমিয়াম কোয়ালিটি ট�
               type="button"
               class="focus:outline-none text-white bg-primary hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
             >
-              Send Message
+              Send Feedback
             </button>
           </div>
         </div>
