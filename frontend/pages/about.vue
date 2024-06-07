@@ -113,7 +113,7 @@ const supports = [
       <div class="py-8 text-left">
         <Breadcrumb :crumbs="crumbs" />
       </div>
-      <div class="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div>
           <h3 class="text-3xl font-semibold text-dark">Our Story</h3>
           <p class="pt-8">
@@ -171,11 +171,11 @@ const supports = [
             spaceBetween: 20,
           },
           '768': {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           '1024': {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 20,
           },
         }"
