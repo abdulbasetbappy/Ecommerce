@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Top header -->
-    <div class="px-4 py-2 text-white bg-black lg:px-6">
+    <div class="hidden px-4 py-2 text-white bg-black md:flex lg:px-6">
       <div class="container flex items-center justify-between mx-auto">
         <div class="flex-1 text-center">
           <span class="text-sm">
@@ -44,8 +44,49 @@
           >
         </nav>
         <!-- Icons and Menu button -->
-        <div class="flex items-center space-x-7">
-          <!-- Menu button for smaller screens -->
+        <div class="relative flex items-center justify-center space-x-2">
+          <!-- Search icon and search box for smaller screens -->
+          <div class="lg:hidden">
+            <div>
+              <button class="text-gray-600 hover:text-black focus:outline-none">
+                <Icon
+                  @click="search"
+                  name="material-symbols:search"
+                  class="w-6 h-6"
+                />
+              </button>
+            </div>
+            <div
+              class="absolute inset-0 z-20 flex items-center justify-center top-20 -left-36"
+              v-if="isSearch"
+            >
+              <div class="flex items-center px-4 py-2 space-x-2 bg-white border rounded-md">
+                <input
+                  type="text"
+                  placeholder="What are you looking for?"
+                  class="text-black bg-[#F5F5F5] focus:outline-none"
+                />
+                <button
+                  @click="search"
+                  class="text-gray-600 hover:text-black focus:outline-none"
+                >
+                  <Icon name="material-symbols:close" class="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Icons -->
+          <NuxtLink
+            v-for="icon in icons"
+            :key="icon.name"
+            :to="icon.link"
+            class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
+          >
+            <Icon
+              :name="icon.name"
+              class="flex items-center justify-center w-6 h-6"
+            />
+          </NuxtLink>
           <button
             @click="toggleMenu"
             class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
@@ -83,42 +124,19 @@
             class="flex-1 h-full bg-black opacity-50"
             @click="toggleMenu"
           ></div>
-          <div class="flex flex-col w-64 h-full p-6 space-y-4 bg-white shadow-md shadow-mdw-64">
+          <div
+            class="flex flex-col h-full p-6 space-y-4 bg-white shadow-md opacity-95 w-80"
+          >
             <button
               @click="toggleMenu"
               class="flex items-center mb-6 text-gray-600 hover:text-black focus:outline-none"
             >
               <Icon name="material-symbols:close" class="w-6 h-6" />
             </button>
-            <NuxtLink
-              v-for="menu in menus"
-              :key="menu.text"
-              :to="menu.link"
-              class="font-bold text-black text-md hover:underline"
-              >{{ menu.text }}</NuxtLink
-            >
-            <div class="relative mt-4">
-              <input
-                type="text"
-                placeholder="What are you looking for?"
-                class="w-full px-4 py-2 border border-gray-300 rounded-md placeholder:text-sm placeholder:lg:text-lg focus:outline-none"
-              />
-              <button
-                class="absolute text-gray-600 transform -translate-y-1/2 right-2 top-1/2"
-              >
-                <Icon name="material-symbols:search" class="w-5 h-5" />
-              </button>
-            </div>
-            <div class="flex mt-4 space-x-3">
-              <NuxtLink
-                v-for="icon in icons"
-                :key="icon.name"
-                :to="icon.link"
-                class="text-black hover:underline focus:outline-none"
-              >
-                <Icon :name="icon.name" class="w-6 h-6" />
-              </NuxtLink>
-            </div>
+            <NuxtLink to="/">
+              <span class="text-xl font-bold">Exclusive</span>
+            </NuxtLink>
+            <Category />
           </div>
         </div>
       </transition>
@@ -131,8 +149,12 @@ import { ref } from "vue";
 //import Icon from "nuxtjs/icon";
 
 const isMenuOpen = ref(false);
+const isSearch = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+const search = () => {
+  isSearch.value = !isSearch.value;
 };
 
 const menus = [
@@ -144,13 +166,16 @@ const menus = [
 
 const icons = [
   {
-    name: "mdi:heart-outline",link:"/wishlist"
+    name: "mdi:heart-outline",
+    link: "/wishlist",
   },
   {
-    name: "mdi:cart-outline",link:"/cart"
+    name: "mdi:cart-outline",
+    link: "/cart",
   },
   {
-    name: "mdi:account",link:"/account"
+    name: "mdi:account",
+    link: "",
   },
 ];
 </script>
