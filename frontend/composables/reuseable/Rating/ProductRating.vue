@@ -16,7 +16,7 @@ const ratings = ref([144, 48, 21, 12, 25]);
         <div class="flex items-center">
           <div class="text-4xl font-bold">4.1</div>
           <div
-            class="flex py-1 px-2 text-sm text-white items-center gap-1 bg-[#FF8A00]"
+            class="flex py-1 px-3 text-sm text-white items-center gap-1 bg-[#FF8A00] mt-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@ const ratings = ref([144, 48, 21, 12, 25]);
                 d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
               />
             </svg>
-            <p>Very Good</p>
+            <p class="font-semibold text-base text-dark">Very Good</p>
           </div>
         </div>
         <div>

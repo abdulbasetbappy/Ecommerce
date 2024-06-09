@@ -238,7 +238,7 @@ const products = ref([
      
     <div class="min-h-screen px-4 pb-12">
      <CategorySlider class="container mx-auto"/>
-      <TodaysCarousel :items="products" />
+      <TodaysCarousel :items="products"  />
       <CategoriesCarousel :items="categories" />
       <div class="container mx-auto">
         <div class="flex items-center justify-between mb-8 text-left">
