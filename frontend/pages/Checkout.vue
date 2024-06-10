@@ -1,0 +1,177 @@
+<script setup>
+import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
+import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
+const crumbs = [
+  { name: "Account", link: "/account" },
+  { name: "My Account", link: "/my_account" },
+  { name: "Product", link: "/product" },
+  { name: "View Cart", link: "/view_cart" },
+  { name: " Checkout" },
+];
+</script>
+
+<template>
+  <!-- about us banner -->
+  <NuxtLayout name="home">
+    <div class="xl:px-36 px-4 mb-20 w-full">
+      <div class="text-left py-4">
+        <Breadcrumb :crumbs="crumbs" />
+      </div>
+      <div class="grid md:grid-cols-12 grid-cols-1 gap-16">
+        <div class="md:col-span-6 col-span-12">
+          <ContactInputField
+            type="text"
+            label="Your Name"
+            id="name"
+            v-model="name"
+            :dynamicClass="true"
+            class="mb-4"
+          />
+        
+          <ContactInputField
+            type="text"
+            label="Company Name *"
+            id="name"
+            v-model="name"
+            :dynamicClass="true"
+            class="mb-4"
+          />
+          <ContactInputField
+            type="text"
+            label="Street Address *"
+            id="name"
+            v-model="name"
+            :dynamicClass="true"
+            class="mb-4"
+          />
+          <ContactInputField
+            type="text"
+            label="Apartment, floor, etc. (optional)"
+            id="name"
+            v-model="name"
+            :dynamicClass="true"
+            class="mb-4"
+          />
+          <ContactInputField
+            type="text"
+            label="Town/City*"
+            id="name"
+            v-model="name"
+            :dynamicClass="true"
+            class="mb-4"
+          />
+          <ContactInputField
+            type="number"
+            label="Phone Number*"
+            id="name"
+            v-model="name"
+            :dynamicClass="true"
+            class="mb-4"
+          />
+          <ContactInputField
+            type="email"
+            label="Your Email"
+            id="name"
+            v-model="name"
+            :dynamicClass="true"
+            class="mb-4"
+          />
+          <div class="flex items-center dark:border-gray-700">
+            <input
+              checked
+              id="bordered-checkbox-2"
+              type="checkbox"
+              value=""
+              name="bordered-checkbox"
+              class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label
+              for="bordered-checkbox-2"
+              class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Save this information for faster check-out next time</label
+            >
+          </div>
+        </div>
+        <div class="md:col-span-6 col-span-12">
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between space-x-4">
+              <div class="flex items-center gap-4">
+                <img
+                  src="https://via.placeholder.com/50"
+                  alt="LCD Monitor"
+                  class="w-12 h-12"
+                />
+                <h3 class="text-xl font-medium">LCD Monitor</h3>
+              </div>
+              <div>
+                <p>$650</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between space-x-4">
+              <div class="flex items-center gap-4">
+                <img
+                  src="https://via.placeholder.com/50"
+                  alt="LCD Monitor"
+                  class="w-12 h-12"
+                />
+                <h3 class="text-xl font-medium">LCD Monitor</h3>
+              </div>
+              <div>
+                <p>$650</p>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <div class="flex justify-between border-b-[2px] py-2">
+                <p>Subtotal:</p>
+                <p>$1750</p>
+              </div>
+              <div class="flex justify-between border-b-[2px] py-2">
+                <p>Shipping:</p>
+                <p>Free</p>
+              </div>
+              <div class="flex justify-between font-bold py-2">
+                <p>Total:</p>
+                <p>$1750</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <label class="flex items-center">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="bank"
+                  class="form-radio"
+                />
+                <span class="ml-2">Bank</span>
+              </label>
+              <label class="flex items-center">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="cod"
+                  class="form-radio"
+                  checked
+                />
+                <span class="ml-2">Cash on delivery</span>
+              </label>
+            </div>
+            <div class="flex space-x-2">
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                class="form-input flex-1 border px-4 bg-light focus:outline-none rounded"
+              />
+              <button class="bg-red-500 text-white px-4 py-2 rounded">
+                Apply Coupon
+              </button>
+            </div>
+            <button class="w-full bg-red-500 text-white px-4 py-2 rounded">
+              Place Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </NuxtLayout>
+</template>
