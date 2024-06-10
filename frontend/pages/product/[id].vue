@@ -285,9 +285,7 @@ const items = ref([
             <h2 class="text-xl font-semibold">{{ product.title }}</h2>
             <div class="flex items-center mt-2 mb-3">
               <Rating :rating="product.rating.value" />
-              <span class="text-gray-600 ml-2"
-                >({{ product.rating.reviews }} Reviews)</span
-              >
+              <span class="text-gray-600 ml-2">({{ product.rating.reviews }} Reviews)</span>
               <span class="px-2">|</span>
               <span class="text-green-500">{{ product.availability }}</span>
             </div>
@@ -296,115 +294,59 @@ const items = ref([
             <div class="my-3">
               <div class="flex space-x-2">
                 <span class="block font-semibold mb-1">Colours:</span>
-                <div
-                  v-for="color in product.colors"
-                  :key="color"
-                  :class="colorClass(color)"
-                  class="w-6 h-6 rounded"
-                ></div>
+                <div v-for="color in product.colors" :key="color" :class="colorClass(color)" class="w-6 h-6 rounded">
+                </div>
               </div>
             </div>
             <div class="mb-3">
               <div class="flex space-x-2">
                 <span class="block font-semibold mb-1">Size:</span>
-                <button
-                  v-for="size in product.sizes"
-                  :key="size"
-                  @click="selectSize(size)"
-                  :class="[
-                    'px-3 py-1 border rounded',
-                    { 'bg-gray-200': size === selectedSize },
-                  ]"
-                >
+                <button v-for="size in product.sizes" :key="size" @click="selectSize(size)" :class="[
+                  'px-3 py-1 border rounded',
+                  { 'bg-gray-200': size === selectedSize },
+                ]">
                   {{ size }}
                 </button>
               </div>
             </div>
             <div class="flex gap-4 mb-3">
               <div class="relative flex items-center max-w-[9rem]">
-                <button
-                  type="button"
-                  @click="decrementQuantity"
-                  class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none"
-                >
-                  <svg
-                    class="w-3 h-3 text-gray-900"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 2"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 1h16"
-                    />
+                <button type="button" @click="decrementQuantity"
+                  class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                  <svg class="w-3 h-3 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 18 2">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M1 1h16" />
                   </svg>
                 </button>
-                <input
-                  type="number"
-                  v-model="quantity"
+                <input type="number" v-model="quantity"
                   class="bg-gray-50 border border-gray-300 h-11 text-center focus:outline-none text-gray-900 text-sm focus:ring-blue-500  block w-full py-2.5"
-                  required
-                />
-                <button
-                  type="button"
-                  @click="incrementQuantity"
-                  class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-e p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none"
-                >
-                  <svg
-                    class="w-3 h-3 text-gray-900"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 1v16M1 9h16"
-                    />
+                  required />
+                <button type="button" @click="incrementQuantity"
+                  class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-e p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                  <svg class="w-3 h-3 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 1v16M1 9h16" />
                   </svg>
                 </button>
               </div>
               <button class="px-4 bg-[#0C7649] text-white py-2 rounded w-72">
                 {{ product.actions.addToCart }}
               </button>
-              <button
-                class="border border-gray-300 h-11 text-white py-2 px-3 rounded"
-              >
-                <svg
-                  class="w-6 h-6 text-gray-800"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"
-                  />
+              <button class="border border-gray-300 h-11 text-white py-2 px-3 rounded">
+                <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
                 </svg>
               </button>
             </div>
-            <button
-              class="flex-1 w-full bg-primary text-white py-2 h-11 rounded mb-3"
-            >
+            <button class="flex-1 w-full bg-primary text-white py-2 h-11 rounded mb-3">
               {{ product.actions.buyNow }}
             </button>
             <!-- share to social -->
-            <button
-              class="border border-gray-500 h-11 text-white px-2 py-1 rounded"
-            >
+            <button class="border border-gray-500 h-11 text-white px-2 py-1 rounded">
               <Icon class="h-6 w-6 text-gray-800" name="gg:facebook" />
             </button>
 
@@ -446,13 +388,10 @@ const items = ref([
         <TitleWithSubTitle title="Related Item" />
       </div>
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 mb-12">
-        <ProductCard class="mt-8 md:mt-8"
-          v-for="item in items.slice(0, 4)"
-          :key="item.id"
-          :product="item"
-        />
-      </div></div
-  ></NuxtLayout>
+        <ProductCard class="mt-8 md:mt-8" v-for="item in items.slice(0, 4)" :key="item.id" :product="item" />
+      </div>
+    </div>
+  </NuxtLayout>
 </template>
 
 <!-- <style scoped>
