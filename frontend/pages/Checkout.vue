@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 const crumbs = [
@@ -8,6 +9,40 @@ const crumbs = [
   { name: "View Cart", link: "/view_cart" },
   { name: " Checkout" },
 ];
+
+const items = ref([
+  {
+    id: 1,
+    name: "LCD Monitor",
+    image: "https://via.placeholder.com/50",
+    price: "$650",
+  },
+  {
+    id: 2,
+    name: "Keyboard",
+    image: "https://via.placeholder.com/50",
+    price: "$650",
+  },
+]);
+
+const methods = ref([
+  {
+    src: "/images/Bkash.png",
+    alt: "Bkash",
+  },
+  {
+    src: "/images/Nagad.png",
+    alt: "Nagad",
+  },
+  {
+    src: "/images/Mastercard.png",
+    alt: "Mastercard",
+  },
+  {
+    src: "/images/Visa.png",
+    alt: "Visa",
+  },
+]);
 </script>
 
 <template>
@@ -17,6 +52,8 @@ const crumbs = [
       <div class="text-left py-4">
         <Breadcrumb :crumbs="crumbs" />
       </div>
+
+      <!-- delivery info -->
       <div class="grid md:grid-cols-12 grid-cols-1 gap-16">
         <div class="md:col-span-6 col-span-12">
           <ContactInputField
@@ -24,16 +61,14 @@ const crumbs = [
             label="Your Name"
             id="name"
             v-model="name"
-            :dynamicClass="true"
             class="mb-4"
           />
-        
+
           <ContactInputField
             type="text"
             label="Company Name *"
             id="name"
             v-model="name"
-            :dynamicClass="true"
             class="mb-4"
           />
           <ContactInputField
@@ -41,7 +76,6 @@ const crumbs = [
             label="Street Address *"
             id="name"
             v-model="name"
-            :dynamicClass="true"
             class="mb-4"
           />
           <ContactInputField
@@ -49,7 +83,6 @@ const crumbs = [
             label="Apartment, floor, etc. (optional)"
             id="name"
             v-model="name"
-            :dynamicClass="true"
             class="mb-4"
           />
           <ContactInputField
@@ -57,7 +90,6 @@ const crumbs = [
             label="Town/City*"
             id="name"
             v-model="name"
-            :dynamicClass="true"
             class="mb-4"
           />
           <ContactInputField
@@ -65,7 +97,6 @@ const crumbs = [
             label="Phone Number*"
             id="name"
             v-model="name"
-            :dynamicClass="true"
             class="mb-4"
           />
           <ContactInputField
@@ -73,7 +104,6 @@ const crumbs = [
             label="Your Email"
             id="name"
             v-model="name"
-            :dynamicClass="true"
             class="mb-4"
           />
           <div class="flex items-center dark:border-gray-700">
@@ -92,32 +122,21 @@ const crumbs = [
             >
           </div>
         </div>
+
+        <!-- payment info -->
         <div class="md:col-span-6 col-span-12">
           <div class="p-6 space-y-4">
-            <div class="flex items-center justify-between space-x-4">
+            <div
+              v-for="item in items"
+              :key="item.id"
+              class="flex items-center justify-between space-x-4"
+            >
               <div class="flex items-center gap-4">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="LCD Monitor"
-                  class="w-12 h-12"
-                />
-                <h3 class="text-xl font-medium">LCD Monitor</h3>
+                <img :src="item.image" :alt="item.name" class="w-16 h-16" />
+                <h3 class="text-lg font-medium">{{ item.name }}</h3>
               </div>
               <div>
-                <p>$650</p>
-              </div>
-            </div>
-            <div class="flex items-center justify-between space-x-4">
-              <div class="flex items-center gap-4">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="LCD Monitor"
-                  class="w-12 h-12"
-                />
-                <h3 class="text-xl font-medium">LCD Monitor</h3>
-              </div>
-              <div>
-                <p>$650</p>
+                <p>{{ item.price }}</p>
               </div>
             </div>
 
@@ -135,16 +154,28 @@ const crumbs = [
                 <p>$1750</p>
               </div>
             </div>
-            <div class="flex items-center space-x-4">
-              <label class="flex items-center">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="bank"
-                  class="form-radio"
-                />
-                <span class="ml-2">Bank</span>
-              </label>
+            <!-- bank payment -->
+            <div class="flex justify-between">
+              <div>
+                <label class="flex items-center">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="bank"
+                    class="form-radio"
+                  />
+                  <span class="ml-2">Bank</span>
+                </label>
+              </div>
+              <div class="flex gap-4">
+                <p v-for="(method, index) in methods" :key="index" class="curser-pointer ">
+                  <img class="w-auto" :src="method.src" :alt="method.alt" />
+                </p>
+              </div>
+            </div>
+            <!-- cash on delivery -->
+
+            <div>
               <label class="flex items-center">
                 <input
                   type="radio"
