@@ -131,7 +131,7 @@
             v-model:visible="visibleRight"
             header="Your Cart"
             position="right"
-            class="w-96"
+            class=" w-[22rem]"
           >
            <Cart/>
           </Sidebar>

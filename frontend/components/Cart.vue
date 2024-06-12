@@ -44,12 +44,7 @@
           <Icon class="w-6 h-6" name="charm:cross" />
         </button>
       </div>
-      <div class="total-price mt-4">
-        <p>Total: {{ totalPrice.toFixed(2) }}</p>
-        <button @click="placeOrder" class="btn-primary mt-2">
-          Place Order
-        </button>
-      </div>
+     
     </div>
     <div class="order-summary absolute bottom-0 flex justify-center items-center p-4 w-full">
       <button @click="placeOrder" class="bg-yellow-400 text-white w-3/4 ps-4 pe-8 py-2">

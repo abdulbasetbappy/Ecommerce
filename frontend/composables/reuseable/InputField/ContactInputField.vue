@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  value: {
+    type: String,
+    default: "",
+  },
   modelValue: {
     type: [String, Number],
     default: "",

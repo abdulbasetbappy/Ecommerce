@@ -1,13 +1,14 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
+
 const crumbs = [
   { name: "Account", link: "/account" },
   { name: "My Account", link: "/my_account" },
   { name: "Product", link: "/product" },
   { name: "View Cart", link: "/view_cart" },
-  { name: " Checkout" },
+  { name: "Checkout" },
 ];
 
 const items = ref([
@@ -15,13 +16,13 @@ const items = ref([
     id: 1,
     name: "LCD Monitor",
     image: "https://via.placeholder.com/50",
-    price: "$650",
+    price: 650,
   },
   {
     id: 2,
     name: "Keyboard",
     image: "https://via.placeholder.com/50",
-    price: "$650",
+    price: 150,
   },
 ]);
 
@@ -43,6 +44,16 @@ const methods = ref([
     alt: "Visa",
   },
 ]);
+
+const shippingCost = ref(0); // Shipping is free
+
+const subtotal = computed(() => {
+  return items.value.reduce((acc, item) => acc + item.price, 0);
+});
+
+const total = computed(() => {
+  return subtotal.value + shippingCost.value;
+});
 </script>
 
 <template>
@@ -67,60 +78,61 @@ const methods = ref([
           <ContactInputField
             type="text"
             label="Company Name *"
-            id="name"
-            v-model="name"
+            id="company-name"
+            v-model="companyName"
             class="mb-4"
           />
           <ContactInputField
             type="text"
             label="Street Address *"
-            id="name"
-            v-model="name"
+            id="street-address"
+            v-model="streetAddress"
             class="mb-4"
           />
           <ContactInputField
             type="text"
             label="Apartment, floor, etc. (optional)"
-            id="name"
-            v-model="name"
+            id="apartment"
+            v-model="apartment"
             class="mb-4"
           />
           <ContactInputField
             type="text"
             label="Town/City*"
-            id="name"
-            v-model="name"
+            id="town-city"
+            v-model="townCity"
             class="mb-4"
           />
           <ContactInputField
             type="number"
             label="Phone Number*"
-            id="name"
-            v-model="name"
+            id="phone-number"
+            v-model="phoneNumber"
             class="mb-4"
           />
           <ContactInputField
             type="email"
             label="Your Email"
-            id="name"
-            v-model="name"
+            id="email"
+            v-model="email"
             class="mb-4"
           />
-          <div class="flex items-center dark:border-gray-700">
-            <input
-              checked
-              id="bordered-checkbox-2"
-              type="checkbox"
-              value=""
-              name="bordered-checkbox"
-              class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              for="bordered-checkbox-2"
-              class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Save this information for faster check-out next time</label
-            >
-          </div>
+       <div class="flex items-center dark:border-gray-700">
+  <input
+    checked
+    id="bordered-checkbox-2"
+    type="checkbox"
+    value=""
+    name="bordered-checkbox"
+    class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 checked-bg-primary"
+  />
+  <label
+    for="bordered-checkbox-2"
+    class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+  >
+    Save this information for faster check-out next time
+  </label>
+</div>
         </div>
 
         <!-- payment info -->
@@ -136,14 +148,14 @@ const methods = ref([
                 <h3 class="text-lg font-medium">{{ item.name }}</h3>
               </div>
               <div>
-                <p>{{ item.price }}</p>
+                <p>${{ item.price }}</p>
               </div>
             </div>
 
             <div class="pt-4">
               <div class="flex justify-between border-b-[2px] py-2">
                 <p>Subtotal:</p>
-                <p>$1750</p>
+                <p>${{ subtotal }}</p>
               </div>
               <div class="flex justify-between border-b-[2px] py-2">
                 <p>Shipping:</p>
@@ -151,7 +163,7 @@ const methods = ref([
               </div>
               <div class="flex justify-between font-bold py-2">
                 <p>Total:</p>
-                <p>$1750</p>
+                <p>${{ total }}</p>
               </div>
             </div>
             <!-- bank payment -->
@@ -168,7 +180,7 @@ const methods = ref([
                 </label>
               </div>
               <div class="flex gap-4">
-                <p v-for="(method, index) in methods" :key="index" class="curser-pointer ">
+                <p v-for="(method, index) in methods" :key="index" class="curser-pointer">
                   <img class="w-auto" :src="method.src" :alt="method.alt" />
                 </p>
               </div>
@@ -206,3 +218,11 @@ const methods = ref([
     </div>
   </NuxtLayout>
 </template>
+
+<style>
+  .checked-bg-primary:checked {
+    background-color: red !important; /* Replace this with your desired primary color */
+  }
+
+
+</style>
