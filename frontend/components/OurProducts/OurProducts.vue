@@ -1,10 +1,10 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import "swiper/css";
+import "swiper/css/grid";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/grid";
-import { Navigation, Pagination, Autoplay, Grid } from "swiper/modules";
+import { Autoplay, Grid, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { onMounted, ref } from "vue";
 import Button from "~/composables/reuseable/Button/Button.vue";
@@ -65,11 +65,21 @@ const next = () => {
   <div class="container relative mx-auto mt-20">
     <div class="flex items-center justify-between mb-4">
       <TitleWithSubTitle title="Our Products" subtitle="Explore Our Products" />
-      <div class="absolute top-0 right-0 flex items-center justify-center space-x-2">
-        <button ref="prevEl" class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full" @click="prev">
+      <div
+        class="absolute top-0 right-0 flex items-center justify-center space-x-2"
+      >
+        <button
+          ref="prevEl"
+          class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
+          @click="prev"
+        >
           <Icon icon="mdi:chevron-left" class="text-3xl" />
         </button>
-        <button ref="nextEl" class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full" @click="next">
+        <button
+          ref="nextEl"
+          class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
+          @click="next"
+        >
           <Icon icon="mdi:chevron-right" class="text-3xl" />
         </button>
       </div>
@@ -82,7 +92,10 @@ const next = () => {
         :autoplay="{ delay: 3000 }"
         :grid="{ rows: 2, fill: 'row' }"
         :breakpoints="responsiveOptions"
-        :navigation="navigationOptions"
+        :navigation="{
+          prevEl: prevEl,
+          nextEl: nextEl
+        }"
         :modules="[Navigation, Pagination, Autoplay, Grid]"
         class="mySwiper"
       >
@@ -92,12 +105,12 @@ const next = () => {
       </swiper>
     </div>
     <div class="flex items-center justify-center py-8 md:py-14">
-      <Button class="w-48 text-center">View All Products</Button>
+      <NuxtLink to="/productPage">
+        <Button class="w-48 text-center">View All Products</Button>
+      </NuxtLink>
     </div>
   </div>
 </template>
-
-
 
 <style scoped>
 .swiper-pagination {
