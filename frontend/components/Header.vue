@@ -13,8 +13,7 @@
         </div>
         <div class="flex">
           <select
-            class="px-2 py-1 ml-4 text-white bg-transparent border-0 rounded-md hover:text-black hover:bg-gray-100 focus:outline-none"
-          >
+            class="px-2 py-1 ml-4 text-white bg-transparent border-0 rounded-md hover:text-black hover:bg-gray-100 focus:outline-none">
             <option value="en">English</option>
             <option value="fr">Français</option>
             <!-- Add more languages as needed -->
@@ -24,9 +23,7 @@
     </div>
     <!-- Main header -->
     <header class="bg-white border-b">
-      <div
-        class="container flex items-center justify-between px-4 py-4 mx-auto lg:px-6"
-      >
+      <div class="container flex items-center justify-between px-4 py-4 mx-auto lg:px-6">
         <!-- Logo -->
         <div class="flex items-center">
           <NuxtLink to="/">
@@ -35,13 +32,8 @@
         </div>
         <!-- Navigation Links for larger screens -->
         <nav class="hidden space-x-10 lg:flex">
-          <NuxtLink
-            v-for="menu in menus"
-            :key="menu.text"
-            :href="menu.link"
-            class="font-bold text-black text-md hover:underline"
-            >{{ menu.text }}</NuxtLink
-          >
+          <NuxtLink v-for="menu in menus" :key="menu.text" :href="menu.link"
+            class="font-bold text-black text-md hover:underline">{{ menu.text }}</NuxtLink>
         </nav>
         <!-- Icons and Menu button -->
         <div class="relative flex items-center justify-center space-x-2">
@@ -49,91 +41,55 @@
           <div class="lg:hidden">
             <div>
               <button class="text-gray-600 hover:text-black focus:outline-none">
-                <Icon
-                  @click="search"
-                  name="material-symbols:search"
-                  class="w-6 h-6"
-                />
+                <Icon @click="search" name="material-symbols:search" class="w-6 h-6" />
               </button>
             </div>
-            <div
-              class="absolute inset-0 z-20 flex items-center justify-center top-20 -left-36"
-              v-if="isSearch"
-            >
-              <div
-                class="flex items-center px-4 py-2 space-x-2 bg-white border rounded-md"
-              >
-                <input
-                  type="text"
-                  placeholder="What are you looking for?"
-                  class="text-black bg-[#F5F5F5] focus:outline-none"
-                />
-                <button
-                  @click="search"
-                  class="text-gray-600 hover:text-black focus:outline-none"
-                >
+            <div class="absolute inset-0 z-20 flex items-center justify-center top-20 -left-36" v-if="isSearch">
+              <div class="flex items-center px-4 py-2 space-x-2 bg-white border rounded-md">
+                <input type="text" placeholder="What are you looking for?"
+                  class="text-black bg-[#F5F5F5] focus:outline-none" />
+                <button @click="search" class="text-gray-600 hover:text-black focus:outline-none">
                   <Icon name="material-symbols:close" class="w-6 h-6" />
                 </button>
               </div>
             </div>
           </div>
           <!-- Icons -->
-          <NuxtLink
-            v-for="icon in icons"
-            :key="icon.name"
-            :to="icon.link"
-            class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
-          >
-            <Icon
-              :name="icon.name"
-              class="flex items-center justify-center w-6 h-6"
-            />
+          <NuxtLink v-for="icon in icons" :key="icon.name" :to="icon.link"
+            class="text-gray-600 lg:hidden hover:text-black focus:outline-none">
+            <Icon :name="icon.name" class="flex items-center justify-center w-6 h-6" />
           </NuxtLink>
-          <button
-            @click="toggleMenu"
-            class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
-          >
+          <button @click="toggleMenu" class="text-gray-600 lg:hidden hover:text-black focus:outline-none">
             <Icon name="material-symbols:menu" class="w-6 h-6" />
           </button>
           <!-- Search bar -->
           <div class="relative hidden lg:block w-60">
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              class="w-full text-black px-4 py-2 border rounded-md bg-[#F5F5F5] focus:outline-none"
-            />
-            <button
-              class="absolute text-gray-600 transform -translate-y-1/2 right-2 top-1/2"
-            >
+            <input type="text" placeholder="What are you looking for?"
+              class="w-full text-black px-4 py-2 border rounded-md bg-[#F5F5F5] focus:outline-none" />
+            <button class="absolute text-gray-600 transform -translate-y-1/2 right-2 top-1/2">
               <Icon name="material-symbols:search" class="w-5 h-5" />
             </button>
           </div>
           <!-- Icons -->
-          <NuxtLink
-            v-for="icon in icons"
-            :key="icon.name"
-            :to="icon.link"
-            class="hidden text-gray-600 lg:block hover:text-black focus:outline-none"
-          >
+          <NuxtLink v-for="icon in icons" :key="icon.name" :to="icon.link"
+            class="hidden text-gray-600 lg:block hover:text-black focus:outline-none">
             <Icon :name="icon.name" class="w-6 h-6" />
           </NuxtLink>
+
           <!-- cart icon -->
-          <div
-            class="hidden text-gray-600 lg:block hover:text-black focus:outline-none"
-          >
-            <Icon
-              name="mdi:cart-outline"
-              class="w-6 h-6"
-              @click="toggleSidebar"
-            />
+          <div class="hidden text-gray-600 lg:block pt-[5px] hover:text-black focus:outline-none">
+            <span
+              class="relative inline-flex items-center text-sm font-medium text-center text-dark focus:outline-none">
+              <Icon name="mdi:cart-outline" class="w-6 h-6" @click="toggleSidebar" />
+              <span class="sr-only">Notifications</span>
+              <div
+                class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-4 -end-4 dark:border-gray-900">
+                20
+              </div>
+            </span>
           </div>
-          <Sidebar
-            v-model:visible="visibleRight"
-            header="Your Cart"
-            position="right"
-            class=" w-[22rem]"
-          >
-           <Cart/>
+          <Sidebar v-model:visible="visibleRight" header="Your Cart" position="right" class="w-[22rem]">
+            <Cart />
           </Sidebar>
           <!-- add to cart end -->
         </div>
@@ -141,17 +97,10 @@
       <!-- Sidebar menu for mobile and tablet -->
       <transition name="slide">
         <div v-if="isMenuOpen" class="fixed inset-0 z-50 flex">
-          <div
-            class="flex-1 h-full bg-black opacity-50"
-            @click="toggleMenu"
-          ></div>
-          <div
-            class="flex flex-col h-full p-6 space-y-4 bg-white shadow-md opacity-95 w-80"
-          >
-            <button
-              @click="toggleMenu"
-              class="flex items-center mb-6 text-gray-600 hover:text-black focus:outline-none"
-            >
+          <div class="flex-1 h-full bg-black opacity-50" @click="toggleMenu"></div>
+          <div class="flex flex-col h-full p-6 space-y-4 bg-white shadow-md opacity-95 w-80">
+            <button @click="toggleMenu"
+              class="flex items-center mb-6 text-gray-600 hover:text-black focus:outline-none">
               <Icon name="material-symbols:close" class="w-6 h-6" />
             </button>
             <NuxtLink to="/">
@@ -218,15 +167,15 @@ const icons = [
 .slide-leave-active {
   transition: transform 0.3s ease;
 }
+
 .slide-enter,
 .slide-leave-to {
   transform: translateX(100%);
 }
-
 </style>
 
 <style>
-.p-sidebar-content{
+.p-sidebar-content {
   padding: 0;
 }
 </style>
