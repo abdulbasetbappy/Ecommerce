@@ -77,7 +77,7 @@
               </div>
             </div>
           </div>
-          <!-- Icons -->
+          <!-- Icons mobile -->
           <NuxtLink
             v-for="icon in icons"
             :key="icon.name"
@@ -89,6 +89,21 @@
               class="flex items-center justify-center w-6 h-6"
             />
           </NuxtLink>
+          <div
+            class="relative text-gray-600 bloc lg:hidden hover:text-black focus:outline-none"
+          >
+            <Icon
+              name="mdi:cart-outline"
+              class="relative w-6 h-6"
+              @click="toggleSidebar"
+            />
+            <div
+              class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-2 -top-2 bg-primary"
+            >
+              20
+            </div>
+          </div>
+
           <button
             @click="toggleMenu"
             class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
@@ -119,34 +134,39 @@
           </NuxtLink>
           <!-- cart icon -->
           <div
-            class="hidden text-gray-600 lg:block hover:text-black focus:outline-none"
+            class="relative hidden text-gray-600 bloc lg:block hover:text-black focus:outline-none"
           >
             <Icon
               name="mdi:cart-outline"
-              class="w-6 h-6"
+              class="relative w-6 h-6"
               @click="toggleSidebar"
             />
+            <div
+              class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-2 -top-2 bg-primary"
+            >
+              20
+            </div>
           </div>
           <Sidebar
             v-model:visible="visibleRight"
             header="Your Cart"
             position="right"
-            class=" w-[22rem]"
+            class="w-[22rem]"
           >
-           <Cart/>
+            <Cart />
           </Sidebar>
           <!-- add to cart end -->
         </div>
       </div>
       <!-- Sidebar menu for mobile and tablet -->
       <transition name="slide">
-        <div v-if="isMenuOpen" class="fixed inset-0 z-50 flex">
+        <div v-if="isMenuOpen" class="fixed inset-y-0 z-50 flex">
           <div
             class="flex-1 h-full bg-black opacity-50"
             @click="toggleMenu"
           ></div>
           <div
-            class="flex flex-col h-full p-6 space-y-4 bg-white shadow-md opacity-95 w-80"
+            class="flex flex-col h-full p-6 space-y-4 overflow-y-auto bg-white shadow-md opacity-95 w-80"
           >
             <button
               @click="toggleMenu"
@@ -169,9 +189,9 @@
 import Sidebar from "primevue/sidebar";
 import { ref } from "vue";
 
-import "primevue/resources/themes/saga-blue/theme.css";
-import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
+import "primevue/resources/primevue.min.css";
+import "primevue/resources/themes/saga-blue/theme.css";
 
 const visibleRight = ref(false);
 
@@ -192,7 +212,7 @@ const search = () => {
 
 const menus = [
   { text: "Home", link: "/" },
-  { text: "Contact", link: "#" },
+  { text: "Contact", link: "/contact" },
   { text: "About", link: "/about" },
   { text: "Sign Up", link: "/signup" },
 ];
@@ -202,10 +222,7 @@ const icons = [
     name: "mdi:heart-outline",
     link: "/wishlist",
   },
-  {
-    name: "mdi:cart-outline",
-    link: "/cart",
-  },
+
   {
     name: "mdi:account",
     link: "",
@@ -220,13 +237,12 @@ const icons = [
 }
 .slide-enter,
 .slide-leave-to {
-  transform: translateX(100%);
+  transform: translateX(-100%);
 }
-
 </style>
 
 <style>
-.p-sidebar-content{
+.p-sidebar-content {
   padding: 0;
 }
 </style>
