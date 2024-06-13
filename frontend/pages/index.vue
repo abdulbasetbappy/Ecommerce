@@ -12,20 +12,20 @@ import ProductCard from "~/composables/reuseable/ProductCard/ProductCard.vue";
 import TitleWithSubTitle from "~/composables/reuseable/TitleWithSubTitle/TitleWithSubTitle.vue";
 import TodaysCarousel from "~/composables/reuseable/TodaysCarousel/TodaysCarousel.vue";
 const categories = ref([
-  { icon: "mingcute:cellphone-line", label: "Phones" },
-  { icon: "mdi:desktop-classic", label: "Computers" },
-  { icon: "mdi:watch", label: "SmartWatch" },
-  { icon: "mdi:camera", label: "Camera" },
-  { icon: "mdi:headphones", label: "HeadPhones" },
-  { icon: "mdi:gamepad-variant", label: "Gaming" },
-  { icon: "mdi:microphone", label: "Microphone" },
-  { icon: "mdi:cellphone", label: "Phones" },
-  { icon: "mdi:desktop-classic", label: "Computers" },
-  { icon: "mdi:watch", label: "SmartWatch" },
-  { icon: "mdi:camera", label: "Camera" },
-  { icon: "mdi:headphones", label: "HeadPhones" },
-  { icon: "mdi:gamepad-variant", label: "Gaming" },
-  { icon: "mdi:microphone", label: "Microphone" },
+    { icon: "mingcute:cellphone-line", label: "Phones" },
+    { icon: "mdi:desktop-classic", label: "Computers" },
+    { icon: "mdi:watch", label: "SmartWatch" },
+    { icon: "mdi:camera", label: "Camera" },
+    { icon: "mdi:headphones", label: "HeadPhones" },
+    { icon: "mdi:gamepad-variant", label: "Gaming" },
+    { icon: "mdi:microphone", label: "Microphone" },
+    { icon: "mdi:cellphone", label: "Phones" },
+    { icon: "mdi:desktop-classic", label: "Computers" },
+    { icon: "mdi:watch", label: "SmartWatch" },
+    { icon: "mdi:camera", label: "Camera" },
+    { icon: "mdi:headphones", label: "HeadPhones" },
+    { icon: "mdi:gamepad-variant", label: "Gaming" },
+    { icon: "mdi:microphone", label: "Microphone" },
 ]);
 const products = ref([
   {
