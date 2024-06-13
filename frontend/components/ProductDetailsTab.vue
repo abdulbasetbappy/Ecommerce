@@ -192,7 +192,7 @@ const showMoreComments = () => {
       <TabPanel header="Comments (9+)" :pt="customTabStyle">
         <!-- message -->
         <div class="px-6 pt-8">
-          <Rating :rating="4" :height="32" :width="32" />
+          <Rating :rating="3" :height="32" :width="32" />
           <TextArea
             class="md:mt-4"
             rows="5"
