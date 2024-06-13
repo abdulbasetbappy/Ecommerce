@@ -73,26 +73,26 @@
         <p class="mt-4 text-[12px] text-[#FAFAFA]">
           Save $3 with App New User Only
         </p>
-        <div class="grid grid-cols-1 gap-2 mt-4 md:grid-cols-2">
+        <div class="grid grid-cols-1 lg:gap-x-2 mt-4 md:grid-cols-2">
           <div class="col-span-1 row-span-2">
             <img
               src="/images/Qrcode.png"
               alt="QR Code"
-              class="object-fill w-auto h-auto lg:h-full lg:w-full md:object-contain"
+              class="object-fill w-28 h-24 lg:h-24 lg:w-full md:object-contain"
             />
           </div>
           <div class="col-span-1">
             <img
               src="/images/googlePlay.png"
               alt="Download on Google Play"
-              class="w-auto h-auto lg:h-full lg:w-full md:object-fill"
+              class="w-auto h-auto lg:h-12 lg:w-full md:object-fill"
             />
           </div>
           <div class="col-span-1">
             <img
               src="/images/app-store.png"
               alt="Download on App Store"
-              class="w-auto h-auto lg:h-full lg:w-full md:object-fill"
+              class="w-auto h-auto lg:h-10 lg:w-full md:object-fill"
             />
           </div>
         </div>
