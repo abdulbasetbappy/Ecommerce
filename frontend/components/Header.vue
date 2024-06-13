@@ -60,7 +60,9 @@
               class="absolute inset-0 z-20 flex items-center justify-center top-20 -left-36"
               v-if="isSearch"
             >
-              <div class="flex items-center px-4 py-2 space-x-2 bg-white border rounded-md">
+              <div
+                class="flex items-center px-4 py-2 space-x-2 bg-white border rounded-md"
+              >
                 <input
                   type="text"
                   placeholder="What are you looking for?"
@@ -115,6 +117,25 @@
           >
             <Icon :name="icon.name" class="w-6 h-6" />
           </NuxtLink>
+          <!-- cart icon -->
+          <div
+            class="hidden text-gray-600 lg:block hover:text-black focus:outline-none"
+          >
+            <Icon
+              name="mdi:cart-outline"
+              class="w-6 h-6"
+              @click="toggleSidebar"
+            />
+          </div>
+          <Sidebar
+            v-model:visible="visibleRight"
+            header="Your Cart"
+            position="right"
+            class=" w-[22rem]"
+          >
+           <Cart/>
+          </Sidebar>
+          <!-- add to cart end -->
         </div>
       </div>
       <!-- Sidebar menu for mobile and tablet -->
@@ -145,7 +166,19 @@
 </template>
 
 <script setup>
+import Sidebar from "primevue/sidebar";
 import { ref } from "vue";
+
+import "primevue/resources/themes/saga-blue/theme.css";
+import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
+
+const visibleRight = ref(false);
+
+const toggleSidebar = () => {
+  visibleRight.value = !visibleRight.value;
+};
+
 //import Icon from "nuxtjs/icon";
 
 const isMenuOpen = ref(false);
@@ -188,5 +221,12 @@ const icons = [
 .slide-enter,
 .slide-leave-to {
   transform: translateX(100%);
+}
+
+</style>
+
+<style>
+.p-sidebar-content{
+  padding: 0;
 }
 </style>

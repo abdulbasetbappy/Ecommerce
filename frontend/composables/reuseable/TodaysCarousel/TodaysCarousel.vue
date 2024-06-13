@@ -38,7 +38,8 @@
           prevEl: prevEl,
           nextEl: nextEl
         }"
-        :modules="[Pagination, Navigation]"
+        :autoplay="{ delay: 3000 }"
+        :modules="[Pagination, Navigation,Autoplay]"
         class="mySwiper"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
@@ -58,9 +59,10 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import "swiper/css";
+import "swiper/css/grid";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Grid, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { onMounted, ref, watch } from "vue";
 import ProductCard from "~/composables/reuseable/ProductCard/ProductCard.vue";

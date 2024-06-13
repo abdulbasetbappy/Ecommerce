@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  value: {
+    type: String,
+    default: "",
+  },
   modelValue: {
     type: [String, Number],
     default: "",
@@ -36,7 +40,7 @@ const emits = defineEmits(["update:modelValue"]);
       {{ label }}
     </label>
     <input
-    class="bg-light p-3 w-full rounded focus:outline-none"
+    class="bg-light px-3 py-2 w-full rounded focus:outline-none mt-2"
       :type="inputType"
       :id="id"
       :placeholder="placeholder"

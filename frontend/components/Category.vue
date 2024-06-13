@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex w-full">
     <!-- Side Menu -->
     <nav class="w-full p-4 pb-2 ps-0">
       <ul>
