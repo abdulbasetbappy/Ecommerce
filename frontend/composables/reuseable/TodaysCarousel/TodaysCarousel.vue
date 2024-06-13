@@ -34,12 +34,13 @@
         :slides-per-view="4"
         :space-between="20"
         :breakpoints="responsiveOptions"
+        :loop="true"
         :navigation="{
           prevEl: prevEl,
           nextEl: nextEl
         }"
         :autoplay="{ delay: 3000 }"
-        :modules="[Pagination, Navigation,Autoplay]"
+        :modules="[Pagination, Navigation, Autoplay, Grid]"
         class="mySwiper"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
