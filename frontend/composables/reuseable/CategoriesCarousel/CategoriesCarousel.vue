@@ -91,6 +91,7 @@ const next = () => {
         space-between="20"
         :breakpoints="responsiveOptions"
         :autoplay="{ delay: 2500 }"
+        :loop="true"
         :navigation="{
           prevEl: prevEl,
           nextEl: nextEl,

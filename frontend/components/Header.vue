@@ -94,7 +94,7 @@
           >
             <Icon
               name="mdi:cart-outline"
-              class="relative w-6 h-6"
+              class="relative w-6 h-6 cursor-pointer"
               @click="toggleSidebar"
             />
             <div
@@ -138,7 +138,7 @@
           >
             <Icon
               name="mdi:cart-outline"
-              class="relative w-6 h-6"
+              class="relative w-6 h-6 cursor-pointer"
               @click="toggleSidebar"
             />
             <div

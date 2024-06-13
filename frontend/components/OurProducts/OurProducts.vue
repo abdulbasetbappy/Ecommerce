@@ -90,11 +90,12 @@ const next = () => {
         :slides-per-view="4"
         :space-between="20"
         :autoplay="{ delay: 3000 }"
+        :loop="true"
         :grid="{ rows: 2, fill: 'row' }"
         :breakpoints="responsiveOptions"
         :navigation="{
           prevEl: prevEl,
-          nextEl: nextEl
+          nextEl: nextEl,
         }"
         :modules="[Navigation, Pagination, Autoplay, Grid]"
         class="mySwiper"

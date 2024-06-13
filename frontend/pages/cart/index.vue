@@ -1,12 +1,12 @@
 <template>
   <NuxtLayout name="home">
     <div class="container min-h-screen p-4 mx-auto">
-      <div class="py-4 text-left">
+      <div class="py-2 text-left">
         <Breadcrumb :crumbs="crumbs" />
       </div>
       <div class="w-full mb-4 lg:mb-4">
         <div class="overflow-x-auto">
-          <table class="min-w-full p-8" style="border-spacing: 0 1rem;">
+          <table class="hidden min-w-full p-8 sm:table" style="border-spacing: 0 1rem;">
             <thead class="border custom-row-gap">
               <tr class="text-sm">
                 <th class="px-6 py-3 text-left">Product</th>
@@ -21,9 +21,7 @@
                 :key="item.id"
                 class="border hover:bg-gray-100"
               >
-                <td
-                  class="relative flex items-center px-6 py-3 text-left "
-                >
+                <td class="relative flex items-center px-6 py-3 text-left">
                   <img
                     :src="item.image"
                     alt="product image"
@@ -55,6 +53,40 @@
               </tr>
             </tbody>
           </table>
+          <div class="block sm:hidden">
+            <div v-for="item in cartItems" :key="item.id" class="pb-4 mb-4 border-b">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <img :src="item.image" alt="product image" class="w-16 h-16 mr-4 rounded-md" />
+                  <div class="font-bold">{{ item.name }}</div>
+                </div>
+                <Icon
+                  name="material-symbols:close"
+                  class="w-4 h-4 text-white rounded-full cursor-pointer bg-primary hover:text-primary hover:bg-white"
+                  @click="removeItem(item.id)"
+                />
+              </div>
+              <div class="mt-2">
+                <div class="flex justify-between">
+                  <div>Price:</div>
+                  <div class="font-bold">{{ formatPrice(item.price) }}</div>
+                </div>
+                <div class="flex justify-between mt-2">
+                  <div>Quantity:</div>
+                  <input
+                    type="number"
+                    class="w-16 p-2 border rounded"
+                    v-model="item.quantity"
+                    min="1"
+                  />
+                </div>
+                <div class="flex justify-between mt-2">
+                  <div>Subtotal:</div>
+                  <div class="font-bold">{{ formatPrice(item.price * item.quantity) }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="flex items-center justify-between mt-8">
@@ -120,6 +152,7 @@
     </div>
   </NuxtLayout>
 </template>
+
 
 <script setup>
 import { computed, ref } from "vue";

@@ -1,5 +1,5 @@
 <template>
-    <nav class="text-sm mb-14 mt-14">
+    <nav class="mt-8 mb-8 text-sm">
       <ol class="flex gap-3 font-semibold text-black list-reset">
         <li v-for="(crumb, index) in crumbs" :key="index">
           <span v-if="index !== 0">  / </span>
