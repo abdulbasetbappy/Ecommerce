@@ -122,11 +122,7 @@ const menus = reactive([
     subItems: [],
     isOpen: false,
   },
-  {
-    title: "Health & Beauty",
-    subItems: [],
-    isOpen: false,
-  },
+ 
 ]);
 </script>
 
