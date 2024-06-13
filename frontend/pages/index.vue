@@ -19,13 +19,11 @@ const categories = ref([
     { icon: "mdi:headphones", label: "HeadPhones" },
     { icon: "mdi:gamepad-variant", label: "Gaming" },
     { icon: "mdi:microphone", label: "Microphone" },
-    { icon: "mdi:cellphone", label: "Phones" },
-    { icon: "mdi:desktop-classic", label: "Computers" },
-    { icon: "mdi:watch", label: "SmartWatch" },
-    { icon: "mdi:camera", label: "Camera" },
-    { icon: "mdi:headphones", label: "HeadPhones" },
-    { icon: "mdi:gamepad-variant", label: "Gaming" },
-    { icon: "mdi:microphone", label: "Microphone" },
+    { icon: "mdi:cellphone", label: "Clothing" },
+    { icon: "mdi:desktop-classic", label: "Electronics" },
+    { icon: "mdi:watch", label: "Home Appliances" },
+    { icon: "mdi:camera", label: "jewelery" },
+
 ]);
 const products = ref([
   {
@@ -245,7 +243,7 @@ const products = ref([
             title="This Month"
             subtitle="Best Selling Products"
           />
-          <NuxtLink to="/productPage">
+          <NuxtLink to="/productPage/{id}">
             <Button class="w-36"> View All </Button>
           </NuxtLink>
         </div>

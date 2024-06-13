@@ -100,7 +100,7 @@ const next = () => {
         class="mySwiper"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
-          <NuxtLink :to="`/category/${index + 1}`"> 
+          <NuxtLink :to="`/productPage/${index + 1}`"> 
             <IconWithText :icon="item.icon" :label="item.label" />
           </NuxtLink>
         </swiper-slide>

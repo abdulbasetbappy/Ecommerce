@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  layout: "home"
+  layout: "home",
 });
 import Features from "~/components/Features/Features.vue";
 import OurProducts from "~/components/OurProducts/OurProducts.vue";
@@ -230,7 +230,7 @@ const products = ref([
     prevPrice: "$360",
     rating: 4,
     ratingCount: 65,
-  }
+  },
 ]);
 </script>
 <template>
@@ -244,7 +244,9 @@ const products = ref([
             title="This Month"
             subtitle="Best Selling Products"
           />
-          <Button class="w-36"> View All </Button>
+        <NuxtLink to="/productPage/{id}">
+            <Button class="w-36"> View All </Button>
+          </NuxtLink>
         </div>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <ProductCard
@@ -268,7 +270,6 @@ const products = ref([
             imageAlt="JBL Speaker"
             buttonText="Buy Now!"
             :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)"
-            
           />
         </div>
         <Features />

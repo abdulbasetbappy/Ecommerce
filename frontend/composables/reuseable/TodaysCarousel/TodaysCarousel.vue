@@ -49,7 +49,7 @@
       </swiper>
     </div>
     <div class="flex items-center justify-center py-8 md:py-14">
-      <NuxtLink to="/productPage">
+      <NuxtLink to="/productPage/{id}">
         <Button class="w-48 text-center"> View All products </Button>
       </NuxtLink>
      
