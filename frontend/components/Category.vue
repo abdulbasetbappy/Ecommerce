@@ -41,7 +41,7 @@
             <li
               v-for="subItem in menu.subItems"
               :key="subItem"
-              class="p-2 hover:bg-gray-200"
+              class="p-2 ps-4 hover:bg-gray-200"
             >
               {{ subItem }}
             </li>
@@ -59,6 +59,32 @@ const menus = reactive([
   {
     title: "Woman's Fashion",
     subItems: ["Item 1", "Item 2"],
+    isOpen: false,
+  },
+  {
+    title: "Woman's Fashion",
+    subItems: [
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+      "Item 1",
+      "Item 2",
+    ],
     isOpen: false,
   },
   {
@@ -96,11 +122,7 @@ const menus = reactive([
     subItems: [],
     isOpen: false,
   },
-  {
-    title: "Health & Beauty",
-    subItems: [],
-    isOpen: false,
-  },
+ 
 ]);
 </script>
 

@@ -109,9 +109,11 @@
             <span class="mb-3">{{ formatPrice(cartSubtotal) }}</span>
           </div>
           <div class="text-center">
-            <Button class="w-full mt-4 text-white md:w-52">
+           <NuxtLink to="/checkout">
+             <Button class="w-full mt-4 text-white md:w-52">
               Proceed to Checkout
             </Button>
+           </NuxtLink>
           </div>
         </div>
       </div>

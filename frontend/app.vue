@@ -1,6 +1,4 @@
-<script setup >
-import ScrollToTop from './components/ScrollToTop/ScrollToTop.vue';
-
+<script setup>
     useHead({
         // as a string,
         // where `%s` is replaced with the title

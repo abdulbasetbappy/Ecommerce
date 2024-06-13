@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  layout: "home",
+  layout: "home"
 });
 import Features from "~/components/Features/Features.vue";
 import OurProducts from "~/components/OurProducts/OurProducts.vue";
