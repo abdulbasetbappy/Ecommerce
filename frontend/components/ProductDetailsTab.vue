@@ -6,6 +6,19 @@ import Rating from "~/composables/reuseable/Rating/Rating.vue";
 import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
 import TitleWithSubTitle from "~/composables/reuseable/TitleWithSubTitle/TitleWithSubTitle.vue";
 
+// submited rating
+const rating = ref(0);
+const hoverIndex = ref(0);
+
+const setRating = (value) => {
+  rating.value = value;
+};
+
+const hoverRating = (value) => {
+  hoverIndex.value = value;
+};
+
+// tab data
 const oldData = ref(null);
 onBeforeMount(async () => {
   try {
@@ -192,7 +205,39 @@ const showMoreComments = () => {
       <TabPanel header="Comments (9+)" :pt="customTabStyle">
         <!-- message -->
         <div class="px-6 pt-8">
-          <Rating :rating="3" :height="32" :width="32" />
+          <!-- submitted rating -->
+
+          <div class="flex space-x-1">
+            <span
+              v-for="(star, index) in 5"
+              :key="index"
+              @click="setRating(index + 1)"
+              @mouseover="hoverRating(index + 1)"
+              @mouseleave="hoverRating(0)"
+              class="cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                :class="[
+                  'h-8 w-8',
+                  {
+                    'text-[#FF8A00]':
+                      hoverIndex >= index + 1 || rating >= index + 1,
+                    'text-gray-300':
+                      hoverIndex < index + 1 && rating < index + 1,
+                  },
+                ]"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 .587l3.668 7.451 8.332 1.209-6.05 5.896 1.429 8.316L12 18.896l-7.379 3.863 1.429-8.316-6.05-5.896 8.332-1.209z"
+                />
+              </svg>
+            </span>
+          </div>
+
+          <!-- submitted rating end -->
           <TextArea
             class="md:mt-4"
             rows="5"
