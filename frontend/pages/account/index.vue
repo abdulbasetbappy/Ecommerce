@@ -22,32 +22,7 @@ const address = "Rajshahi Bangladesh";
       <div class="grid md:grid-cols-12 grid-cols-1 gap-6">
         <div class="md:col-span-4 col-span-12">
           <!-- profile sider bar -->
-          <div>
-            <h2 class="font-semibold text-sm mb-4">Manage My Account</h2>
-            <ul class="ps-4">
-              <li class="mb-2">
-                <a href="#" class="text-primary">My Profile</a>
-              </li>
-              <li class="mb-2">
-                <a href="#" class="text-gray-500">Address Book</a>
-              </li>
-              <li class="mb-2">
-                <a href="#" class="text-gray-500">My Payment Options</a>
-              </li>
-            </ul>
-
-            <h2 class="font-semibold text-sm mt-6 mb-4">My Orders</h2>
-            <ul class="ps-4">
-              <li class="mb-2">
-                <a href="#" class="text-gray-500">My Returns</a>
-              </li>
-              <li class="mb-2">
-                <a href="#" class="text-gray-500">My Cancellations</a>
-              </li>
-            </ul>
-
-            <h2 class="font-semibold text-sm mt-6 mb-4">My WishList</h2>
-          </div>
+         <AccountMenu/>
         </div>
         <div class="md:col-span-8 col-span-12">
           <div class="shadow p-6 rounded">
