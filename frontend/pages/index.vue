@@ -241,15 +241,14 @@ const products = ref([
         <CategoriesCarousel :items="categories" />
     </div>
 
-      
-      <div class="container mx-auto">
+      <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
         <div class="flex items-center justify-between mb-8 text-left">
           <TitleWithSubTitle
             title="This Month"
             subtitle="Best Selling Products"
           />
           <NuxtLink to="/productPage/{id}">
-            <Button class="w-36"> View All </Button>
+            <Button class="w-32"> View All </Button>
           </NuxtLink>
         </div>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">

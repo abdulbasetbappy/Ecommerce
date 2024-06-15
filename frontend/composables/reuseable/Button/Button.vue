@@ -2,7 +2,7 @@
   <button
     @click="handleClick"
     :class="[
-      'px-4 py-4 text-light bg-primary rounded hover:bg-danger text-center',
+      'py-2 text-light bg-primary rounded hover:bg-danger text-center',
       btnclass,
     ]"
   >

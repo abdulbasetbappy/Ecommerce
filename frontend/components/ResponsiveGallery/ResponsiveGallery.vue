@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-12 mx-auto">
+  <div>
     <TitleWithSubTitle title="Featured" subtitle="New Arrival" />
     <div class="grid grid-cols-1 gap-4 mt-10 md:grid-cols-2 lg:grid-cols-4">
       <div

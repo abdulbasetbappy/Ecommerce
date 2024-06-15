@@ -1,5 +1,5 @@
 <template>
-  <div class="py-8 md:py-32">
+  <div class="pt-10 pb-20">
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
       <div
         v-for="(feature, index) in features"

@@ -90,15 +90,15 @@
             />
           </NuxtLink>
           <div
+            @click="toggleSidebar"
             class="relative text-gray-600 bloc lg:hidden hover:text-black focus:outline-none"
           >
             <Icon
               name="mdi:cart-outline"
               class="relative w-6 h-6 cursor-pointer"
-              @click="toggleSidebar"
             />
             <div
-              class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-2 -top-2 bg-primary"
+              class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-3 -top-3 bg-primary"
             >
               20
             </div>
@@ -134,15 +134,15 @@
           </NuxtLink>
           <!-- cart icon -->
           <div
+            @click="toggleSidebar"
             class="relative hidden text-gray-600 bloc lg:block hover:text-black focus:outline-none"
           >
             <Icon
               name="mdi:cart-outline"
               class="relative w-6 h-6 cursor-pointer"
-              @click="toggleSidebar"
             />
             <div
-              class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-2 -top-2 bg-primary"
+              class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-3 -top-3 bg-primary"
             >
               20
             </div>

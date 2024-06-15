@@ -1,5 +1,5 @@
 <template>
-  <div  class="flex flex-col items-center justify-center md:space-x-4 md:flex-row">
+  <div  class="flex flex-col items-start justify-center md:space-x-4 md:flex-row">
     <div
       v-for="(time, index) in countdown"
       :key="index"

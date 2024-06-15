@@ -113,8 +113,7 @@
       </div>
     </div>
     <div class="mt-8 text-center text-gray-500">
-      <!-- dynamic date  -->
-      <p>Copyright Rimel &copy; 2022 Exclusive. All rights reserved</p>
+      <p>Copyright &copy; 2024 Exclusive. All rights reserved</p>
     </div>
   </footer>
 </template>

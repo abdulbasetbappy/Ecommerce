@@ -61,8 +61,8 @@ const next = () => {
 </script>
 
 <template>
-  <hr class="pt-9" />
-  <div class="container relative mx-auto mt-20 cursor-pointer">
+  <hr class="pt-10" />
+  <div class="container relative mx-auto mt-10 cursor-pointer">
     <div class="flex items-center justify-between mb-4">
       <TitleWithSubTitle title="Categories" subtitle="Browse By Category" />
       <div

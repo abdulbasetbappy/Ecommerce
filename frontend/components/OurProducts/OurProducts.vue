@@ -107,7 +107,7 @@ const next = () => {
     </div>
     <div class="flex items-center justify-center py-8 md:py-14">
       <NuxtLink to="/productPage/{id}">
-        <Button class="w-48 text-center">View All Products</Button>
+        <Button class="w-40 text-center">View All Products</Button>
       </NuxtLink>
     </div>
   </div>

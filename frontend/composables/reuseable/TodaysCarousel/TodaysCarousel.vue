@@ -1,7 +1,7 @@
 <template>
-  <div v-if="showFlashSale" class="container relative mx-auto mt-20">
-    <div class="flex items-center justify-between mb-4">
-      <div class="flex flex-row items-center gap-4">
+  <div v-if="showFlashSale" class="container relative mx-auto mt-10">
+    <div class="flex justify-between mb-4">
+      <div class="flex flex-row  gap-4">
         <TitleWithSubTitle title="Today's" subtitle="Flash Sales" />
 
         <CountdownTimer
@@ -44,13 +44,13 @@
         class="mySwiper"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
-          <ProductCard class="mt-8 md:mt-14" :product="item" />
+          <ProductCard class="mt-8 md:mt-10" :product="item" />
         </swiper-slide>
       </swiper>
     </div>
     <div class="flex items-center justify-center py-8 md:py-14">
       <NuxtLink to="/productPage/{id}">
-        <Button class="w-48 text-center"> View All products </Button>
+        <Button class="w-40 text-center"> View All products </Button>
       </NuxtLink>
      
     </div>
