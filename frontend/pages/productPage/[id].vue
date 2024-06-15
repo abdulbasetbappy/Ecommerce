@@ -1,10 +1,10 @@
 <template>
   <NuxtLayout name="home">
-    <div class="container min-h-screen p-4 mx-auto">
+    <div class="container min-h-screen mx-auto">
       <div class="py-4 text-left">
         <Breadcrumb :crumbs="crumbs" />
       </div>
-      <div class="grid grid-cols-1 gap-6 py-6 md:grid-cols-12">
+      <div class="grid grid-cols-1 md:grid-cols-12">
         <!-- Filters Section -->
         <div class="col-span-12 pt-6 pr-4 lg:col-span-3">
           <div class="px-2 py-4 mb-4 border rounded-md cursor-pointer">

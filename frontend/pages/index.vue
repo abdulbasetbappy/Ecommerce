@@ -233,10 +233,15 @@ const products = ref([
 
 <template>
   <NuxtLayout :name="home">
-    <div class="min-h-screen px-4 pb-12">
+    <div class="px-4 md:pb-6 pb-2">
       <CategorySlider class="container mx-auto" />
-      <TodaysCarousel :items="products" />
-      <CategoriesCarousel :items="categories" />
+    </div>
+    <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
+        <TodaysCarousel :items="products" />
+        <CategoriesCarousel :items="categories" />
+    </div>
+
+      
       <div class="container mx-auto">
         <div class="flex items-center justify-between mb-8 text-left">
           <TitleWithSubTitle
@@ -273,6 +278,6 @@ const products = ref([
         </div>
         <Features />
       </div>
-    </div>
+    
   </NuxtLayout>
 </template>
