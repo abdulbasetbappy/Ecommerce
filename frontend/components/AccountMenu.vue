@@ -4,31 +4,23 @@ import { Title } from "~/node_modules/nuxt/dist/head/runtime/components";
 const manageAccount = [
   {
     menu: "My Profile",
-    link: "/account",
+    link: "/account/account",
   },
-  {
-    menu: "Address Book",
-    link: "#",
-  },
-  {
-    menu: "My Payment Options",
-    link: "#",
-  },
-];
-const orders = [
+
   {
     menu: "All Orders",
-    link: "/account/order",
+    link: "/account/",
   },
   {
     menu: "My Returns",
-    link: "#",
+       link: "/account/return",
   },
   {
     menu: "My Cancellations",
-    link: "#",
+      link: "/account/cancel",
   },
 ];
+const orders = [];
 </script>
 
 <template>
@@ -45,20 +37,6 @@ const orders = [
       </li>
     </ul>
 
-    <h2 class="font-semibold text-sm mt-6 mb-4">My Orders</h2>
-   <ul class="ps-4">
-      <li class="mb-2" v-for="(order, index) in orders" :key="index">
-        <NuxtLink
-          :to="order.link"
-          :class="{ 'text-primary': $route.path === order.link }"
-        >
-          {{ order.menu }}
-        </NuxtLink>
-      </li>
-    </ul>
-
-
-    <h2 class="font-semibold text-sm mt-6 mb-4">My WishList</h2>
   </div>
 </template>
 <style scoped>

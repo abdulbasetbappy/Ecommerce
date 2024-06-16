@@ -107,17 +107,17 @@
               @mouseleave="toggleMobileDropdown(false)"
             >
               <NuxtLink
-                to=""
+                to="/account/"
                 class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Dashboard</NuxtLink
+                >Account</NuxtLink
               >
               <NuxtLink
-                to=""
+                to="/account/login"
                 class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >Log In</NuxtLink
               >
               <NuxtLink
-                to=""
+                to="/account/signup"
                 class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >Sign Up</NuxtLink
               >
@@ -182,17 +182,17 @@
               @mouseleave="toggleDesktopDropdown(false)"
             >
               <NuxtLink
-                to=""
+                to="/account/"
                 class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Dashboard</NuxtLink
+                >Account</NuxtLink
               >
               <NuxtLink
-                to=""
+                to="/account/login"
                 class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >Log In</NuxtLink
               >
               <NuxtLink
-                to=""
+                to="/account/signup"
                 class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >Sign Up</NuxtLink
               >

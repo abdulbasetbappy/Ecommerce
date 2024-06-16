@@ -119,6 +119,7 @@ const invoices = ref([
                 </tr>
               </tbody>
             </table>
+            <pagination/>
            </div>
         </div>
       </div>

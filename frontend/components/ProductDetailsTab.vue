@@ -296,7 +296,7 @@ const showMoreComments = () => {
                 <div
                   class="bg-gray-200 w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 cursor-pointer"
                 >
-                  <span class="text-black">V</span>
+                  <span class="text-black">   <Icon class="h-6 w-6 text-gray-800" name="ri:arrow-down-double-line" /> </span>
                 </div>
               </div>
             </div>

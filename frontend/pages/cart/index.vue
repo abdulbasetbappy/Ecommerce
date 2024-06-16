@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout name="home">
-    <div class="container min-h-screen p-4 mx-auto">
+    <div class="container  px-4 py-10 mx-auto">
       <div class="py-2 text-left">
         <Breadcrumb :crumbs="crumbs" />
       </div>
@@ -91,74 +91,29 @@
 
         <div class="flex items-center justify-between mt-8">
           <Button
-            class="lg:w-48 !text-black bg-transparent border border-dark hover:bg-gray hover:!text-white"
+            class="lg:w-48 !text-black bg-transparent border border-dark hover:border-primary  hover:bg-gray hover:!text-white"
             @click="updateCart"
           >
             Return To Shop
           </Button>
 
-          <Button
-            class="lg:w-48 !text-black bg-transparent border border-dark hover:bg-gray hover:!text-white"
-          >
-            Update Cart
-          </Button>
+            <NuxtLink to="/checkout">
+             <Button class="w-full text-white md:w-40">
+              Checkout
+            </Button>
+           </NuxtLink>
         </div>
       </div>
 
-      <div class="grid grid-cols-12 gap-4 mt-8">
-        <div class="flex flex-col col-span-12 gap-4 md:flex-row md:col-span-7">
-          <div>
-            <InputField
-              type="text"
-              placeholder="Coupon Code"
-              dynamicClass="w-72 text-black px-4 py-4 border border-dark rounded-md bg-[#F5F5F5] focus:outline-none"
-              v-model="couponCode"
-            />
-          </div>
-          <div>
-            <Button
-              class="w-40 p-2 text-white rounded bg-primary md:w-auto"
-              @click="applyCoupon"
-            >
-              Apply Coupon
-            </Button>
-          </div>
-        </div>
-        <div
-          class="col-span-12 p-6 space-y-4 border border-black rounded-md md:col-span-5"
-        >
-          <h2 class="mb-4 text-xl font-bold">Cart Total</h2>
-          <div class="flex justify-between mb-2 font-bold border-b border-black">
-            <span>Subtotal</span>
-            <span class="mb-3">{{ formatPrice(cartSubtotal) }}</span>
-          </div>
-          <div class="flex justify-between mb-2 font-bold border-b border-black">
-            <span>Shipping</span>
-            <span class="mb-3">Free</span>
-          </div>
-          <div class="flex justify-between font-bold">
-            <span>Total</span>
-            <span class="mb-3">{{ formatPrice(cartSubtotal) }}</span>
-          </div>
-          <div class="text-center">
-           <NuxtLink to="/checkout">
-             <Button class="w-full mt-4 text-white md:w-52">
-              Proceed to Checkout
-            </Button>
-           </NuxtLink>
-          </div>
-        </div>
-      </div>
     </div>
   </NuxtLayout>
 </template>
 
 
 <script setup>
-import { computed, ref } from "vue";
+import {  ref } from "vue";
 import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 import Button from "~/composables/reuseable/Button/Button.vue";
-import InputField from "~/composables/reuseable/InputField/InputField.vue";
 const crumbs = [{ name: "Home", link: "/" }, { name: " Cart" }];
 
 const cartItems = ref([
@@ -178,14 +133,7 @@ const cartItems = ref([
   },
 ]);
 
-const couponCode = ref("");
 
-const cartSubtotal = computed(() => {
-  return cartItems.value.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-});
 
 const formatPrice = (value) => {
   return `$${value.toFixed(2)}`;
@@ -195,9 +143,7 @@ const updateCart = () => {
   alert("Cart updated successfully");
 };
 
-const applyCoupon = () => {
-  alert("Coupon applied successfully");
-};
+
 
 const removeItem = (id) => {
   cartItems.value = cartItems.value.filter((item) => item.id !== id);

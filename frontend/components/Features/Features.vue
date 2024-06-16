@@ -1,6 +1,6 @@
 <template>
-  <div class="pt-10 pb-20">
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+  <div class="pt-10 pb-10">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
       <div
         v-for="(feature, index) in features"
         :key="index"
@@ -41,6 +41,11 @@ const features = [
     title: "MONEY BACK GUARANTEE",
     description: "We return money within 30 days",
     icon: "mdi:shield-check-outline" 
+  },
+  {
+    title: "SAFE AND SECURE",
+    description: "Ensuring safe and reliable transactions.",
+    icon: "mdi:secure-outline" 
   },
 ];
 </script>

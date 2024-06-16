@@ -23,7 +23,6 @@ const categories = ref([
   { icon: "mdi:desktop-classic", label: "Electronics" },
   { icon: "mdi:watch", label: "Home Appliances" },
   { icon: "mdi:camera", label: "jewelery" },
-
 ]);
 const products = ref([
   {
@@ -238,6 +237,7 @@ const products = ref([
     </div>
 
     <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
+      <Features />
       <!--Todays Carousel-->
       <TodaysCarousel :items="products" />
       <!--Browse By Category-->
@@ -246,14 +246,21 @@ const products = ref([
     <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
       <!--Best Selling Products-->
       <div class="flex items-center justify-between mb-8 text-left">
-        <TitleWithSubTitle title="This Month" subtitle="Best Selling Products" />
+        <TitleWithSubTitle
+          title="This Month"
+          subtitle="Best Selling Products"
+        />
         <NuxtLink to="/productPage/{id}">
           <Button class="w-32"> View All </Button>
         </NuxtLink>
       </div>
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <ProductCard class="mt-8 md:mt-10" v-for="product in products.slice(0, 4)" :key="product.id"
-          :product="product" />
+        <ProductCard
+          class="mt-8 md:mt-10"
+          v-for="product in products.slice(0, 4)"
+          :key="product.id"
+          :product="product"
+        />
       </div>
       <!--Our Products-->
       <div>
@@ -265,12 +272,18 @@ const products = ref([
       </div>
       <!--Flash Sale-->
       <div class="my-12">
-        <FlashSale category="Categories" headline="Enhance Your Music Experience" imageSrc="/images/jbl-speaker.png"
-          imageAlt="JBL Speaker" buttonText="Buy Now!"
-          :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)" />
+        <FlashSale
+          category="Categories"
+          headline="Enhance Your Music Experience"
+          imageSrc="/images/jbl-speaker.png"
+          imageAlt="JBL Speaker"
+          buttonText="Buy Now!"
+          :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)"
+        />
       </div>
-      <Features />
-    </div>
 
+      
+      <Brand />
+    </div>
   </NuxtLayout>
 </template>
