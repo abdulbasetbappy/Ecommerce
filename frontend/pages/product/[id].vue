@@ -38,10 +38,14 @@ const product = ref({
 });
 
 const selectedSize = ref("M");
+const selectedColor = ref("red");
 const quantity = ref(2);
 
 const selectSize = (size) => {
   selectedSize.value = size;
+};
+const selectColor = (color) => {
+  selectedColor.value = color;
 };
 
 const incrementQuantity = () => {
@@ -55,13 +59,13 @@ const decrementQuantity = () => {
 };
 
 const colorClass = (color) => {
-  const colors = {
-    red: "bg-red-500",
-    gray: "bg-gray-300",
-    white: "bg-white border",
-    black: "bg-black",
+  return {
+    'border-2 border-gray-400': selectedColor.value === color,
+    'bg-red-500': color === 'red',
+    'bg-gray-500': color === 'gray',
+    'bg-white border': color === 'white',
+    'bg-black': color === 'black'
   };
-  return colors[color];
 };
 
 // items
@@ -124,150 +128,7 @@ const items = ref([
     rating: 4,
     ratingCount: 65,
   },
-  {
-    id: 7,
-    name: "The Jacket",
-    image: "/images/jacket.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 8,
-    name: "The Car",
-    image: "/images/car.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 9,
-    name: "The Gamepad",
-    image: "/images/gamepad.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 10,
-    name: "The Laptop",
-    image: "/images/laptop.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 11,
-    name: "The Shoe",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 12,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 13,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 14,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 15,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 16,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 17,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 18,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 19,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 20,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 21,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
-  {
-    id: 22,
-    name: "The Watch",
-    image: "/images/shoe.png",
-    price: "$260",
-    prevPrice: "$360",
-    rating: 4,
-    ratingCount: 65,
-  },
+
 ]);
 </script>
 <template>
@@ -291,13 +152,15 @@ const items = ref([
             </div>
             <div class="text-2xl font-bold mb-3">{{ product.price }}</div>
             <p class="text-gray-700 pb-3 border-b">{{ product.description }}</p>
+            <!-- colors -->
             <div class="my-3">
               <div class="flex space-x-2">
                 <span class="block font-semibold mb-1">Colours:</span>
-                <div v-for="color in product.colors" :key="color" :class="colorClass(color)" class="w-6 h-6 rounded">
+                <div v-for="color in product.colors" :key="color" @click="selectColor(color)" :class="colorClass(color)" class="w-6 h-6 rounded">
                 </div>
               </div>
             </div>
+            <!-- size -->
             <div class="mb-3">
               <div class="flex space-x-2">
                 <span class="block font-semibold mb-1">Size:</span>
