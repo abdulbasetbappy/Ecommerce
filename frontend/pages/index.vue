@@ -12,17 +12,17 @@ import ProductCard from "~/composables/reuseable/ProductCard/ProductCard.vue";
 import TitleWithSubTitle from "~/composables/reuseable/TitleWithSubTitle/TitleWithSubTitle.vue";
 import TodaysCarousel from "~/composables/reuseable/TodaysCarousel/TodaysCarousel.vue";
 const categories = ref([
-    { icon: "mingcute:cellphone-line", label: "Phones" },
-    { icon: "mdi:desktop-classic", label: "Computers" },
-    { icon: "mdi:watch", label: "SmartWatch" },
-    { icon: "mdi:camera", label: "Camera" },
-    { icon: "mdi:headphones", label: "HeadPhones" },
-    { icon: "mdi:gamepad-variant", label: "Gaming" },
-    { icon: "mdi:microphone", label: "Microphone" },
-    { icon: "mdi:cellphone", label: "Clothing" },
-    { icon: "mdi:desktop-classic", label: "Electronics" },
-    { icon: "mdi:watch", label: "Home Appliances" },
-    { icon: "mdi:camera", label: "jewelery" },
+  { icon: "mingcute:cellphone-line", label: "Phones" },
+  { icon: "mdi:desktop-classic", label: "Computers" },
+  { icon: "mdi:watch", label: "SmartWatch" },
+  { icon: "mdi:camera", label: "Camera" },
+  { icon: "mdi:headphones", label: "HeadPhones" },
+  { icon: "mdi:gamepad-variant", label: "Gaming" },
+  { icon: "mdi:microphone", label: "Microphone" },
+  { icon: "mdi:cellphone", label: "Clothing" },
+  { icon: "mdi:desktop-classic", label: "Electronics" },
+  { icon: "mdi:watch", label: "Home Appliances" },
+  { icon: "mdi:camera", label: "jewelery" },
 
 ]);
 const products = ref([
@@ -236,47 +236,41 @@ const products = ref([
     <div class="px-4 md:pb-6 pb-2">
       <CategorySlider class="container mx-auto" />
     </div>
+
     <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
-        <TodaysCarousel :items="products" />
-        <CategoriesCarousel :items="categories" />
+      <!--Todays Carousel-->
+      <TodaysCarousel :items="products" />
+      <!--Browse By Category-->
+      <CategoriesCarousel :items="categories" />
+    </div>
+    <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
+      <!--Best Selling Products-->
+      <div class="flex items-center justify-between mb-8 text-left">
+        <TitleWithSubTitle title="This Month" subtitle="Best Selling Products" />
+        <NuxtLink to="/productPage/{id}">
+          <Button class="w-32"> View All </Button>
+        </NuxtLink>
+      </div>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ProductCard class="mt-8 md:mt-14" v-for="product in products.slice(0, 4)" :key="product.id"
+          :product="product" />
+      </div>
+      <!--Our Products-->
+      <div class="my">
+        <OurProducts :items="products" />
+      </div>
+      <!--Featured-->
+      <div class="my-12">
+        <ResponsiveGallery />
+      </div>
+      <!--Flash Sale-->
+      <div class="my-12">
+        <FlashSale category="Categories" headline="Enhance Your Music Experience" imageSrc="/images/jbl-speaker.png"
+          imageAlt="JBL Speaker" buttonText="Buy Now!"
+          :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)" />
+      </div>
+      <Features />
     </div>
 
-      <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
-        <div class="flex items-center justify-between mb-8 text-left">
-          <TitleWithSubTitle
-            title="This Month"
-            subtitle="Best Selling Products"
-          />
-          <NuxtLink to="/productPage/{id}">
-            <Button class="w-32"> View All </Button>
-          </NuxtLink>
-        </div>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <ProductCard
-            class="mt-8 md:mt-14"
-            v-for="product in products.slice(0, 4)"
-            :key="product.id"
-            :product="product"
-          />
-        </div>
-        <div class="my">
-          <OurProducts :items="products" />
-        </div>
-        <div class="my-12">
-          <ResponsiveGallery />
-        </div>
-        <div class="my-12">
-          <FlashSale
-            category="Categories"
-            headline="Enhance Your Music Experience"
-            imageSrc="/images/jbl-speaker.png"
-            imageAlt="JBL Speaker"
-            buttonText="Buy Now!"
-            :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)"
-          />
-        </div>
-        <Features />
-      </div>
-    
   </NuxtLayout>
 </template>
