@@ -233,7 +233,7 @@ const products = ref([
 
 <template>
   <NuxtLayout :name="home">
-    <div class="px-4 md:pb-6 pb-2">
+    <div class="md:px-4 md:pb-6 pb-2">
       <CategorySlider class="container mx-auto" />
     </div>
 
@@ -252,11 +252,11 @@ const products = ref([
         </NuxtLink>
       </div>
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <ProductCard class="mt-8 md:mt-14" v-for="product in products.slice(0, 4)" :key="product.id"
+        <ProductCard class="mt-8 md:mt-10" v-for="product in products.slice(0, 4)" :key="product.id"
           :product="product" />
       </div>
       <!--Our Products-->
-      <div class="my">
+      <div>
         <OurProducts :items="products" />
       </div>
       <!--Featured-->

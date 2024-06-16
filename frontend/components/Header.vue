@@ -78,17 +78,52 @@
             </div>
           </div>
           <!-- Icons mobile -->
+          <!-- wishlist -->
           <NuxtLink
-            v-for="icon in icons"
-            :key="icon.name"
-            :to="icon.link"
+            to="/wishlist"
             class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
           >
             <Icon
-              :name="icon.name"
+              name="mdi:heart-outline"
               class="flex items-center justify-center w-6 h-6"
             />
           </NuxtLink>
+          <!-- user for mobile -->
+          <div class="relative lg:hidden">
+            <button
+              @mouseenter="toggleMobileDropdown(true)"
+              @mouseleave="toggleMobileDropdown(false)"
+              class="text-gray-600 hover:text-black focus:outline-none"
+            >
+              <Icon
+                name="mdi:account"
+                class="flex items-center justify-center w-6 h-6"
+              />
+            </button>
+            <div
+              v-if="isMobileDropdownOpen"
+              class="mobile-dropdown absolute right-0 z-50 mt-2 w-48 bg-white shadow-lg"
+              @mouseenter="toggleMobileDropdown(true)"
+              @mouseleave="toggleMobileDropdown(false)"
+            >
+              <NuxtLink
+                to=""
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Dashboard</NuxtLink
+              >
+              <NuxtLink
+                to=""
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Log In</NuxtLink
+              >
+              <NuxtLink
+                to=""
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Sign Up</NuxtLink
+              >
+            </div>
+          </div>
+          <!-- cart icon -->
           <div
             @click="toggleSidebar"
             class="relative text-gray-600 bloc lg:hidden hover:text-black focus:outline-none"
@@ -103,7 +138,6 @@
               20
             </div>
           </div>
-
           <button
             @click="toggleMenu"
             class="text-gray-600 lg:hidden hover:text-black focus:outline-none"
@@ -123,15 +157,47 @@
               <Icon name="material-symbols:search" class="w-5 h-5" />
             </button>
           </div>
-          <!-- Icons -->
+          <!-- Icons desktop-->
+          <!-- wishlist -->
           <NuxtLink
-            v-for="icon in icons"
-            :key="icon.name"
-            :to="icon.link"
+            to="/wishlist"
             class="hidden text-gray-600 lg:block hover:text-black focus:outline-none"
           >
-            <Icon :name="icon.name" class="w-6 h-6" />
+            <Icon name="mdi:heart-outline" class="w-6 h-6" />
           </NuxtLink>
+          <!-- user for desktop -->
+          <div class="relative hidden lg:block">
+            <button
+              @mouseenter="toggleDesktopDropdown(true)"
+              @mouseleave="toggleDesktopDropdown(false)"
+              class="text-gray-600 hover:text-black focus:outline-none"
+            >
+              <Icon name="mdi:account" class="w-6 h-6" />
+            </button>
+            <div
+              ref="desktopDropdown"
+              v-if="isDesktopDropdownOpen"
+              class="desktop-dropdown absolute -right-40 top-[18px] z-50 mt-2 w-48 bg-white shadow-lg"
+              @mouseenter="toggleDesktopDropdown(true)"
+              @mouseleave="toggleDesktopDropdown(false)"
+            >
+              <NuxtLink
+                to=""
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Dashboard</NuxtLink
+              >
+              <NuxtLink
+                to=""
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Log In</NuxtLink
+              >
+              <NuxtLink
+                to=""
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Sign Up</NuxtLink
+              >
+            </div>
+          </div>
           <!-- cart icon -->
           <div
             @click="toggleSidebar"
@@ -155,7 +221,6 @@
           >
             <Cart />
           </Sidebar>
-          <!-- add to cart end -->
         </div>
       </div>
       <!-- Sidebar menu for mobile and tablet -->
@@ -199,15 +264,22 @@ const toggleSidebar = () => {
   visibleRight.value = !visibleRight.value;
 };
 
-//import Icon from "nuxtjs/icon";
-
 const isMenuOpen = ref(false);
 const isSearch = ref(false);
+const isMobileDropdownOpen = ref(false);
+const isDesktopDropdownOpen = ref(false);
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 const search = () => {
   isSearch.value = !isSearch.value;
+};
+const toggleMobileDropdown = (value) => {
+  isMobileDropdownOpen.value = value;
+};
+const toggleDesktopDropdown = (value) => {
+  isDesktopDropdownOpen.value = value;
 };
 
 const menus = [
@@ -215,18 +287,6 @@ const menus = [
   { text: "Contact", link: "/contact" },
   { text: "About", link: "/about" },
   { text: "Sign Up", link: "/signup" },
-];
-
-const icons = [
-  {
-    name: "mdi:heart-outline",
-    link: "/wishlist",
-  },
-
-  {
-    name: "mdi:account",
-    link: "",
-  },
 ];
 </script>
 

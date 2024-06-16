@@ -29,7 +29,7 @@ const responsiveOptions = {
     spaceBetween: 20,
   },
   1024: {
-    slidesPerView: 6,
+    slidesPerView: 7,
     spaceBetween: 24,
   },
 };
@@ -62,7 +62,7 @@ const next = () => {
 
 <template>
   <hr class="pt-10" />
-  <div class="container relative mx-auto mt-10 cursor-pointer">
+  <div class=" relative mt-10 cursor-pointer ">
     <div class="flex items-center justify-between mb-4">
       <TitleWithSubTitle title="Categories" subtitle="Browse By Category" />
       <div
@@ -84,7 +84,7 @@ const next = () => {
         </button>
       </div>
     </div>
-    <div class="relative">
+    <div class="relative pb-10 w-full">
       <swiper
         ref="carousel"
         :slides-per-view="6"
@@ -97,7 +97,7 @@ const next = () => {
           nextEl: nextEl,
         }"
         :modules="[Pagination, Navigation, Autoplay]"
-        class="mySwiper"
+        class="mySwiper w-full"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
           <NuxtLink :to="`/productPage/${index + 1}`"> 
@@ -107,7 +107,7 @@ const next = () => {
       </swiper>
     </div>
   </div>
-  <hr class="pb-20" />
+  <hr class="py-10 " />
 </template>
 
 <style scoped>

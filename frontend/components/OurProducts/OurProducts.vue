@@ -62,7 +62,7 @@ const next = () => {
 };
 </script>
 <template>
-  <div class="container relative mx-auto mt-20">
+  <div class="container relative mt-20">
     <div class="flex items-center justify-between mb-4">
       <TitleWithSubTitle title="Our Products" subtitle="Explore Our Products" />
       <div
