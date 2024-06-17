@@ -59,7 +59,7 @@ const total = computed(() => {
 <template>
   <!-- about us banner -->
   <NuxtLayout name="home">
-    <div class="xl:px-36 px-4 mb-20 w-full">
+    <div class="lg:px-56 px-4 mb-20 w-full">
       <div class="text-left py-4">
         <Breadcrumb :crumbs="crumbs" />
       </div>
@@ -96,13 +96,63 @@ const total = computed(() => {
             v-model="apartment"
             class="mb-4"
           />
-          <ContactInputField
+                <!-- select Thana -->
+          <label
+            for="countries"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an Thana</label
+          >
+          <select
+            id="countries"
+            class="bg-gray-50 mb-4  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
+          >
+            <option selected>Choose a Thana</option>
+            <option value="US">Airport</option>
+            <option value="CA">Uttora</option>
+            <option value="FR">Mirput</option>
+            <option value="DE">Gulshan</option>
+          </select>
+                    <!-- select District -->
+          <label
+            for="countries"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an District</label
+          >
+          <select
+            id="countries"
+            class="bg-gray-50  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
+          >
+            <option selected>Choose a District</option>
+            <option value="US">Rajshahi</option>
+            <option value="CA">Dhaka</option>
+            <option value="FR">Khulna</option>
+            <option value="DE">Rangpur</option>
+          </select>
+
+          <!-- select country -->
+          <label
+            for="countries"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an Country</label
+          >
+          <select
+            id="countries"
+            class="bg-gray-50 mb-4 text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
+          >
+            <option selected>Choose a country</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+          </select>
+
+          <!-- <ContactInputField
             type="text"
             label="Town/City*"
             id="town-city"
             v-model="townCity"
             class="mb-4"
-          />
+          /> -->
           <ContactInputField
             type="number"
             label="Phone Number*"
@@ -117,22 +167,22 @@ const total = computed(() => {
             v-model="email"
             class="mb-4"
           />
-       <div class="flex items-center dark:border-gray-700">
-  <input
-    checked
-    id="bordered-checkbox-2"
-    type="checkbox"
-    value=""
-    name="bordered-checkbox"
-    class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 checked-bg-primary"
-  />
-  <label
-    for="bordered-checkbox-2"
-    class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-  >
-    Save this information for faster check-out next time
-  </label>
-</div>
+          <div class="flex items-center dark:border-gray-700">
+            <input
+              checked
+              id="bordered-checkbox-2"
+              type="checkbox"
+              value=""
+              name="bordered-checkbox"
+              class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 checked-bg-primary"
+            />
+            <label
+              for="bordered-checkbox-2"
+              class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Save this information for faster check-out next time
+            </label>
+          </div>
         </div>
 
         <!-- payment info -->
@@ -180,7 +230,11 @@ const total = computed(() => {
                 </label>
               </div>
               <div class="flex gap-4">
-                <p v-for="(method, index) in methods" :key="index" class="curser-pointer">
+                <p
+                  v-for="(method, index) in methods"
+                  :key="index"
+                  class="curser-pointer"
+                >
                   <img class="w-auto" :src="method.src" :alt="method.alt" />
                 </p>
               </div>
@@ -220,9 +274,7 @@ const total = computed(() => {
 </template>
 
 <style>
-  .checked-bg-primary:checked {
-    background-color: red !important; /* Replace this with your desired primary color */
-  }
-
-
+.checked-bg-primary:checked {
+  background-color: red !important; /* Replace this with your desired primary color */
+}
 </style>

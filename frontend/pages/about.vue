@@ -1,4 +1,3 @@
-
 <script setup>
 import { ref } from "vue";
 definePageMeta({
@@ -19,7 +18,6 @@ const aboutUs = ref(
 );
 
 const crumbs = [{ name: "Home", link: "/" }, { name: " About" }];
-
 
 // counter data
 const counterItem = [
@@ -83,6 +81,14 @@ const teamMembers = ref([
     // instagram: "https://instagram.com/willsmith",
     // linkedin: "https://linkedin.com/in/willsmith",
   },
+    {
+    name: "Emma Watson",
+    position: "Managing Director",
+    image: "images/image-51.png",
+    // twitter: "https://twitter.com/emmawatson",
+    // instagram: "https://instagram.com/emmawatson",
+    // linkedin: "https://linkedin.com/in/emmawatson",
+  },
 ]);
 
 // suport data
@@ -107,9 +113,8 @@ const supports = [
 
 <template>
   <NuxtLayout name="home">
-    
     <!-- about us banner -->
-    <div class="xl:ps-36 ps-4 md:pe-0 pe-4 w-full">
+    <div class="lg:ps-56 ps-4 md:pe-0 pe-4 w-full">
       <div class="py-8 text-left">
         <Breadcrumb :crumbs="crumbs" />
       </div>
@@ -135,21 +140,12 @@ const supports = [
       </div>
     </div>
     <!-- about us counter -->
-    <div
-      class="grid grid-cols-2 gap-4 px-4 pt-12 md:grid-cols-4  xl:px-36 lg:pt-28 md:pt-20"
-    >
+    <div class="grid grid-cols-2 gap-4 px-4 pt-12 md:grid-cols-4 lg:px-56 lg:pt-28 md:pt-20">
       <div
         class="flex flex-col items-center p-8 space-y-2 duration-300 border border-gray-400 rounded hover:text-white hover:border-primary hover:bg-primary group"
-        v-for="(item, index) in counterItem"
-        :key="index"
-      >
-        <div
-          class="p-2 mb-2 bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white"
-        >
-          <Icon
-            :name="item.iconName"
-            class="w-8 h-8 text-white group-hover:text-dark"
-          />
+        v-for="(item, index) in counterItem" :key="index">
+        <div class="p-2 mb-2 bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white">
+          <Icon :name="item.iconName" class="w-8 h-8 text-white group-hover:text-dark" />
         </div>
 
         <h3 class="text-2xl font-bold">{{ item.counter }}K</h3>
@@ -158,30 +154,23 @@ const supports = [
     </div>
 
     <!-- team slider -->
-    <div class="px-4 pt-12 xl:px-36 lg:pt-28 md:pt-20">
-      <swiper
-        :slides-per-view="3"
-        space-between="30"
-        :pagination="{
-          clickable: true,
-        }"
-        :breakpoints="{
-          '300': {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          '768': {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          '1024': {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-        }"
-        :modules="modules"
-        class="mySwiper"
-      >
+    <div class="px-4 pt-12 lg:px-56 lg:pt-28 md:pt-20">
+      <swiper :slides-per-view="3" space-between="30" :pagination="{
+        clickable: true,
+      }" :breakpoints="{
+        '300': {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        '768': {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        '1024': {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+      }" :modules="modules" class="mySwiper">
         <swiper-slide v-for="(member, index) in teamMembers" :key="index">
           <div class="pt-12 bg-light">
             <img :src="member.image" alt="" class="mx-auto mb-4 w-52 h-80" />
@@ -190,51 +179,39 @@ const supports = [
             <h3 class="text-xl font-bold">{{ member.name }}</h3>
             <p class="text-gray-600">{{ member.position }}</p>
             <div class="flex gap-3 mt-2">
-              <span> <Icon name="hugeicons:twitter" class="w-6 h-6" /></span>
-              <span> <Icon name="hugeicons:instagram" class="w-6 h-6" /></span>
-              <span> <Icon name="ri:linkedin-line" class="w-6 h-6" /></span>
+              <span>
+                <Icon name="hugeicons:twitter" class="w-6 h-6" />
+              </span>
+              <span>
+                <Icon name="hugeicons:instagram" class="w-6 h-6" />
+              </span>
+              <span>
+                <Icon name="ri:linkedin-line" class="w-6 h-6" />
+              </span>
             </div>
           </div>
         </swiper-slide>
       </swiper>
+        <Features class="my-10" />
     </div>
 
-    <!-- our support -->
-    <!-- <div
-    class="grid grid-cols-1 gap-4 px-3 pt-12 md:grid-cols-3 md:px-10 lg:px-36 lg:pt-28 md:pt-20"
-  >
-    <div
-      class="flex flex-col items-center p-8 space-y-2"
-      v-for="(support, index) in supports"
-      :key="index"
-    >
-      <div
-        class="p-2 mb-2 bg-black rounded-full ring-4 ring-gray-400 group-hover:ring-red-300 group-hover:bg-white"
-      >
-        <Icon
-          :name="support.iconName"
-          class="w-8 h-8 text-white group-hover:text-dark"
-        />
-      </div>
 
-      <h3 class="text-xl font-bold">{{ support.title }}K</h3>
-      <h3>{{ support.subTitle }}K</h3>
-    </div>
-  </div> -->
-    <Features />
+  
+  
   </NuxtLayout>
 </template>
-
 
 <style>
 .swiper-pagination {
   position: static !important;
   margin-top: 20px;
 }
+
 .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
 }
+
 .swiper-pagination-bullet-active {
   background-color: #db4444;
   border: 2px solid rgba(128, 128, 128, 0.527);

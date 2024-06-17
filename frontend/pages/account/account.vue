@@ -56,6 +56,56 @@ const address = "Rajshahi Bangladesh";
                 />
               </div>
             </div>
+
+                       <!-- select Thana -->
+          <label
+            for="countries"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an Thana</label
+          >
+          <select
+            id="countries"
+            class="bg-gray-50  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
+          >
+            <option selected>Choose a Thana</option>
+            <option value="US">Airport</option>
+            <option value="CA">Uttora</option>
+            <option value="FR">Mirput</option>
+            <option value="DE">Gulshan</option>
+          </select>
+                    <!-- select District -->
+          <label
+            for="countries"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an District</label
+          >
+          <select
+            id="countries"
+            class="bg-gray-50  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
+          >
+            <option selected>Choose a District</option>
+            <option value="US">Rajshahi</option>
+            <option value="CA">Dhaka</option>
+            <option value="FR">Khulna</option>
+            <option value="DE">Rangpur</option>
+          </select>
+
+          <!-- select country -->
+          <label
+            for="countries"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an Country</label
+          >
+          <select
+            id="countries"
+            class="bg-gray-50  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
+          >
+            <option selected>Choose a country</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+          </select>
             <ContactInputField
               type="password"
               label="Password Changes"

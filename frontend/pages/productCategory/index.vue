@@ -1,4 +1,3 @@
-
 <script setup>
 import InputText from "primevue/inputtext";
 import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
@@ -112,10 +111,9 @@ const ratings = ref([1, 2, 3, 4, 5]);
 }
 </style>
 
-
 <template>
   <NuxtLayout name="home">
-    <div class="px-4 pb-10 min-h-screen mx-auto">
+    <div class="px-8 pb-10 min-h-screen mx-auto">
       <div class="py-4 text-left">
         <Breadcrumb :crumbs="crumbs" />
       </div>
@@ -123,8 +121,9 @@ const ratings = ref([1, 2, 3, 4, 5]);
         <!-- Filters Section -->
         <div class="col-span-12 lg:col-span-3">
           <!-- range -->
-          <div class="px-2 py-4 mb-4 border rounded-md cursor-pointer">
-            <h4 class="mb-2 text-xl font-semibold text-dark">Price Range</h4>
+       <div class="border rounded p-4 max-h-screen">
+           <div class="mb-2">
+            <h4 class="mb-2 text-lg font-semibold text-dark">Price Range</h4>
             <InputText
               v-model.number="filters.price"
               class="w-full px-1 py-1 mb-3 text-center border focus:outline-none hover:outline-none"
@@ -139,8 +138,7 @@ const ratings = ref([1, 2, 3, 4, 5]);
           </div>
 
           <!-- category -->
-          <div class="px-2 py-4 mb-4 border rounded-md cursor-pointer">
-            <h4 class="mb-2 text-lg font-semibold text-dark">Category</h4>
+          <div class="mb-2">
             <select
               id="categories"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-primary focus:border-primary block w-full p-2.5"
@@ -157,59 +155,20 @@ const ratings = ref([1, 2, 3, 4, 5]);
           </div>
 
           <!-- brand -->
-          <div class="px-2 py-4 mb-4 border rounded-md cursor-pointer">
-            <h4 class="mb-2 text-xl font-semibold text-dark">Brand</h4>
-              <select
+          <div class="pb-2">
+            <select
               id="brands"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-primary focus:border-primary block w-full p-2.5"
             >
               <option selected>Choose a Brand</option>
-              <option
-                v-for="brand in brands"
-                :key="brand"
-                :value="brand"
-              >
+              <option v-for="brand in brands" :key="brand" :value="brand">
                 {{ brand }}
               </option>
             </select>
           </div>
-
-          <div class="px-2 py-4 mb-4 border rounded-md cursor-pointer">
-            <h4 class="mb-2 text-xl font-semibold text-dark">Color</h4>
-               <select
-              id="color"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-primary focus:border-primary block w-full p-2.5"
-            >
-              <option selected>Choose a Colour</option>
-              <option
-                v-for="color in colors"
-                :key="color"
-                :value="color"
-              >
-                {{ color }}
-              </option>
-            </select>
-          </div>
-
-          <div class="px-2 py-4 mb-4 border rounded-md cursor-pointer">
-            <h4 class="mb-2 text-xl font-semibold text-dark">Vendor</h4>
-             <select
-              id="vendor"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-primary focus:border-primary block w-full p-2.5"
-            >
-              <option selected>Choose a Vendor</option>
-              <option
-                v-for="vendor in vendors"
-                :key="vendor"
-                :value="vendor"
-              >
-                {{ vendor }}
-              </option>
-            </select>
-          </div>
-
-          <div class="px-2 py-4 mb-4 border rounded-md cursor-pointer">
-            <h4 class="mb-2 text-xl font-semibold text-dark">Rating</h4>
+          <!-- rating -->
+          <div class="mb-2">
+            <h4 class="mb-2 text-lg font-semibold text-dark">Rating</h4>
             <ul class="flex flex-wrap gap-2">
               <li
                 v-for="rating in ratings"
@@ -235,14 +194,33 @@ const ratings = ref([1, 2, 3, 4, 5]);
               </li>
             </ul>
           </div>
+          <!-- color -->
+          <div class="mb-2">
+            <select
+              id="color"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-primary focus:border-primary block w-full p-2.5"
+            >
+              <option selected>Choose a Colour</option>
+              <option v-for="color in colors" :key="color" :value="color">
+                {{ color }}
+              </option>
+            </select>
+          </div>
+          <!-- vendor -->
+          <div class="mb-2">
+            <h4 class="mb-2 text-lg font-semibold text-dark">Vendor</h4>
+            <select
+              id="vendor"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-primary focus:border-primary block w-full p-2.5"
+            >
+              <option selected>Choose a Vendor</option>
+              <option v-for="vendor in vendors" :key="vendor" :value="vendor">
+                {{ vendor }}
+              </option>
+            </select>
+          </div>
+       </div>
 
-          <button
-            @click="resetFilters"
-            :disabled="!isFilterActive"
-            class="w-full p-2 text-white rounded bg-primary disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Reset Filters
-          </button>
         </div>
         <!-- Products Section -->
         <div class="col-span-12 lg:col-span-9">
@@ -256,6 +234,7 @@ const ratings = ref([1, 2, 3, 4, 5]);
             />
           </div>
           <!-- Pagination -->
+           <pagination/>
         </div>
       </div>
     </div>
