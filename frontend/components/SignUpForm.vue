@@ -1,3 +1,28 @@
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import InputField from "~/composables/reuseable/InputField/InputField.vue";
+
+const name = ref("");
+const email = ref("");
+const password = ref("");
+
+const router = useRouter();
+
+const handleSubmit = () => {
+  // Add form submission logic here
+  console.log("Form submitted", {
+    name: name.value,
+    email: email.value,
+    password: password.value,
+  });
+};
+
+const signUpWithGoogle = () => {
+  // Add sign-up with Google logic here
+  console.log("Sign up with Google");
+};
+</script>
 <template>
   <div class="w-full p-4 rounded-md">
     <div class="text-center lg:text-left">
@@ -56,29 +81,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import InputField from "~/composables/reuseable/InputField/InputField.vue";
-
-const name = ref("");
-const email = ref("");
-const password = ref("");
-
-const router = useRouter();
-
-const handleSubmit = () => {
-  // Add form submission logic here
-  console.log("Form submitted", {
-    name: name.value,
-    email: email.value,
-    password: password.value,
-  });
-};
-
-const signUpWithGoogle = () => {
-  // Add sign-up with Google logic here
-  console.log("Sign up with Google");
-};
-</script>

@@ -61,9 +61,7 @@
 definePageMeta({
   layout: "home",
 });
-import Button from "~/composables/reuseable/Button/Button.vue";
-import ProductCard from "~/composables/reuseable/ProductCard/ProductCard.vue";
-import TitleWithSubTitle from "~/composables/reuseable/TitleWithSubTitle/TitleWithSubTitle.vue";
+
 const products = ref([
   {
     id: 1,

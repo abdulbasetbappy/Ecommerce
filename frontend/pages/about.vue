@@ -9,8 +9,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import Features from "~/components/Features/Features.vue";
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
+
 
 const modules = [Pagination];
 const aboutUs = ref(

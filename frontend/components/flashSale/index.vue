@@ -1,7 +1,5 @@
 <script setup>
 import { ref, watch } from "vue";
-import Button from "../Button/Button.vue";
-import CountdownTimer from "../CountdownTimer/CountdownTimer.vue";
 
 const props = defineProps({
   category: {
@@ -44,12 +42,12 @@ watch(
 <template>
   <div
     v-if="showFlashSale"
-    class="flex flex-col items-center justify-between p-8 text-white bg-black rounded-lg md:flex-row"
+    class="flex mt-5 md:mt-10 flex-col items-center justify-between p-8 text-white bg-gray-900 rounded-lg md:flex-row"
   >
     <div class="flex flex-col  justify-center items-start">
-      <span class="text-lg font-bold text-red-500">{{ category }}</span>
+      <span class="text-lg font-bold text-red-500">Discount Offer 45%</span>
       <h1 class="w-auto lg:w-[443px] my-4 lg:text-5xl text-lg font-bold mt-8">{{ headline }}</h1>
-      <CountdownTimer :endTime="endTime" />
+      <Countdown :endTime="endTime" />
       <Button class="mt-8 w-32"> Buy Now </Button>
     </div>
     <div class="mt-8 md:mt-0">

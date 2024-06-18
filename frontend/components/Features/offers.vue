@@ -1,5 +1,9 @@
 <script setup>
-import { Autoplay, Grid, Navigation, Pagination } from "swiper/modules";
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+  import 'swiper/css/scrollbar';
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { onMounted, ref, watch } from "vue";
 
@@ -13,6 +17,7 @@ const props = defineProps({
     },
 });
 
+console.log('hello');
 
 const showFlashSale = ref(true);
 
@@ -50,6 +55,8 @@ const nextEl = ref(null);
 
 const navigationOptions = ref({});
 
+console.log(props.items);
+
 onMounted(() => {
     navigationOptions.value = {
         prevEl: prevEl.value,
@@ -71,17 +78,17 @@ const next = () => {
 </script>
 
 <template>
-    <div v-if="showFlashSale" class="container relative mx-auto mt-10">
+    <div class="container relative mx-auto mt-10">
         <div class="flex justify-between mb-4">
             <div class="flex flex-row  gap-4">
-                <TitleWithSubTitle title="Today's" subtitle="Flash Sales" />
+                <TitleWithSub title="Today's" subtitle="Flash Sales" />
 
-                <CountdownTimer
+                <Countdown
                     :dclass="'reverse flex-col items-center justify-center text-dark flex-col-reverse hidden md:flex'"
                     :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)" />
             </div>
             <div class="absolute top-0 right-0 flex items-center justify-center space-x-2">
-                <button ref="prevEl" class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full" 
+                <button ref="prevEl" class="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full"
                     @click="prev">
                     <Icon name="mdi:chevron-left" class="text-3xl" />
                 </button>
@@ -92,15 +99,18 @@ const next = () => {
             </div>
         </div>
         <div class="relative">
-            <swiper ref="swiperInstance" :slides-per-view="4" :space-between="20" :breakpoints="responsiveOptions"
-                :loop="true" 
+            <swiper ref="swiperInstance" 
+                :slides-per-view="4" 
+                :space-between="20" 
+                :breakpoints="responsiveOptions"
+                :loop="true"
                 :navigation="{
-                                prevEl: prevEl,
-                                nextEl: nextEl
-                            }"
-                :autoplay="{ delay: 3000 }"
-                :modules="[Pagination, Navigation, Autoplay, Grid]" class="mySwiper">
-                <swiper-slide v-for="(item, index) in props.items" :key="index">
+                        prevEl: prevEl,
+                        nextEl: nextEl
+                    }"
+                :autoplay="{ delay: 3000 }" 
+                :modules="[Pagination, Navigation, Autoplay]" class="mySwiper">
+                <swiper-slide v-for="(item, index) in items" :key="index">
                     <ProductCard class="mt-8 md:mt-10" :product="item" />
                 </swiper-slide>
             </swiper>

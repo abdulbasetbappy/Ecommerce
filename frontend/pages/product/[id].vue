@@ -1,9 +1,5 @@
 <script setup>
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
-import Rating from "~/composables/reuseable/Rating/Rating.vue";
-import ProductRating from "~/composables/reuseable/Rating/ProductRating.vue";
-import ProductCard from "~/composables/reuseable/ProductCard/ProductCard.vue";
-import TitleWithSubTitle from "~/composables/reuseable/TitleWithSubTitle/TitleWithSubTitle.vue";
+
 
 const crumbs = [
   { name: "Account", link: "/" },

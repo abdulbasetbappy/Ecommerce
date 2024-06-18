@@ -1,3 +1,24 @@
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+import InputField from "~/composables/reuseable/InputField/InputField.vue";
+
+
+const email = ref("");
+const password = ref("");
+
+const router = useRouter();
+
+const handleSubmit = () => {
+  // Add form submission logic here
+    console.log("Form submitted", {
+        email: email.value,
+        password: password.value,
+    });
+};
+</script>
+
 <template>
   <div class="w-full p-4 rounded-md">
     <div class="text-center lg:text-left">
@@ -30,24 +51,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import Button from "~/composables/reuseable/Button/Button.vue";
-import InputField from "~/composables/reuseable/InputField/InputField.vue";
-
-
-const email = ref("");
-const password = ref("");
-
-const router = useRouter();
-
-const handleSubmit = () => {
-  // Add form submission logic here
-  console.log("Form submitted", {
-    email: email.value,
-    password: password.value,
-  });
-};
-</script>

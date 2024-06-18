@@ -1,3 +1,13 @@
+
+<script setup>
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const goHome = () => {
+  router.push("/");
+};
+</script>
 <template>
   <div class="container w-full py-6 mx-auto">
     <div class="flex flex-col items-center justify-center h-screen">
@@ -22,14 +32,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { useRouter } from "vue-router";
-import Button from "~/composables/reuseable/Button/Button.vue";
-
-const router = useRouter();
-
-const goHome = () => {
-  router.push("/");
-};
-</script>
