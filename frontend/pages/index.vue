@@ -228,6 +228,16 @@ const products = ref([
     ratingCount: 65,
   },
 ]);
+
+import { useCartsStore } from '@/stores/carts'
+const carts = useCartsStore()
+
+const addCart = () => {
+
+    carts.addToCart();
+}
+
+
 </script>
 
 <template>
@@ -235,7 +245,7 @@ const products = ref([
     <div class="md:px-4 md:pb-6 pb-2">
       <CategorySlider class="container mx-auto" />
     </div>
-
+    <div @click="addCart">clcik {{ carts.items }}</div>
     <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
       <Features />
       <!--Todays Carousel-->
@@ -243,6 +253,7 @@ const products = ref([
       <!--Browse By Category-->
       <CategoriesCarousel :items="categories" />
     </div>
+    
     <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
       <!--Best Selling Products-->
       <div class="flex items-center justify-between mb-8 text-left">
