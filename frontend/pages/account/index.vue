@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 const crumbs = [{ name: "Home", link: "/" }, { name: " Acocunt" }];
 
 const invoices = ref([
