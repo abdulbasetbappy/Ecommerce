@@ -1,6 +1,5 @@
 <script setup>
-
-
+    import { ref } from 'vue';
 const crumbs = [
   { name: "Account", link: "/" },
   { name: " Gaming", link: "/" },

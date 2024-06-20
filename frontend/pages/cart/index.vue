@@ -112,8 +112,6 @@
 
 <script setup>
 import {  ref } from "vue";
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
-import Button from "~/composables/reuseable/Button/Button.vue";
 const crumbs = [{ name: "Home", link: "/" }, { name: " Cart" }];
 
 const cartItems = ref([
@@ -122,14 +120,14 @@ const cartItems = ref([
     name: "LCD Monitor",
     price: 650,
     quantity: 1,
-    image: "/images/shoe.png",
+    image: "../images/shoe.png",
   },
   {
     id: 2,
     name: "H1 Gamepad",
     price: 550,
     quantity: 2,
-    image: "/images/jacket.png",
+    image: "../images/jacket.png",
   },
 ]);
 

@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed } from "vue";
-import Breadcrumb from "~/composables/reuseable/Breadcrumb/Breadcrumb.vue";
 import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 
 const crumbs = [
