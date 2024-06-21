@@ -57,7 +57,7 @@ const categories = ref([
                 <!-- Filters Section -->
                 <div class="col-span-12 lg:col-span-3">
                     <!-- range -->
-                    <div class="border rounded p-4 max-h-screen">
+                    <div class="border rounded p-4 min-h-screen">
                         <div class="mb-2">
                             <h4 class="mb-2 text-lg font-semibold text-dark">Price Range</h4>
                             <InputText v-model.number="filters.price"
