@@ -208,7 +208,7 @@
               class="relative w-6 h-6 cursor-pointer"
             />
             <div
-              class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-3 -top-3 bg-primary"
+              class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-3 -top-3 bg-primary cursor-pointer"
             >
               20
             </div>
