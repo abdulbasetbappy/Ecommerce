@@ -5,8 +5,8 @@ import { useCartsStore } from '@/stores/carts'
 
 const carts = useCartsStore()
 
-const addCart = () => {
-    carts.addToCart();
+const addCart = (item) => {
+    carts.addToCart(item);
 }
 
 const whishList = ref(false);
@@ -50,7 +50,7 @@ const addToWishlist = () => {
             <!-- Add to Cart button on hover -->
             <div
                 class="absolute bottom-0 left-0 right-0 flex items-center justify-center text-white transition-opacity duration-300 bg-black opacity-0 bg-opacity-90 group-hover:opacity-100">
-                <button class="w-full py-2" @click="addCart">Add To Cart {{ carts.items }}</button>
+                <button class="w-full py-2" @click="addCart(product)">Add To Cart (0)</button>
             </div>
         </div>
 

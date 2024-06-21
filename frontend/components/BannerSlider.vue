@@ -86,7 +86,7 @@ const items = [
     productImg: "/images/iphone.jpg",
   },
   {
-    titleLogo: "/images/1200px-Apple_gray_logo 1.png",
+    titleLogo: "/images/1200px-Apple_gray_logo1.png",
     title: "iPhone 15 Series",
     productOffer: "Up to 20% off Voucher",
     productImg: "/images/iphone.jpg",

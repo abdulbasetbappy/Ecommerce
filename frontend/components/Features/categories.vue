@@ -83,7 +83,7 @@ const next = () => {
                         nextEl: nextEl,
                     }" :modules="[Pagination, Navigation, Autoplay]" class="mySwiper w-full">
                 <swiper-slide v-for="(item, index) in items" :key="index">
-                    <NuxtLink :to="`/productPage/${index + 1}`">
+                    <NuxtLink :to="`/category/${item.id}`">
                         <div class="flex flex-col items-center justify-center border mb-6 py-2 text-center rounded-sm  hover:bg-primary hover:text-light">
                             <Icon :name="item.icon" class="mb-2 text-4xl" />
                             <span>{{ item.label }}</span>
