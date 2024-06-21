@@ -5,17 +5,17 @@ definePageMeta({
 
 
 const categories = ref([
-    { icon: "mingcute:cellphone-line", label: "Phones" },
-    { icon: "mdi:desktop-classic", label: "Computers" },
-    { icon: "mdi:watch", label: "SmartWatch" },
-    { icon: "mdi:camera", label: "Camera" },
-    { icon: "mdi:headphones", label: "HeadPhones" },
-    { icon: "mdi:gamepad-variant", label: "Gaming" },
-    { icon: "mdi:microphone", label: "Microphone" },
-    { icon: "mdi:cellphone", label: "Clothing" },
-    { icon: "mdi:desktop-classic", label: "Electronics" },
-    { icon: "mdi:watch", label: "Home Appliances" },
-    { icon: "mdi:camera", label: "jewelery" },
+    { id: 1, icon: "mingcute:cellphone-line", label: "Phones" },
+    { id: 2, icon: "mdi:desktop-classic", label: "Computers" },
+    { id: 3, icon: "mdi:watch", label: "SmartWatch" },
+    { id: 4, icon: "mdi:camera", label: "Camera" },
+    { id: 5, icon: "mdi:headphones", label: "HeadPhones" },
+    { id: 6, icon: "mdi:gamepad-variant", label: "Gaming" },
+    { id: 7, icon: "mdi:microphone", label: "Microphone" },
+    { id: 8, icon: "mdi:cellphone", label: "Clothing" },
+    { id: 9, icon: "mdi:desktop-classic", label: "Electronics" },
+    { id: 10, icon: "mdi:watch", label: "Home Appliances" },
+    { id: 11, icon: "mdi:camera", label: "jewelery" },
 ]);
 const products = ref([]);
 
@@ -35,22 +35,22 @@ const products = ref([]);
 
 <template>
     <NuxtLayout :name="home">
-        <Suspense>
+        
             <div class="md:px-4 md:pb-6 pb-2">
                 <CategorySlider class="container mx-auto" />
             </div>
-        </Suspense>
+        
         <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">
-            <Suspense>
+        
                 <FeaturesItem />
-            </Suspense>
-            <Suspense>
+            
+        
                 <FeaturesOffers :items="products" />
-            </Suspense>
-            <Suspense>
+            
+        
                 <FeaturesCategories :items="categories" />
-            </Suspense>
-            <Suspense>
+            
+        
                 <div class="flex items-center justify-between mb-8 text-left mt-16">
                     <TitleWithSub title="This Month" subtitle="Best Selling Products" />
                     <NuxtLink to="/productPage/asdfasdf">
@@ -60,17 +60,17 @@ const products = ref([]);
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                     <ProductCard class="mt-8 md:mt-10" v-for="product in products.slice(0, 8)" :key="product.id" :product="product"/>
                 </div>
-            </Suspense>
-            <Suspense>
+            
+        
                 <ProductOur :items="products" />
-            </Suspense>
-            <Suspense>
+            
+        
                 <ResponsiveGallery />
-            </Suspense>
-            <Suspense>
+            
+        
                 <Brand />
-            </Suspense>
-            <Suspense>
+            
+        
             <FlashSale
                 category="Categories"
                 headline="Enhance Your Music Experience"
@@ -79,7 +79,7 @@ const products = ref([]);
                 buttonText="Buy Now!"
                 :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)"
                 />
-            </Suspense>
+            
         </div>
 
         
