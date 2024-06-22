@@ -74,18 +74,18 @@ const cities = ref([
 ]);
 const selectedCountry = ref();
 const countries = ref([
-  { name: "Rajshahi", code: "NY" },
-  { name: "Dhaka", code: "RM" },
-  { name: "Khulna", code: "LDN" },
-  { name: "Rangpur", code: "IST" },
-  { name: "Chittagong", code: "PRS" },
+  { name: "Bangladesh", code: "NY" },
+  { name: "India", code: "RM" },
+  { name: "Pakisthan", code: "LDN" },
+  { name: "UK", code: "IST" },
+  { name: "USA", code: "PRS" },
 ]);
 </script>
 
 <template>
   <!-- about us banner -->
   <NuxtLayout name="home">
-    <div class="lg:px-56 px-4 mb-20 w-full">
+    <div class="lg:px-36 px-4 mb-20 w-full">
       <div class="text-left py-4">
         <Breadcrumb :crumbs="crumbs" />
       </div>
@@ -93,96 +93,44 @@ const countries = ref([
       <!-- delivery info -->
       <div class="grid md:grid-cols-12 grid-cols-1 gap-16">
         <div class="md:col-span-6 col-span-12">
-          <ContactInputField
-            type="text"
-            label="Your Name"
-            id="name"
-            v-model="name"
-            class="mb-4"
-          />
+          <ContactInputField type="text" label="Your Name" id="name" v-model="name" class="mb-4" />
 
-          <ContactInputField
-            type="email"
-            label="Your Email"
-            id="email"
-            v-model="email"
-            class="mb-4"
-          />
-          <ContactInputField
-            type="number"
-            label="Phone Number*"
-            id="phone-number"
-            v-model="phoneNumber"
-            class="mb-4"
-          />
+          <ContactInputField type="email" label="Your Email" id="email" v-model="email" class="mb-4" />
+          <ContactInputField type="number" label="Phone Number*" id="phone-number" v-model="phoneNumber" class="mb-4" />
 
-          <ContactInputField
-            type="text"
-            label="Street Address *"
-            id="street-address"
-            v-model="streetAddress"
-            class="mb-4"
-          />
-          <ContactInputField
-            type="text"
-            label="Apartment, floor, etc. (optional)"
-            id="apartment"
-            v-model="apartment"
-            class="mb-4"
-          />
+          <ContactInputField type="text" label="Street Address *" id="street-address" v-model="streetAddress"
+            class="mb-4" />
+          <ContactInputField type="text" label="Apartment, floor, etc. (optional)" id="apartment" v-model="apartment"
+            class="mb-4" />
           <!-- select Thana -->
-        
+
           <div class="rounded bg-light flex justify-center w-full mb-5">
-            <Dropdown
-              v-model="selectedThana"
-              filter
-              :options="thanas"
-              optionLabel="name"
-              placeholder="Select a Thana"
-              class="w-full bg-light"
-            />
+            <Dropdown v-model="selectedThana" filter :options="thanas" optionLabel="name" placeholder="Select a Thana"
+              class="w-full bg-light" />
           </div>
           <!-- select city -->
-           <div class="rounded bg-light flex justify-center w-full mb-5">
-            <Dropdown
-              v-model="selectedCity"
-              filter
-              :options="cities"
-              optionLabel="name"
-              placeholder="Select a City"
-              class="w-full bg-light"
-            />
+          <div class="rounded bg-light flex justify-center w-full mb-5">
+            <Dropdown v-model="selectedCity" filter :options="cities" optionLabel="name" placeholder="Select a City"
+              class="w-full bg-light" />
           </div>
-        <!-- select conuntry -->
-           <div class="rounded bg-light flex justify-center w-full mb-5">
-            <Dropdown
-              v-model="selectedCountry"
-              filter
-              :options="countries"
-              optionLabel="name"
-              placeholder="Select a Country"
-              class="w-full bg-light"
-            />
+          <!-- select conuntry -->
+          <div class="rounded bg-light flex justify-center w-full mb-5">
+            <Dropdown v-model="selectedCountry" filter :options="countries" optionLabel="name"
+              placeholder="Select a Country" class="w-full bg-light" />
           </div>
 
           <div class="flex items-center dark:border-gray-700">
-            <input checked type="checkbox" value="" class="w-4 h-4" />
-            <label
-              class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Save this information for faster check-out next time
-            </label>
+          
+            <input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1" />
+            <label for="styled-checkbox-1">
+              Save this information for faster check-out next time</label>
           </div>
         </div>
 
         <!-- payment info -->
         <div class="md:col-span-6 col-span-12">
           <div class="p-6 space-y-4">
-            <div
-              v-for="item in items"
-              :key="item.id"
-              class="flex items-center justify-between space-x-4"
-            >
+            <div v-for="item in items" :key="item.id" class="flex items-center justify-between space-x-4">
               <div class="flex items-center gap-4">
                 <img :src="item.image" :alt="item.name" class="w-16 h-16" />
                 <h3 class="text-lg font-medium">{{ item.name }}</h3>
@@ -210,21 +158,12 @@ const countries = ref([
             <div class="flex justify-between">
               <div>
                 <label class="flex items-center">
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="bank"
-                    class="form-radio"
-                  />
+                  <input type="radio" name="payment" value="bank" class="form-radio" />
                   <span class="ml-2">Bank</span>
                 </label>
               </div>
               <div class="flex gap-4">
-                <p
-                  v-for="(method, index) in methods"
-                  :key="index"
-                  class="curser-pointer"
-                >
+                <p v-for="(method, index) in methods" :key="index" class="curser-pointer">
                   <img class="w-auto" :src="method.src" :alt="method.alt" />
                 </p>
               </div>
@@ -233,22 +172,13 @@ const countries = ref([
 
             <div>
               <label class="flex items-center">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="cod"
-                  class="form-radio"
-                  checked
-                />
+                <input type="radio" name="payment" value="cod" class="form-radio" checked />
                 <span class="ml-2">Cash on delivery</span>
               </label>
             </div>
             <div class="flex space-x-2">
-              <input
-                type="text"
-                placeholder="Coupon Code"
-                class="form-input flex-1 border px-4 bg-light focus:outline-none rounded"
-              />
+              <input type="text" placeholder="Coupon Code"
+                class="form-input flex-1 border px-4 bg-light focus:outline-none rounded" />
               <button class="bg-red-500 text-white px-4 py-2 rounded">
                 Apply Coupon
               </button>
@@ -264,8 +194,6 @@ const countries = ref([
 </template>
 
 <style>
-
-
 .p-dropdown-filter {
   padding: 7px !important;
 }
@@ -278,6 +206,101 @@ const countries = ref([
 .p-dropdown:not(.p-disabled).p-focus {
   outline: 0 !important;
 }
+</style>
 
+<style scoped>
+.form-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #db4444;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
 
+.form-radio:checked::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #db4444;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+}
+
+.form-radio+.ml-2 {
+  vertical-align: middle;
+}
+
+/* checkbox */
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.styled-checkbox+label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Box */
+.styled-checkbox+label:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #343a40;
+}
+
+/* Box hover */
+.styled-checkbox:hover+label:before {
+  background: #db4444;
+  border: 1px solid #db4444;
+}
+
+/* Box focus */
+.styled-checkbox:focus+label:before {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+/* Box checked */
+.styled-checkbox:checked+label:before {
+  background: #db4444;
+  border: 1px solid #db4444;
+}
+
+/* Disabled state label */
+.styled-checkbox:disabled+label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+
+/* Disabled box */
+.styled-checkbox:disabled+label:before {
+  box-shadow: none;
+  background: #ddd;
+}
+
+/* Checkmark. Could be replaced with an image */
+.styled-checkbox:checked+label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 11px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+    4px -6px 0 white, 4px -8px 0 white;
+  transform: rotate(45deg);
+}
 </style>

@@ -1,12 +1,48 @@
+
+
+<script setup>
+import {  ref } from "vue";
+const crumbs = [{ name: "Home", link: "/" }, { name: " Cart" }];
+
+const cartItems = ref([
+  {
+    id: 1,
+    name: "LCD Monitor",
+    price: 650,
+    quantity: 1,
+    image: "../images/shoe.png",
+  },
+  {
+    id: 2,
+    name: "H1 Gamepad",
+    price: 550,
+    quantity: 2,
+    image: "../images/jacket.png",
+  },
+]);
+
+const formatPrice = (value) => {
+  return `$${value.toFixed(2)}`;
+};
+
+const updateCart = () => {
+  alert("Cart updated successfully");
+};
+
+const removeItem = (id) => {
+  cartItems.value = cartItems.value.filter((item) => item.id !== id);
+};
+</script>
+
 <template>
   <NuxtLayout name="home">
-    <div class="container  px-4 py-10 mx-auto">
+    <div class=" px-4 py-10 lg:px-36">
       <div class="py-2 text-left">
         <Breadcrumb :crumbs="crumbs" />
       </div>
       <div class="w-full mb-4 lg:mb-4">
         <div class="overflow-x-auto">
-          <table class="hidden min-w-full p-8 sm:table" style="border-spacing: 0 1rem;">
+          <table class="hidden w-full p-8 sm:table" style="border-spacing: 0 1rem;">
             <thead class="border custom-row-gap">
               <tr class="text-sm">
                 <th class="px-6 py-3 text-left">Product</th>
@@ -109,44 +145,6 @@
   </NuxtLayout>
 </template>
 
-
-<script setup>
-import {  ref } from "vue";
-const crumbs = [{ name: "Home", link: "/" }, { name: " Cart" }];
-
-const cartItems = ref([
-  {
-    id: 1,
-    name: "LCD Monitor",
-    price: 650,
-    quantity: 1,
-    image: "../images/shoe.png",
-  },
-  {
-    id: 2,
-    name: "H1 Gamepad",
-    price: 550,
-    quantity: 2,
-    image: "../images/jacket.png",
-  },
-]);
-
-
-
-const formatPrice = (value) => {
-  return `$${value.toFixed(2)}`;
-};
-
-const updateCart = () => {
-  alert("Cart updated successfully");
-};
-
-
-
-const removeItem = (id) => {
-  cartItems.value = cartItems.value.filter((item) => item.id !== id);
-};
-</script>
 
 <style scoped>
 .text-danger {
