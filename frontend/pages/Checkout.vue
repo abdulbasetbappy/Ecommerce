@@ -1,5 +1,5 @@
 <script setup>
-import Dropdown from 'primevue/dropdown';
+import Dropdown from "primevue/dropdown";
 import { ref, computed } from "vue";
 import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 
@@ -55,14 +55,30 @@ const total = computed(() => {
   return subtotal.value + shippingCost.value;
 });
 
+const selectedThana = ref();
+const thanas = ref([
+  { name: "Gulshan", code: "NY" },
+  { name: "Airport", code: "RM" },
+  { name: "Dhanmondi", code: "LDN" },
+  { name: "Mirpur", code: "IST" },
+  { name: "Uttora", code: "PRS" },
+]);
 
 const selectedCity = ref();
 const cities = ref([
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' }
+  { name: "Rajshahi", code: "NY" },
+  { name: "Dhaka", code: "RM" },
+  { name: "Khulna", code: "LDN" },
+  { name: "Rangpur", code: "IST" },
+  { name: "Chittagong", code: "PRS" },
+]);
+const selectedCountry = ref();
+const countries = ref([
+  { name: "Rajshahi", code: "NY" },
+  { name: "Dhaka", code: "RM" },
+  { name: "Khulna", code: "LDN" },
+  { name: "Rangpur", code: "IST" },
+  { name: "Chittagong", code: "PRS" },
 ]);
 </script>
 
@@ -77,11 +93,6 @@ const cities = ref([
       <!-- delivery info -->
       <div class="grid md:grid-cols-12 grid-cols-1 gap-16">
         <div class="md:col-span-6 col-span-12">
-
- <div class="card flex justify-center">
-        <Dropdown v-model="selectedCity" filter :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
-    </div>
-
           <ContactInputField
             type="text"
             label="Your Name"
@@ -120,77 +131,48 @@ const cities = ref([
             class="mb-4"
           />
           <!-- select Thana -->
-          <label
-            for="countries"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Select an Thana</label
-          >
-          <select
-            id="countries"
-            filter
-            class="bg-gray-50 mb-4 text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
-          >
-            <option selected>Choose a Thana</option>
-            <option value="US">Airport</option>
-            <option value="CA">Uttora</option>
-            <option value="FR">Mirput</option>
-            <option value="DE">Gulshan</option>
-          </select>
-          <!-- select District -->
-          <label
-            for="countries"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Select an District</label
-          >
-          <select
-            id="countries"
-            class="bg-gray-50 text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
-          >
-            <option selected>Choose a District</option>
-            <option value="US">Rajshahi</option>
-            <option value="CA">Dhaka</option>
-            <option value="FR">Khulna</option>
-            <option value="DE">Rangpur</option>
-          </select>
-
-          <!-- select country -->
-          <label
-            for="countries"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Select an Country</label
-          >
-          <select
-            id="countries"
-            class="bg-gray-50 mb-4 text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
-          >
-            <option selected>Choose a country</option>
-            <option value="US">United States</option>
-            <option value="CA">Canada</option>
-            <option value="FR">France</option>
-            <option value="DE">Germany</option>
-          </select>
+        
+          <div class="rounded bg-light flex justify-center w-full mb-5">
+            <Dropdown
+              v-model="selectedThana"
+              filter
+              :options="thanas"
+              optionLabel="name"
+              placeholder="Select a Thana"
+              class="w-full bg-light"
+            />
+          </div>
+          <!-- select city -->
+           <div class="rounded bg-light flex justify-center w-full mb-5">
+            <Dropdown
+              v-model="selectedCity"
+              filter
+              :options="cities"
+              optionLabel="name"
+              placeholder="Select a City"
+              class="w-full bg-light"
+            />
+          </div>
+        <!-- select conuntry -->
+           <div class="rounded bg-light flex justify-center w-full mb-5">
+            <Dropdown
+              v-model="selectedCountry"
+              filter
+              :options="countries"
+              optionLabel="name"
+              placeholder="Select a Country"
+              class="w-full bg-light"
+            />
+          </div>
 
           <div class="flex items-center dark:border-gray-700">
-            <input
-              checked
-             
-              type="checkbox"
-              value=""
-             
-              class="w-4 h-4"
-            />
+            <input checked type="checkbox" value="" class="w-4 h-4" />
             <label
               class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Save this information for faster check-out next time
             </label>
           </div>
-
-
-
-
-
-
         </div>
 
         <!-- payment info -->
@@ -282,7 +264,20 @@ const cities = ref([
 </template>
 
 <style>
-.checked-bg-primary:checked {
-  background-color: red !important; /* Replace this with your desired primary color */
+
+
+.p-dropdown-filter {
+  padding: 7px !important;
 }
+
+.p-dropdown-label {
+  font-size: 14px !important;
+  color: #000;
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+  outline: 0 !important;
+}
+
+
 </style>
