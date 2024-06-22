@@ -1,15 +1,3 @@
-<template>
-  <div  class="flex flex-col items-start justify-center md:space-x-4 md:flex-row">
-    <div
-      v-for="(time, index) in countdown"
-      :key="index"
-      :class="dclass"
-    >
-      <span class="text-2xl font-bold">{{ formatTime(time.value) }}</span>
-      <span class="text-sm">{{ time.label }}</span>
-    </div>
-  </div>
-</template>
 
 <script setup>
 import { useIntervalFn } from "@vueuse/core";
@@ -78,6 +66,20 @@ onMounted(() => {
   updateCountdown();
 });
 </script>
+
+<template>
+  <div  class="flex flex-col items-start justify-center md:space-x-4 md:flex-row">
+    <div
+      v-for="(time, index) in countdown"
+      :key="index"
+      :class="dclass"
+    >
+      <span class="text-2xl font-bold">{{ formatTime(time.value) }}</span>
+      <span class="text-sm">{{ time.label }}</span>
+    </div>
+  </div>
+</template>
+
 
 <style scoped>
 .word {

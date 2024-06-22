@@ -1,4 +1,5 @@
 <script setup>
+import Select from 'primevue/select';
 import { ref, computed } from "vue";
 import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 
@@ -53,6 +54,16 @@ const subtotal = computed(() => {
 const total = computed(() => {
   return subtotal.value + shippingCost.value;
 });
+
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
 </script>
 
 <template>
@@ -66,6 +77,11 @@ const total = computed(() => {
       <!-- delivery info -->
       <div class="grid md:grid-cols-12 grid-cols-1 gap-16">
         <div class="md:col-span-6 col-span-12">
+
+ <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+
           <ContactInputField
             type="text"
             label="Your Name"
@@ -75,12 +91,20 @@ const total = computed(() => {
           />
 
           <ContactInputField
-            type="text"
-            label="Company Name *"
-            id="company-name"
-            v-model="companyName"
+            type="email"
+            label="Your Email"
+            id="email"
+            v-model="email"
             class="mb-4"
           />
+          <ContactInputField
+            type="number"
+            label="Phone Number*"
+            id="phone-number"
+            v-model="phoneNumber"
+            class="mb-4"
+          />
+
           <ContactInputField
             type="text"
             label="Street Address *"
@@ -95,7 +119,7 @@ const total = computed(() => {
             v-model="apartment"
             class="mb-4"
           />
-                <!-- select Thana -->
+          <!-- select Thana -->
           <label
             for="countries"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -103,7 +127,8 @@ const total = computed(() => {
           >
           <select
             id="countries"
-            class="bg-gray-50 mb-4  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
+            filter
+            class="bg-gray-50 mb-4 text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
           >
             <option selected>Choose a Thana</option>
             <option value="US">Airport</option>
@@ -111,7 +136,7 @@ const total = computed(() => {
             <option value="FR">Mirput</option>
             <option value="DE">Gulshan</option>
           </select>
-                    <!-- select District -->
+          <!-- select District -->
           <label
             for="countries"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -119,7 +144,7 @@ const total = computed(() => {
           >
           <select
             id="countries"
-            class="bg-gray-50  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
+            class="bg-gray-50 text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
           >
             <option selected>Choose a District</option>
             <option value="US">Rajshahi</option>
@@ -145,43 +170,27 @@ const total = computed(() => {
             <option value="DE">Germany</option>
           </select>
 
-          <!-- <ContactInputField
-            type="text"
-            label="Town/City*"
-            id="town-city"
-            v-model="townCity"
-            class="mb-4"
-          /> -->
-          <ContactInputField
-            type="number"
-            label="Phone Number*"
-            id="phone-number"
-            v-model="phoneNumber"
-            class="mb-4"
-          />
-          <ContactInputField
-            type="email"
-            label="Your Email"
-            id="email"
-            v-model="email"
-            class="mb-4"
-          />
           <div class="flex items-center dark:border-gray-700">
             <input
               checked
-              id="bordered-checkbox-2"
+             
               type="checkbox"
               value=""
-              name="bordered-checkbox"
-              class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 checked-bg-primary"
+             
+              class="w-4 h-4"
             />
             <label
-              for="bordered-checkbox-2"
               class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Save this information for faster check-out next time
             </label>
           </div>
+
+
+
+
+
+
         </div>
 
         <!-- payment info -->

@@ -1,3 +1,47 @@
+<script setup>
+import Sidebar from "primevue/sidebar";
+import { ref } from "vue";
+
+import { useCartsStore } from "@/stores/carts";
+
+const carts = useCartsStore();
+
+
+import "primeicons/primeicons.css";
+import "primevue/resources/primevue.min.css";
+import "primevue/resources/themes/saga-blue/theme.css";
+
+const visibleRight = ref(false);
+
+const toggleSidebar = () => {
+  visibleRight.value = !visibleRight.value;
+};
+
+const isMenuOpen = ref(false);
+const isSearch = ref(false);
+const isMobileDropdownOpen = ref(false);
+const isDesktopDropdownOpen = ref(false);
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+const search = () => {
+  isSearch.value = !isSearch.value;
+};
+const toggleMobileDropdown = (value) => {
+  isMobileDropdownOpen.value = value;
+};
+const toggleDesktopDropdown = (value) => {
+  isDesktopDropdownOpen.value = value;
+};
+
+const menus = [
+  { text: "Home", link: "/" },
+  { text: "Contact", link: "/contact" },
+  { text: "About", link: "/about" },
+  { text: "Sign Up", link: "account/signup" },
+];
+</script>
 <template>
   <div>
     <!-- Top header -->
@@ -135,7 +179,7 @@
             <div
               class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-3 -top-3 bg-primary"
             >
-              20
+              {{ carts.totalItem }}
             </div>
           </div>
           <button
@@ -210,7 +254,7 @@
             <div
               class="absolute flex items-center justify-center w-1 h-1 p-3 text-xs font-bold text-white rounded-full -right-3 -top-3 bg-primary cursor-pointer"
             >
-              20
+              {{ carts.totalItem }}
             </div>
           </div>
           <Sidebar
@@ -249,46 +293,6 @@
     </header>
   </div>
 </template>
-
-<script setup>
-import Sidebar from "primevue/sidebar";
-import { ref } from "vue";
-
-import "primeicons/primeicons.css";
-import "primevue/resources/primevue.min.css";
-import "primevue/resources/themes/saga-blue/theme.css";
-
-const visibleRight = ref(false);
-
-const toggleSidebar = () => {
-  visibleRight.value = !visibleRight.value;
-};
-
-const isMenuOpen = ref(false);
-const isSearch = ref(false);
-const isMobileDropdownOpen = ref(false);
-const isDesktopDropdownOpen = ref(false);
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
-const search = () => {
-  isSearch.value = !isSearch.value;
-};
-const toggleMobileDropdown = (value) => {
-  isMobileDropdownOpen.value = value;
-};
-const toggleDesktopDropdown = (value) => {
-  isDesktopDropdownOpen.value = value;
-};
-
-const menus = [
-  { text: "Home", link: "/" },
-  { text: "Contact", link: "/contact" },
-  { text: "About", link: "/about" },
-  { text: "Sign Up", link: "account/signup" },
-];
-</script>
 
 <style scoped>
 .slide-enter-active,
