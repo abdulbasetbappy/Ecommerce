@@ -6,11 +6,6 @@ import { useCartsStore } from "@/stores/carts";
 
 const carts = useCartsStore();
 
-
-import "primeicons/primeicons.css";
-import "primevue/resources/primevue.min.css";
-import "primevue/resources/themes/saga-blue/theme.css";
-
 const visibleRight = ref(false);
 
 const toggleSidebar = () => {

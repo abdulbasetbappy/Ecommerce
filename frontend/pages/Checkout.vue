@@ -1,5 +1,5 @@
 <script setup>
-import Select from 'primevue/select';
+import Dropdown from 'primevue/dropdown';
 import { ref, computed } from "vue";
 import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 
@@ -79,7 +79,7 @@ const cities = ref([
         <div class="md:col-span-6 col-span-12">
 
  <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+        <Dropdown v-model="selectedCity" filter :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
     </div>
 
           <ContactInputField

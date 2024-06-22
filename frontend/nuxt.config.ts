@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     devtools: { enabled: false },
     modules: [
-        "@primevue/nuxt-module",
+        'nuxt-primevue',
         "nuxt-icon",
         "@pinia/nuxt",
         "@nuxtjs/tailwindcss",
@@ -10,8 +10,7 @@ export default defineNuxtConfig({
     ],
     css: [
         "~/assets/css/main.css",
-        "primevue/resources/themes/aura-light-green/theme.css",
-        'primevue/resources/primevue.min.css',
+        'primevue/resources/themes/aura-light-green/theme.css',
         'primeicons/primeicons.css'
     ],
     postcss: {
