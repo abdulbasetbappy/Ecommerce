@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     devtools: { enabled: false },
     modules: [
-        "nuxt-primevue",
+        "@primevue/nuxt-module",
         "nuxt-icon",
         "@pinia/nuxt",
         "@nuxtjs/tailwindcss",
@@ -28,9 +28,5 @@ export default defineNuxtConfig({
             usePolling: true,
         },
         },
-    },
-    build: {
-        transpile: ['primevue']
-    },
-    plugins: ['~/plugins/primevue.js']
+    }
 });

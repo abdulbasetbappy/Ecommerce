@@ -789,7 +789,7 @@
     which "^3.0.1"
     ws "^8.17.0"
 
-"@nuxt/kit@3.11.2", "@nuxt/kit@^3.11.1", "@nuxt/kit@^3.11.2", "@nuxt/kit@^3.5.0", "@nuxt/kit@^3.7.3":
+"@nuxt/kit@3.11.2", "@nuxt/kit@^3.11.1", "@nuxt/kit@^3.11.2", "@nuxt/kit@^3.5.0":
   version "3.11.2"
   resolved "https://registry.npmjs.org/@nuxt/kit/-/kit-3.11.2.tgz"
   integrity sha512-yiYKP0ZWMW7T3TCmsv4H8+jEsB/nFriRAR8bKoSqSV9bkVYWPE36sf7JDux30dQ91jSlQG6LQkB3vCHYTS2cIg==
@@ -813,7 +813,7 @@
     unimport "^3.7.1"
     untyped "^1.4.2"
 
-"@nuxt/kit@^3.8.0":
+"@nuxt/kit@^3.7.3", "@nuxt/kit@^3.8.0":
   version "3.12.2"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.12.2.tgz#762cf62af4762c035a1f73965832e80e66005f5f"
   integrity sha512-5kOqEzfc3FsAncjK2je7vuq4/QsR5ypViTnop52mlFLf0Ku1NMCrWCSWYowAh4P0yqTACMAZYa+HdRZHscU84g==
@@ -1195,6 +1195,40 @@
   version "1.0.0-next.25"
   resolved "https://registry.npmjs.org/@polka/url/-/url-1.0.0-next.25.tgz"
   integrity sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==
+
+"@primeuix/styled@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@primeuix/styled/-/styled-0.0.1.tgz#b17d75d46b954eaefc0972768c1fd23ef7c8342a"
+  integrity sha512-0psCSZr3906UwC4mTl2ol4aDoLvdbM0ekJFLKvCvC2oQ9z2YZhmUOVZQNNxBW34mChDzZYcAcRWXADQz3z5lBg==
+
+"@primevue/core@4.0.0-rc.2":
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@primevue/core/-/core-4.0.0-rc.2.tgz#7cbd6b91db0c703b371d37a5f7fd377c67b5e1e4"
+  integrity sha512-S0RGGdW/M/ogIKeif6JwkJrPLC8pyuBYy2zZlloXXj6Fpvk416sMpO308sx89fqvba2d5poT9a+AbkGob4TDtQ==
+  dependencies:
+    "@primeuix/styled" "^0.0.1"
+
+"@primevue/icons@4.0.0-rc.2":
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@primevue/icons/-/icons-4.0.0-rc.2.tgz#8c9fba1ed5450e68bb98117ef2703694afecd4c1"
+  integrity sha512-VZFETBtmpAduGxXhxcYoqiuGriidyz4XR/4NcrR87CQpUWmT13PXfRoqZ1hLXwNZp1XferT1F5GtY1mHcYxJdw==
+  dependencies:
+    "@primevue/core" "4.0.0-rc.2"
+
+"@primevue/metadata@4.0.0-rc.2":
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@primevue/metadata/-/metadata-4.0.0-rc.2.tgz#f7e47fe88635845ff418184b577888e3449102f4"
+  integrity sha512-m0y4IvoaxuIQr8e9v4JB0J9KxThHK73EK7HjO0213XDGkSPged3mynNn35j+8MPHbrSb7UZbun5YvS2sbil04w==
+
+"@primevue/nuxt-module@4.0.0-rc.2":
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@primevue/nuxt-module/-/nuxt-module-4.0.0-rc.2.tgz#b961f7c53f9bb249b915f118cf1626980a9627d5"
+  integrity sha512-5QSbsb4DfXAZDaCupPSqk6W0mme+07m7LDoA1F8jEiUhO1aeg09ME8vtuGGU/1+AJj5vFw86La8abb+7+chJqQ==
+  dependencies:
+    "@nuxt/kit" "^3.7.3"
+    "@primevue/metadata" "4.0.0-rc.2"
+    pathe "^1.1.2"
+    primevue "4.0.0-rc.2"
 
 "@rollup/plugin-alias@^5.1.0":
   version "5.1.0"
@@ -4435,14 +4469,6 @@ nuxt-icon@^0.6.10:
     "@nuxt/devtools-kit" "^1.1.1"
     "@nuxt/kit" "^3.11.1"
 
-nuxt-primevue@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/nuxt-primevue/-/nuxt-primevue-0.3.1.tgz"
-  integrity sha512-wTFvUbniEhntFamnRP4znMqU9a4lYr7eXvA7FW5nGX51YCV3nJzXZlCML4l6kEL0pyJsSV4DTb0Qo61nZnn9JQ==
-  dependencies:
-    "@nuxt/kit" "^3.7.3"
-    primevue "~3.49.1"
-
 nuxt@^3.11.2:
   version "3.11.2"
   resolved "https://registry.npmjs.org/nuxt/-/nuxt-3.11.2.tgz"
@@ -5034,15 +5060,13 @@ primeicons@^7.0.0:
   resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-7.0.0.tgz#6b25c3fdcb29bb745a3035bdc1ed5902f4a419cf"
   integrity sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==
 
-primevue@^3.52.0:
-  version "3.52.0"
-  resolved "https://registry.npmjs.org/primevue/-/primevue-3.52.0.tgz"
-  integrity sha512-HLOVP5YI0ArFKUhIyfZsWmTNMaBYNCBWC/3DYvdd/Po4LY5/WXf7yIYvArE2q/3OuwSXJXvjlR8UNQeJYRSQog==
-
-primevue@~3.49.1:
-  version "3.49.1"
-  resolved "https://registry.npmjs.org/primevue/-/primevue-3.49.1.tgz"
-  integrity sha512-OmUTqbKbPB63Zqf7uA49cipDi+Qh+/13AYJPwgvsVsI4QmAKIkeibBwkOgj1CNIFlopfF79YmyBshFUAPqlw9A==
+primevue@4.0.0-rc.2:
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-4.0.0-rc.2.tgz#d840e72f997ee78977aedbea3686ed7e47fe2746"
+  integrity sha512-1SICPga4FA5sx27h5FBnMHWidPJRn58mPZj0LNlJygp+9P5ksrtRRNdfDPzmRB+fWcmhvbIxk46meyHeMw1wTQ==
+  dependencies:
+    "@primevue/core" "4.0.0-rc.2"
+    "@primevue/icons" "4.0.0-rc.2"
 
 proc-log@^3.0.0:
   version "3.0.0"
