@@ -1,5 +1,5 @@
 <script setup>
-
+import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
 const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
 </script>
