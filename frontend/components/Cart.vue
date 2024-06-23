@@ -1,42 +1,51 @@
 <script setup>
 import { ref, computed } from "vue";
-
 import { useCartsStore } from "@/stores/carts";
 
 const carts = useCartsStore();
 
+// Method to increase item quantity
+const increaseQuantity = (item) => {
+  item.quantity += 1;
+  carts.updateItem(item);
+};
+
+// Method to decrease item quantity
+const decreaseQuantity = (item) => {
+  if (item.quantity > 1) {
+    item.quantity -= 1;
+    carts.updateItem(item);
+  }
+};
+
+// Method to delete item
+const deleteItem = (item) => {
+  carts.removeItem(item.id);
+};
+
+// Computed property to get total items count
+const totalItems = computed(() => {
+  return carts.items.reduce((total, item) => total + item.quantity, 0);
+});
+
+// Computed property to get total price
+const totalPrice = computed(() => {
+  return carts.items.reduce((total, item) => total + item.quantity * item.price, 0);
+});
+// Computed property to get total price
+const totalPrevPrice = computed(() => {
+  return carts.items.reduce((total, item) => total + item.quantity * item.prevPrice, 0);
+});
+
 console.log(carts);
 console.log(carts.items);
-
-// const removeItem = (id) => {
-//   cartItems.value = cartItems.value.filter((item) => item.id !== id);
-// };
-
-// const totalPrice = computed(() => {
-//   return cartItems.value.reduce(
-//     (total, item) => total + item.price * item.quantity,
-//     0
-//   );
-// });
-
-// const incrementQuantity = (item) => {
-//   item.quantity++;
-//   updateQuantity(item.id, item.quantity);
-// };
-
-// const decrementQuantity = (item) => {
-//   if (item.quantity > 1) {
-//     item.quantity--;
-//     updateQuantity(item.id, item.quantity);
-//   }
-// };
 </script>
 
 <template>
   <div>
     <div class="flex items-center justify-between px-4 py-2 bg-red-200">
       <span class="text-sm">Shop 400 more and save 10 fee</span>
-      <span class="text-primary">{{ carts.totalItem }}</span>
+      <span class="text-primary">{{ totalItems }}</span>
     </div>
     <div class="px-4 py-2 express-delivery bg-light">
       <p class="font-bold">
@@ -53,7 +62,7 @@ console.log(carts.items);
         <div class="flex-grow item-details">
           <p class="text-sm pe-4">{{ item.name }}</p>
           <div class="flex items-center mt-2">
-            <button class="px-2 border rounded-l">
+            <button class="px-2 border rounded-l" @click="decreaseQuantity(item)">
               <svg
                 class="w-4 h-6 text-gray-800 dark:text-white"
                 aria-hidden="true"
@@ -77,8 +86,9 @@ console.log(carts.items);
               :value="item.quantity"
               min="1"
               class="w-10 text-center border-t border-b"
+              @input="($event) => { item.quantity = Number($event.target.value); carts.updateItem(item); }"
             />
-            <button class="px-2 border rounded-r">
+            <button class="px-2 border rounded-r" @click="increaseQuantity(item)">
               <svg
                 class="w-4 h-6 text-gray-800 dark:text-white"
                 aria-hidden="true"
@@ -101,20 +111,20 @@ console.log(carts.items);
         </div>
         <div class="item-quantity">
           <p class="text-sm">
-            <span class="block">{{ item.price }}</span>
+            <span class="block">{{ totalPrice }}</span>
             <span
               v-if="item.prevPrice"
               class="block text-gray-500 line-through"
-              >{{ item.prevPrice }}</span
+              >{{ totalPrevPrice }}</span
             >
           </p>
         </div>
-        <button class="ml-2 text-lg text-primary">
+        <button class="ml-2 text-lg text-primary" @click="deleteItem(item)">
           <Icon class="w-6 h-6" name="charm:cross" />
         </button>
       </div>
     </div>
-    <div class="flex items-center justify-center w-full p-4 order-summary">
+    <div class="flex absolute bottom-0 bg-white items-center justify-center w-full p-4 order-summary">
       <NuxtLink
         to="/cart"
         class="w-3/4 py-2 text-white bg-yellow-400 ps-4 pe-8"
@@ -122,9 +132,7 @@ console.log(carts.items);
         Order Place
       </NuxtLink>
 
-      <span class="px-4 py-2 font-bold text-white bg-yellow-600">{{
-        carts.totalPrice
-      }}</span>
+      <span class="px-4 py-2 font-bold text-white bg-yellow-600">{{ totalPrice }}</span>
     </div>
   </div>
 </template>

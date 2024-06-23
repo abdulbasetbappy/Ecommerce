@@ -1,11 +1,37 @@
 <script setup>
-import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 const crumbs = [{ name: "Home", link: "/" }, { name: " Acocunt" }];
 
 const fName = "Mustak"; 
 const lName = "Ahmed"; 
 const email = "ahmedmusta@gmail.com"; 
 const address = "Rajshahi Bangladesh"; 
+
+const selectedThana = ref();
+const thanas = ref([
+  { name: "Gulshan", code: "NY" },
+  { name: "Airport", code: "RM" },
+  { name: "Dhanmondi", code: "LDN" },
+  { name: "Mirpur", code: "IST" },
+  { name: "Uttora", code: "PRS" },
+]);
+
+const selectedCity = ref();
+const cities = ref([
+  { name: "Rajshahi", code: "NY" },
+  { name: "Dhaka", code: "RM" },
+  { name: "Khulna", code: "LDN" },
+  { name: "Rangpur", code: "IST" },
+  { name: "Chittagong", code: "PRS" },
+]);
+const selectedCountry = ref();
+const countries = ref([
+  { name: "Bangladesh", code: "NY" },
+  { name: "India", code: "RM" },
+  { name: "Pakisthan", code: "LDN" },
+  { name: "UK", code: "IST" },
+  { name: "USA", code: "PRS" },
+]);
+
 </script>
 
 <template>
@@ -30,7 +56,7 @@ const address = "Rajshahi Bangladesh";
             </h2>
             <div class="grid md:grid-cols-12 grid-cols-1 gap-x-6">
               <div class="md:col-span-6 col-span-12">
-                <ContactInputField
+                <InputContactInputField
                   type="text"
                   label="First Name"
                   v-model="fName"
@@ -38,17 +64,17 @@ const address = "Rajshahi Bangladesh";
                 />
               </div>
               <div class="md:col-span-6 col-span-12">
-                <ContactInputField
+                <InputContactInputField
                   type="text"
                   label="Last Name"
                   v-model="lName"
                 />
               </div>
               <div class="md:col-span-6 col-span-12">
-                <ContactInputField type="email" label="Email" v-model="email" />
+                <InputContactInputField type="email" label="Email" v-model="email" />
               </div>
               <div class="md:col-span-6 col-span-12">
-                <ContactInputField
+                <InputContactInputField
                   type="text"
                   label="Address"
                   v-model="address"
@@ -56,67 +82,37 @@ const address = "Rajshahi Bangladesh";
               </div>
             </div>
 
-                       <!-- select Thana -->
-          <label
-            for="countries"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Select an Thana</label
-          >
-          <select
-            id="countries"
-            class="bg-gray-50  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
-          >
-            <option selected>Choose a Thana</option>
-            <option value="US">Airport</option>
-            <option value="CA">Uttora</option>
-            <option value="FR">Mirput</option>
-            <option value="DE">Gulshan</option>
-          </select>
-                    <!-- select District -->
-          <label
-            for="countries"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Select an District</label
-          >
-          <select
-            id="countries"
-            class="bg-gray-50  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
-          >
-            <option selected>Choose a District</option>
-            <option value="US">Rajshahi</option>
-            <option value="CA">Dhaka</option>
-            <option value="FR">Khulna</option>
-            <option value="DE">Rangpur</option>
-          </select>
+               <!-- select Thana -->
 
-          <!-- select country -->
-          <label
-            for="countries"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Select an Country</label
-          >
-          <select
-            id="countries"
-            class="bg-gray-50  text-gray-900 text-sm rounded block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white mb-4 focus:outline-none"
-          >
-            <option selected>Choose a country</option>
-            <option value="US">United States</option>
-            <option value="CA">Canada</option>
-            <option value="FR">France</option>
-            <option value="DE">Germany</option>
-          </select>
-            <ContactInputField
+          <div class="rounded account bg-light  flex justify-center w-full mb-5">
+            <Dropdown v-model="selectedThana" filter :options="thanas" optionLabel="name" placeholder="Select a Thana"
+              class="w-full bg-light text-lg" />
+          </div>
+          <!-- select city -->
+
+          <div class="rounded account bg-light flex justify-center w-full mb-5">
+            <Dropdown v-model="selectedCity" filter :options="cities" optionLabel="name" placeholder="Select a City"
+              class="w-full bg-light" />
+          </div>
+          <!-- select conuntry -->
+           
+          <div class="rounded account bg-light flex justify-center w-full mb-5">
+            <Dropdown v-model="selectedCountry" filter :options="countries" optionLabel="name"
+              placeholder="Select a Country" class="w-full bg-light" />
+          </div>
+            
+            <InputContactInputField
               type="password"
               label="Password Changes"
               v-model="password"
               placeholder="Current Password"
             />
-            <ContactInputField
+            <InputContactInputField
               type="password"
               v-model="password"
               placeholder="New Password"
             />
-            <ContactInputField
+            <InputContactInputField
               type="password"
               v-model="password"
               placeholder="Confirm Password"
@@ -135,3 +131,11 @@ const address = "Rajshahi Bangladesh";
     </div>
   </NuxtLayout>
 </template>
+
+
+<style>
+.account .p-inputtext{
+  font-size: 15px !important;
+  color:#343a40;
+}
+</style>

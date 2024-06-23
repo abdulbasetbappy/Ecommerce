@@ -21,5 +21,4 @@
 definePageMeta({
   layout: "home",
 });
-import SignUpForm from "~/components/SignUpForm.vue";
 </script>

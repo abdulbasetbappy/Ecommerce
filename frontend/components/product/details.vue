@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
-import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
+// import TextArea from "~/components/Input/TextArea.vue";
 
 // submited rating
 const rating = ref(0);

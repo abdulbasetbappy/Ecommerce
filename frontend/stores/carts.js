@@ -29,5 +29,29 @@ export const useCartsStore = defineStore("carts", {
         0
       );
     },
+    updateItem(updatedItem) {
+      const item = this.items.find((item) => item.id === updatedItem.id);
+      if (item) {
+        item.quantity = updatedItem.quantity;
+        item.total = item.quantity * item.price;
+      }
+
+      // Update total item count and total price
+      this.totalItem = this.items.reduce((acc, item) => acc + item.quantity, 0);
+      this.totalPrice = this.items.reduce(
+        (acc, item) => parseFloat(acc) + parseFloat(item.total),
+        0
+      );
+    },
+    removeItem(itemId) {
+      this.items = this.items.filter((item) => item.id !== itemId);
+
+      // Update total item count and total price
+      this.totalItem = this.items.reduce((acc, item) => acc + item.quantity, 0);
+      this.totalPrice = this.items.reduce(
+        (acc, item) => parseFloat(acc) + parseFloat(item.total),
+        0
+      );
+    },
   },
 });

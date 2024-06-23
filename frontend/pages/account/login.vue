@@ -17,5 +17,4 @@
 definePageMeta({
   layout: "home",
 });
-import SignIn from "~/components/SignIn.vue";
 </script>

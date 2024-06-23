@@ -34,7 +34,7 @@ const menus = [
   { text: "Home", link: "/" },
   { text: "Contact", link: "/contact" },
   { text: "About", link: "/about" },
-  { text: "Sign Up", link: "account/signup" },
+  { text: "Sign Up", link: "/account/signup" },
 ];
 </script>
 <template>

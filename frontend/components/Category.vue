@@ -70,12 +70,7 @@ const menus = reactive([
 ]);
 </script>
 
-<style>
-/* Additional styling for better visibility */
-.group-hover\:visible {
-  visibility: visible;
-}
-</style>
+
 
 <template>
   <div class="flex w-full">
@@ -130,3 +125,10 @@ const menus = reactive([
     </nav>
   </div>
 </template>
+
+<style>
+/* Additional styling for better visibility */
+.group-hover\:visible {
+  visibility: visible;
+}
+</style>

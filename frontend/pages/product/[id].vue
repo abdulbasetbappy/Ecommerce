@@ -240,7 +240,7 @@ const items = ref([
       <!-- rating -->
       <ProductRating />
       <!-- product description -->
-      <ProductDetailsTab />
+      <productDetails />
 
       <div class="mt-8 md:mt-14">
         <TitleWithSubTitle title="Related Item" />

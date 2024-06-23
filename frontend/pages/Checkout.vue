@@ -1,7 +1,6 @@
 <script setup>
 import Dropdown from "primevue/dropdown";
 import { ref, computed } from "vue";
-import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
 
 const crumbs = [
   { name: "Account", link: "/account" },
@@ -93,15 +92,16 @@ const countries = ref([
       <!-- delivery info -->
       <div class="grid md:grid-cols-12 grid-cols-1 gap-16">
         <div class="md:col-span-6 col-span-12">
-          <ContactInputField type="text" label="Your Name" id="name" v-model="name" class="mb-4" />
+          <InputContactInputField type="text" label="Your Name" id="name" v-model="name" class="mb-4" />
 
-          <ContactInputField type="email" label="Your Email" id="email" v-model="email" class="mb-4" />
-          <ContactInputField type="number" label="Phone Number*" id="phone-number" v-model="phoneNumber" class="mb-4" />
+          <InputContactInputField type="email" label="Your Email" id="email" v-model="email" class="mb-4" />
+          <InputContactInputField type="number" label="Phone Number*" id="phone-number" v-model="phoneNumber" class="mb-4" />
 
-          <ContactInputField type="text" label="Street Address *" id="street-address" v-model="streetAddress"
+          <InputContactInputField type="text" label="Street Address *" id="street-address" v-model="streetAddress"
             class="mb-4" />
-          <ContactInputField type="text" label="Apartment, floor, etc. (optional)" id="apartment" v-model="apartment"
+          <InputContactInputField type="text" label="Apartment, floor, etc. (optional)" id="apartment" v-model="apartment"
             class="mb-4" />
+
           <!-- select Thana -->
 
           <div class="rounded bg-light flex justify-center w-full mb-5">
@@ -109,18 +109,19 @@ const countries = ref([
               class="w-full bg-light" />
           </div>
           <!-- select city -->
+
           <div class="rounded bg-light flex justify-center w-full mb-5">
             <Dropdown v-model="selectedCity" filter :options="cities" optionLabel="name" placeholder="Select a City"
               class="w-full bg-light" />
           </div>
           <!-- select conuntry -->
+           
           <div class="rounded bg-light flex justify-center w-full mb-5">
             <Dropdown v-model="selectedCountry" filter :options="countries" optionLabel="name"
               placeholder="Select a Country" class="w-full bg-light" />
           </div>
 
           <div class="flex items-center dark:border-gray-700">
-          
             <input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1" />
             <label for="styled-checkbox-1">
               Save this information for faster check-out next time</label>

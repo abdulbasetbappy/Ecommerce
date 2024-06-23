@@ -1,6 +1,4 @@
 <script setup>
-import ContactInputField from "~/composables/reuseable/InputField/ContactInputField.vue";
-import TextArea from "~/composables/reuseable/InputField/TextArea.vue";
 const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
 </script>
 
@@ -49,21 +47,21 @@ const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
         <div class="md:col-span-8 col-span-12">
           <div class="shadow p-6 rounded">
             <div class="grid md:grid-cols-3 grid-cols-1 gap-2">
-              <ContactInputField
+              <InputContactInputField
                 type="text"
                 id="name"
                 placeholder="Your Name *"
                 v-model="name"
                 :dynamicClass="true"
               />
-              <ContactInputField
+              <InputContactInputField
                 type="email"
                 id="email"
                 placeholder="Your Email *"
                 v-model="email"
                 :dynamicClass="true"
               />
-              <ContactInputField
+              <InputContactInputField
                 type=""
                 id="phone"
                 placeholder="Your Phone *"
@@ -71,7 +69,7 @@ const crumbs = [{ name: "Home", link: "/" }, { name: " Contact" }];
                 :dynamicClass="true"
               />
             </div>
-            <TextArea
+            <InputTextArea
               
               rows="7"
               id="phone"
