@@ -32,7 +32,7 @@ try {
 <template>
   <NuxtLayout :name="home">
     <div class="md:px-4 md:pb-6 pb-2">
-      <CategorySlider class="container mx-auto" />
+      <CategorySlider class="md:w-10/12 mx-auto" />
     </div>
 
     <div class="md:w-10/12 px-4 md-px-0 w-full mx-auto">

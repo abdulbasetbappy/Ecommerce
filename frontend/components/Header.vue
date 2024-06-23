@@ -41,7 +41,7 @@ const menus = [
   <div>
     <!-- Top header -->
     <div class="hidden px-4 py-2 text-white bg-black md:flex lg:px-6">
-      <div class="container flex items-center justify-between mx-auto">
+      <div class="md:w-10/12 flex items-center justify-between mx-auto">
         <div class="flex-1 text-center">
           <span class="text-sm">
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!

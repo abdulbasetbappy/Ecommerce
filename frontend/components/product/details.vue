@@ -236,7 +236,7 @@ const showMoreComments = () => {
           </div>
 
           <!-- submitted rating end -->
-          <TextArea
+          <InputTextArea
             class="md:mt-4"
             rows="5"
             id="phone"
@@ -253,7 +253,7 @@ const showMoreComments = () => {
           </div>
         </div>
         <div class="mt-8 md:mt-14 ps-6">
-          <TitleWithSubTitle title="Comments" />
+          <TitleWithSub title="Comments" />
           <hr class="relative top-[-40px] ms-36" />
         </div>
         <!-- comment list -->

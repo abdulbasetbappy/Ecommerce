@@ -238,9 +238,9 @@ const items = ref([
         </div>
       </div>
       <!-- rating -->
-      <ProductRating />
+      <RatingProduct />
       <!-- product description -->
-      <productDetails />
+      <ProductDetails />
 
       <div class="mt-8 md:mt-14">
         <TitleWithSubTitle title="Related Item" />

@@ -1,7 +1,7 @@
 <template>
   <footer class="px-4 py-10 mt-10 text-white bg-black">
     <div
-      class="container gap-8 mx-auto space-y-8 md:grid md:grid-cols-3 lg:grid-cols-5 md:space-y-0"
+      class="md:w-10/12 gap-8 mx-auto space-y-8 md:grid md:grid-cols-3 lg:grid-cols-5 md:space-y-0"
     >
       <!-- Exclusive Section -->
       <div class="space-y-4">

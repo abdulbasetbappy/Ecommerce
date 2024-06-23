@@ -1,5 +1,4 @@
 <script setup>
-import Rating from "./Rating";
 
 const rating = 5;
 const totalRatings = 250;
