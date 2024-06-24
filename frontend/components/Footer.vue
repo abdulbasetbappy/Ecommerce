@@ -83,14 +83,14 @@
           </div>
           <div class="col-span-1">
             <img
-              src="~/public/images/googlePlay.png"
+              src="~/public/images/GooglePlay.png"
               alt="Download on Google Play"
               class="w-auto h-auto lg:h-12 lg:w-full md:object-fill"
             />
           </div>
           <div class="col-span-1">
             <img
-              src="~/public/images/app-store.png"
+              src="~/public/images/GooglePlay.png"
               alt="Download on App Store"
               class="w-auto h-auto lg:h-10 lg:w-full md:object-fill"
             />
