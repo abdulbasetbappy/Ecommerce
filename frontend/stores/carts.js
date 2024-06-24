@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useCartsStore = defineStore("carts", {
   state: () => ({
     items: [],
+    products:[],
     totalItem: 0,
     totalPrice: 0,
   }),
@@ -21,6 +22,11 @@ export const useCartsStore = defineStore("carts", {
         data.total = data.price;
         this.items.push(data);
       }
+      this.products = {
+        1: 1
+      
+      };
+    
 
       // Update total item count and total price
       this.totalItem = this.items.reduce((acc, item) => acc + item.quantity, 0);

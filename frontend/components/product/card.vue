@@ -63,7 +63,8 @@ const addToWishlist = () => {
         class="absolute bottom-0 left-0 right-0 flex items-center justify-center text-white transition-opacity duration-300 bg-black opacity-0 bg-opacity-90 group-hover:opacity-100"
       >
         <button class="w-full py-2" @click="addCart(product)">
-          Add To Cart ({{ product.totalItem }})
+          Add To Cart ({{ carts.products[product.id] }})
+        {{product.id}}
         </button>
       </div>
     </div>
