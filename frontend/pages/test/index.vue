@@ -2,7 +2,6 @@
 definePageMeta({
   layout: "home",
 });
-import Features from "~/components/Features/Features.vue";
 import OurProducts from "~/components/OurProducts/OurProducts.vue";
 import ResponsiveGallery from "~/components/ResponsiveGallery/ResponsiveGallery.vue";
 import Button from "~/composables/reuseable/Button/Button.vue";
@@ -272,7 +271,6 @@ const products = ref([
             :endTime="new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000)"
           />
         </div>
-        <Features />
       </div>
     </div>
   </NuxtLayout>
